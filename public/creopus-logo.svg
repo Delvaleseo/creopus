@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 42">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#dbb960"/>
+    </linearGradient>
+  </defs>
+  <!-- Monogram mark: geometric C inside a shield -->
+  <g transform="translate(0, 1)">
+    <path d="M20 2 L36 8 L36 24 C36 32 28 38 20 40 C12 38 4 32 4 24 L4 8 Z"
+          fill="none" stroke="url(#gold)" stroke-width="1.8"/>
+    <path d="M24 13 C22 11 18.5 10 16 11.5 C12.5 13.5 11 18 12 22 C13 26 16 28.5 19.5 28.5 C22 28.5 24 27 25 25"
+          fill="none" stroke="url(#gold)" stroke-width="2.2" stroke-linecap="round"/>
+    <rect x="26" y="12" width="3.5" height="3.5" rx="0.5" transform="rotate(45 27.75 13.75)" fill="url(#gold)"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="50" y="22" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif" font-size="18" letter-spacing="3.5">
+    <tspan font-weight="300" fill="#e8e4d9">CRÉ</tspan><tspan font-weight="700" fill="url(#gold)">OPUS</tspan>
+  </text>
+  <!-- Tagline -->
+  <text x="50" y="36" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif" font-size="6.5" font-weight="400" fill="#888580" letter-spacing="4">
+    AGENCE WEB &amp; DESIGN
+  </text>
+</svg>

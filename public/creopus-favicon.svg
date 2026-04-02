@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#dbb960"/>
+    </linearGradient>
+  </defs>
+  <rect width="80" height="80" rx="18" fill="#111110"/>
+  <!-- Shield -->
+  <path d="M40 12 L60 20 L60 44 C60 56 50 64 40 68 C30 64 20 56 20 44 L20 20 Z"
+        fill="none" stroke="url(#g)" stroke-width="2.5"/>
+  <!-- C inside shield -->
+  <path d="M47 29 C44 25 39 23.5 35 26 C30 29 28 36 29.5 42 C31 48 35 51 40 51 C43.5 51 46 49 48 46"
+        fill="none" stroke="url(#g)" stroke-width="3.2" stroke-linecap="round"/>
+  <!-- Diamond accent -->
+  <rect x="50" y="27" width="5" height="5" rx="0.8" transform="rotate(45 52.5 29.5)" fill="url(#g)"/>
+</svg>

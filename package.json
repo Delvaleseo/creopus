@@ -1,0 +1,16 @@
+{
+  "name": "creopus",
+  "version": "1.0.0",
+  "description": "Créopus — Agence Web & Design",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
