@@ -1008,7 +1008,7 @@
         </div>
       </div>
 
-      <form class="reveal" action="https://formspree.io/f/xreoozak" method="POST" onsubmit="handleForm(event)">
+      <form class="reveal" action="https://formspree.io/f/xreoozak" method="POST">
         <input type="hidden" name="_subject" value="Nouvelle demande de devis — Créopus">
         <input type="hidden" name="_next" value="https://www.creopus.be">
         <div class="form-row">
@@ -1094,14 +1094,7 @@
     if (btn) switchTab(name, btn)
   }
 
-  // Form
-  function handleForm(e) {
-    e.preventDefault()
-    const msg = document.getElementById('form-msg')
-    msg.style.display = 'block'
-    e.target.reset()
-    setTimeout(() => msg.style.display = 'none', 5000)
-  }
+  // Form handled by Formspree
 
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
