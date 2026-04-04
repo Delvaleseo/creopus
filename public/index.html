@@ -10,10 +10,10 @@
 <meta property="og:title" content="Créopus — Agence Web & Design en Belgique">
 <meta property="og:description" content="Sites web professionnels, logos et identités visuelles pour artisans, PME et e-commerces. Devis gratuit, livraison rapide.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.xn--cropus-cva.com">
+<meta property="og:url" content="https://www.creopus.be">
 <meta property="og:locale" content="fr_BE">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.xn--cropus-cva.com">
+<link rel="canonical" href="https://www.creopus.be">
 
 <!-- Schema.org — Organisation -->
 <script type="application/ld+json">
@@ -23,9 +23,9 @@
   "name": "Créopus",
   "alternateName": "Creopus",
   "description": "Agence web & design spécialisée dans la création de sites web professionnels, logos et identités visuelles pour artisans, PME et e-commerces en Belgique.",
-  "url": "https://www.xn--cropus-cva.com",
-  "logo": "https://www.xn--cropus-cva.com/creopus-logo.svg",
-  "email": "contact@creopus.com",
+  "url": "https://www.creopus.be",
+  "logo": "https://www.creopus.be/creopus-logo.svg",
+  "email": "contact@creopus.be",
   "areaServed": [
     { "@type": "Country", "name": "Belgique" },
     { "@type": "Country", "name": "France" },
@@ -534,7 +534,6 @@
     <a href="#contact" class="btn-secondary">Demander un devis →</a>
   </div>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-num">50+</div><div class="stat-lbl">Sites livrés</div></div>
     <div class="stat"><div class="stat-num">5j</div><div class="stat-lbl">Livraison min.</div></div>
     <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Sur-mesure</div></div>
     <div class="stat"><div class="stat-num">5★</div><div class="stat-lbl">Satisfaction client</div></div>
@@ -989,7 +988,7 @@
             <div class="contact-item-icon">✉️</div>
             <div class="contact-item-text">
               <strong>Email</strong>
-              contact@creopus.fr
+              contact@creopus.be
             </div>
           </div>
           <div class="contact-item">
@@ -1009,14 +1008,16 @@
         </div>
       </div>
 
-      <form class="reveal" onsubmit="handleForm(event)">
+      <form class="reveal" action="https://formspree.io/f/xreoozak" method="POST" onsubmit="handleForm(event)">
+        <input type="hidden" name="_subject" value="Nouvelle demande de devis — Créopus">
+        <input type="hidden" name="_next" value="https://www.creopus.be">
         <div class="form-row">
-          <input type="text" placeholder="Votre prénom" required>
-          <input type="text" placeholder="Votre nom" required>
+          <input type="text" name="prenom" placeholder="Votre prénom" required>
+          <input type="text" name="nom" placeholder="Votre nom" required>
         </div>
-        <input type="email" placeholder="Votre email" required>
-        <input type="tel" placeholder="Téléphone (optionnel)">
-        <select>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <input type="tel" name="telephone" placeholder="Téléphone (optionnel)">
+        <select name="projet" required>
           <option value="" disabled selected>Type de projet</option>
           <option>Landing Page — 299€</option>
           <option>Vitrine Essentiel — 599€</option>
@@ -1030,7 +1031,7 @@
           <option>Maintenance (à partir de 39€/mois)</option>
           <option>Projet sur mesure</option>
         </select>
-        <textarea placeholder="Décrivez votre projet, vos besoins, votre activité…"></textarea>
+        <textarea name="message" placeholder="Décrivez votre projet, vos besoins, votre activité…"></textarea>
         <button type="submit" class="btn-submit">Envoyer ma demande →</button>
         <p id="form-msg" style="font-size:13px;color:var(--gold);display:none;text-align:center">Merci ! On vous répond sous 24h.</p>
       </form>
