@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Logo Créopus</title>
+<style>
+  body { margin: 0; background: #111; display: flex; align-items: center; justify-content: center; height: 100vh; }
+  .logo-box {
+    width: 500px; height: 500px;
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+    border-radius: 60px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .logo-box::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  svg { position: relative; z-index: 1; }
+</style>
+</head>
+<body>
+  <div class="logo-box">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="320" height="320">
+      <defs>
+        <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#c9a84c"/>
+          <stop offset="50%" stop-color="#e8d48b"/>
+          <stop offset="100%" stop-color="#c9a84c"/>
+        </linearGradient>
+      </defs>
+      <!-- Shield -->
+      <path d="M100 15 L165 40 L165 110 C165 145 135 170 100 185 C65 170 35 145 35 110 L35 40 Z"
+            fill="none" stroke="url(#gold)" stroke-width="4" opacity="0.9"/>
+      <!-- Inner C letter -->
+      <path d="M120 70 C112 55 92 48 78 58 C60 70 55 90 60 110 C65 130 80 142 100 142 C112 142 122 135 128 124"
+            fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round"/>
+      <!-- Diamond accent -->
+      <rect x="132" y="62" width="12" height="12" rx="2" transform="rotate(45 138 68)" fill="url(#gold)"/>
+    </svg>
+  </div>
+</body>
+</html>
