@@ -1,17 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#c9a84c"/>
-      <stop offset="100%" stop-color="#dbb960"/>
-    </linearGradient>
+    <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#67e8f9"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="rgba(103,232,249,0.3)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
   </defs>
-  <rect width="80" height="80" rx="18" fill="#111110"/>
-  <!-- Shield -->
-  <path d="M40 12 L60 20 L60 44 C60 56 50 64 40 68 C30 64 20 56 20 44 L20 20 Z"
-        fill="none" stroke="url(#g)" stroke-width="2.5"/>
-  <!-- C inside shield -->
-  <path d="M47 29 C44 25 39 23.5 35 26 C30 29 28 36 29.5 42 C31 48 35 51 40 51 C43.5 51 46 49 48 46"
-        fill="none" stroke="url(#g)" stroke-width="3.2" stroke-linecap="round"/>
-  <!-- Diamond accent -->
-  <rect x="50" y="27" width="5" height="5" rx="0.8" transform="rotate(45 52.5 29.5)" fill="url(#g)"/>
+  <circle cx="20" cy="20" r="18" fill="#0f0f1a" stroke="url(#lg)" stroke-width="1.2"/>
+  <ellipse cx="20" cy="20" rx="12" ry="18" fill="none" stroke="rgba(103,232,249,0.15)" stroke-width="0.5"/>
+  <ellipse cx="20" cy="20" rx="6" ry="18" fill="none" stroke="rgba(103,232,249,0.1)" stroke-width="0.5"/>
+  <line x1="2" y1="20" x2="38" y2="20" stroke="rgba(103,232,249,0.12)" stroke-width="0.5"/>
+  <line x1="5" y1="12" x2="35" y2="12" stroke="rgba(103,232,249,0.08)" stroke-width="0.5"/>
+  <line x1="5" y1="28" x2="35" y2="28" stroke="rgba(103,232,249,0.08)" stroke-width="0.5"/>
+  <circle cx="20" cy="18" r="10" fill="url(#glow)"/>
+  <text x="20" y="25" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="url(#lg)" text-anchor="middle">C</text>
 </svg>
