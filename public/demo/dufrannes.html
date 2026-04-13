@@ -4,458 +4,457 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dufrannes Constructions — Entreprise de construction</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
-  html { scroll-behavior: smooth }
-  body { font-family: 'Inter', sans-serif; background: #111; color: #fff; overflow-x: hidden }
-
-  :root {
-    --yellow: #F5C518;
-    --yellow-dim: rgba(245,197,24,0.1);
-    --dark: #111;
-    --dark2: #1a1a1a;
-    --dark3: #222;
-    --muted: #999;
-    --border: rgba(255,255,255,0.08);
-    --condensed: 'Bebas Neue', Impact, sans-serif;
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:#FAFAFA;color:#1a1a1a;overflow-x:hidden}
+  :root{
+    --ink:#1a1a1a;--ink2:#333;--muted:#777;--light:#F4F3F0;
+    --terra:#C45B28;--terra-soft:rgba(196,91,40,0.08);--terra-mid:rgba(196,91,40,0.15);
+    --border:#E8E6E1;--white:#FAFAFA;
+    --display:'Outfit',sans-serif;
   }
 
-  /* Grain */
-  body::after {
-    content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* ═══ NAV ═══ */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:0 5%;height:72px;
+    display:flex;align-items:center;justify-content:space-between;
+    background:rgba(250,250,250,0.92);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+  }
+  .logo{font-family:var(--display);font-size:22px;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:-0.5px}
+  .logo i{color:var(--terra);font-style:normal}
+  nav{display:flex;gap:32px}
+  nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.5px;transition:color .2s}
+  nav a:hover{color:var(--ink)}
+  .nav-cta{padding:10px 28px;background:var(--ink);border-radius:8px;color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .3s}
+  .nav-cta:hover{background:var(--terra)}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;color:var(--ink)}
+
+  /* ═══ HERO — asymétrique ═══ */
+  .hero{
+    display:grid;grid-template-columns:1fr 380px;gap:0;
+    min-height:100vh;padding:72px 0 0;
+  }
+  .hero-main{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:60px 5% 60px 5%;
+  }
+  .hero-label{
+    font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+    color:var(--terra);margin-bottom:24px;
+  }
+  .hero-title{
+    font-family:var(--display);font-size:clamp(3rem,5.5vw,4.8rem);
+    font-weight:800;line-height:1.05;letter-spacing:-1px;margin-bottom:28px;
+  }
+  .hero-title span{display:block;color:var(--terra)}
+  .hero-desc{font-size:1.05rem;color:var(--muted);line-height:1.85;max-width:480px;margin-bottom:40px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
+  .btn-solid{
+    padding:16px 36px;background:var(--ink);border-radius:10px;
+    color:#fff;font-size:14px;font-weight:600;text-decoration:none;transition:all .3s;
+  }
+  .btn-solid:hover{background:var(--terra);transform:translateY(-2px);box-shadow:0 12px 32px rgba(196,91,40,0.2)}
+  .btn-line{
+    padding:16px 32px;border:1.5px solid var(--border);border-radius:10px;
+    color:var(--ink);font-size:14px;font-weight:500;text-decoration:none;transition:all .3s;
+  }
+  .btn-line:hover{border-color:var(--terra);color:var(--terra)}
+  .hero-nums{display:flex;gap:40px}
+  .hnum{position:relative;padding-left:16px}
+  .hnum::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:3px;background:var(--terra);border-radius:3px}
+  .hnum strong{display:block;font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:-0.5px}
+  .hnum span{font-size:12px;color:var(--muted);font-weight:500}
+
+  /* Hero sidebar */
+  .hero-side{
+    background:var(--ink);color:#fff;display:flex;flex-direction:column;
+    justify-content:center;align-items:center;padding:60px 40px;text-align:center;
+    position:relative;
+  }
+  .hero-side::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:4px;
+    background:var(--terra);
+  }
+  .side-icon{width:56px;height:56px;border:2px solid rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+  .side-icon svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round}
+  .hero-side h3{font-family:var(--display);font-size:1.3rem;font-weight:700;margin-bottom:12px}
+  .hero-side p{font-size:13.5px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:28px}
+  .side-tel{
+    font-family:var(--display);font-size:1.6rem;font-weight:700;color:var(--terra);
+    text-decoration:none;letter-spacing:0.5px;transition:color .2s;
+  }
+  .side-tel:hover{color:#fff}
+  .side-addr{font-size:13px;color:rgba(255,255,255,0.4);margin-top:12px;line-height:1.6}
+
+  /* ═══ MARQUEE ═══ */
+  .marquee-bar{padding:20px 0;overflow:hidden;border-bottom:1px solid var(--border);background:#fff}
+  .mq-track{display:flex;gap:40px;animation:mq 18s linear infinite;width:max-content}
+  .mq-track span{font-size:12px;font-weight:700;letter-spacing:3px;color:#ccc;text-transform:uppercase;white-space:nowrap}
+  .mq-track span::after{content:'—';margin-left:40px;color:var(--terra);opacity:.3}
+  @keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+  /* ═══ SERVICES — layout asymétrique ═══ */
+  .srv-section{padding:100px 5%;background:#fff}
+  .srv-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:64px;align-items:end}
+  .srv-head .stag{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:14px}
+  .srv-head h2{font-family:var(--display);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-0.5px;line-height:1.1}
+  .srv-head p{font-size:15px;color:var(--muted);line-height:1.8}
+  .srv-layout{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:auto auto;gap:16px}
+  .srv-card{
+    background:var(--light);border-radius:16px;padding:40px 32px;
+    position:relative;overflow:hidden;transition:all .4s;border:1px solid transparent;
+  }
+  .srv-card:hover{border-color:var(--terra);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,0.05)}
+  .srv-card.tall{grid-row:span 2}
+  .srv-card .num{
+    font-family:var(--display);font-size:5rem;font-weight:900;color:var(--terra);
+    opacity:0.06;position:absolute;top:-10px;right:16px;line-height:1;
+  }
+  .srv-card h3{font-family:var(--display);font-size:1.3rem;font-weight:700;margin-bottom:12px;position:relative}
+  .srv-card p{font-size:14px;color:var(--muted);line-height:1.8;position:relative}
+  .srv-card .srv-tag{
+    display:inline-block;margin-top:16px;font-size:11px;font-weight:700;
+    color:var(--terra);letter-spacing:1px;text-transform:uppercase;position:relative;
   }
 
-  /* Header */
-  header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 0 40px; height: 70px;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(17,17,17,0.9); backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+  /* ═══ BAND — full-width dark ═══ */
+  .band{
+    background:var(--ink);padding:80px 5%;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
   }
-  .logo {
-    font-family: var(--condensed); font-size: 28px; letter-spacing: 3px;
-    text-decoration: none; color: #fff; display: flex; align-items: center; gap: 12px;
+  .band-cell{
+    padding:32px 28px;text-align:center;
+    border-right:1px solid rgba(255,255,255,0.06);transition:background .3s;
   }
-  .logo .mark {
-    width: 36px; height: 36px; background: var(--yellow); color: #111;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--condensed); font-size: 22px; font-weight: 400;
-  }
-  nav { display: flex; gap: 28px }
-  nav a {
-    color: var(--muted); text-decoration: none; font-size: 12px; font-weight: 600;
-    letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s;
-  }
-  nav a:hover { color: var(--yellow) }
-  .h-cta {
-    padding: 10px 28px; background: var(--yellow); color: #111;
-    font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
-    text-decoration: none; transition: all 0.3s;
-  }
-  .h-cta:hover { background: #fff; transform: translateY(-1px) }
-  .menu-btn { display: none; background: none; border: none; cursor: pointer; color: #fff }
+  .band-cell:last-child{border-right:none}
+  .band-cell:hover{background:rgba(255,255,255,0.03)}
+  .band-n{font-family:var(--display);font-size:3rem;font-weight:800;color:var(--terra);line-height:1;margin-bottom:8px}
+  .band-l{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:2px;text-transform:uppercase}
 
-  /* Hero */
-  .hero {
-    min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 0 48px 80px; position: relative; overflow: hidden;
+  /* ═══ GALLERY — staggered ═══ */
+  .gal-section{padding:100px 5%;background:#fff}
+  .gal-grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:200px 200px;gap:12px}
+  .gal-item{
+    background:linear-gradient(135deg,#e8e4dd,#d8d4cc);border-radius:12px;
+    display:flex;align-items:flex-end;padding:20px;position:relative;overflow:hidden;
+    transition:all .3s;cursor:pointer;
   }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(180deg, rgba(17,17,17,0.3) 0%, rgba(17,17,17,0.7) 60%, #111 100%),
-      linear-gradient(135deg, #2a2218 0%, #1a1510 50%, #111 100%);
-    background-size: cover;
-  }
-  .hero-stripe {
-    position: absolute; top: 0; left: 0; right: 0; height: 6px;
-    background: repeating-linear-gradient(90deg, var(--yellow) 0px, var(--yellow) 30px, #111 30px, #111 60px);
-  }
-  .hero > * { position: relative; z-index: 1 }
-  .hero-tag {
-    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 4px;
-    text-transform: uppercase; color: var(--yellow); margin-bottom: 20px;
-    padding-left: 40px; position: relative;
-  }
-  .hero-tag::before { content: ''; position: absolute; left: 0; top: 50%; width: 28px; height: 2px; background: var(--yellow) }
-  .hero h1 {
-    font-family: var(--condensed); font-size: clamp(4rem, 10vw, 9rem);
-    line-height: 0.9; letter-spacing: 2px; margin-bottom: 28px;
-    text-transform: uppercase;
-  }
-  .hero h1 span { color: var(--yellow) }
-  .hero-sub {
-    font-size: 1.05rem; color: var(--muted); max-width: 500px; line-height: 1.8; margin-bottom: 40px;
-  }
-  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 60px }
-  .btn-y {
-    padding: 18px 40px; background: var(--yellow); color: #111;
-    font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
-    text-decoration: none; transition: all 0.3s; display: inline-block;
-  }
-  .btn-y:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(245,197,24,0.2) }
-  .btn-o {
-    padding: 18px 36px; border: 2px solid rgba(255,255,255,0.2); color: #fff;
-    font-size: 13px; font-weight: 600; letter-spacing: 1px;
-    text-decoration: none; transition: all 0.3s;
-  }
-  .btn-o:hover { border-color: var(--yellow); color: var(--yellow) }
-  .hero-counters { display: flex; gap: 60px }
-  .counter { border-left: 2px solid var(--yellow); padding-left: 20px }
-  .counter-n { font-family: var(--condensed); font-size: 3.5rem; color: #fff; line-height: 1 }
-  .counter-l { font-size: 12px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase }
+  .gal-item:hover{transform:scale(1.02)}
+  .gal-item.big{grid-row:span 2}
+  .gal-item span{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink);opacity:.6}
 
-  /* Section */
-  section { padding: 100px 48px }
-  .container { max-width: 1140px; margin: 0 auto }
-  .stag {
-    font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--yellow); margin-bottom: 16px; padding-left: 40px; position: relative;
+  /* ═══ TESTIMONIALS — one big quote ═══ */
+  .quote-section{padding:100px 5%;background:var(--light);text-align:center}
+  .quote-section .stag{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:40px}
+  .big-quote{
+    font-family:var(--display);font-size:clamp(1.4rem,2.5vw,2rem);
+    font-weight:500;line-height:1.6;max-width:700px;margin:0 auto 32px;
+    color:var(--ink2);font-style:italic;position:relative;
   }
-  .stag::before { content: ''; position: absolute; left: 0; top: 50%; width: 28px; height: 2px; background: var(--yellow) }
-  .stitle { font-family: var(--condensed); font-size: clamp(2.4rem, 4vw, 3.6rem); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px }
-  .ssub { font-size: 1rem; color: var(--muted); max-width: 480px; line-height: 1.7 }
-  .shead { margin-bottom: 60px }
+  .big-quote::before{content:'\201C';font-size:8rem;color:var(--terra);opacity:.1;position:absolute;top:-50px;left:-20px;font-family:Georgia;line-height:1}
+  .qt-author{font-size:14px;font-weight:700;color:var(--ink)}
+  .qt-role{font-size:13px;color:var(--muted);margin-top:4px}
+  .qt-dots{display:flex;gap:8px;justify-content:center;margin-top:32px}
+  .qt-dot{width:10px;height:10px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s}
+  .qt-dot.active{background:var(--terra)}
 
-  /* Services — big cards */
-  .srv-section { background: var(--dark2) }
-  .srv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px }
-  .srv-card {
-    background: var(--dark); padding: 52px 40px; position: relative;
-    border-left: 3px solid transparent; transition: all 0.4s; overflow: hidden;
+  /* ═══ PROCESS — horizontal ═══ */
+  .proc-section{padding:100px 5%;background:#fff}
+  .proc-row{display:flex;gap:0;position:relative;margin-top:48px}
+  .proc-row::before{content:'';position:absolute;top:28px;left:40px;right:40px;height:2px;background:var(--border)}
+  .proc-step{flex:1;text-align:center;position:relative;padding:0 16px}
+  .proc-dot{
+    width:56px;height:56px;border-radius:50%;background:#fff;
+    border:2px solid var(--border);display:flex;align-items:center;justify-content:center;
+    margin:0 auto 20px;font-family:var(--display);font-size:1.1rem;font-weight:800;
+    color:var(--terra);position:relative;z-index:1;transition:all .3s;
   }
-  .srv-card:hover { border-left-color: var(--yellow); background: var(--dark2) }
-  .srv-card::after {
-    content: attr(data-num); position: absolute; top: 20px; right: 24px;
-    font-family: var(--condensed); font-size: 6rem; color: rgba(255,255,255,0.03); line-height: 1;
-  }
-  .srv-card h3 {
-    font-family: var(--condensed); font-size: 1.8rem; letter-spacing: 2px;
-    text-transform: uppercase; margin-bottom: 12px; position: relative;
-  }
-  .srv-card p { font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 400px; position: relative }
+  .proc-step:hover .proc-dot{background:var(--terra);color:#fff;border-color:var(--terra);transform:scale(1.1)}
+  .proc-step h3{font-size:14px;font-weight:700;margin-bottom:8px}
+  .proc-step p{font-size:13px;color:var(--muted);line-height:1.7}
 
-  /* Chiffres strip */
-  .numbers-strip {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  /* ═══ CONTACT — full split ═══ */
+  .contact-split{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
+  .contact-dark{
+    background:var(--ink);color:#fff;padding:80px 5%;
+    display:flex;flex-direction:column;justify-content:center;
   }
-  .num-cell {
-    padding: 48px 32px; text-align: center; border-right: 1px solid var(--border);
-    transition: background 0.3s;
+  .contact-dark .stag{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:16px}
+  .contact-dark h2{font-family:var(--display);font-size:2.4rem;font-weight:800;margin-bottom:16px;letter-spacing:-0.5px}
+  .contact-dark>p{color:rgba(255,255,255,0.4);line-height:1.8;margin-bottom:40px}
+  .c-items{display:flex;flex-direction:column;gap:20px}
+  .c-item{display:flex;align-items:center;gap:16px}
+  .c-item-ic{width:48px;height:48px;border-radius:12px;background:rgba(196,91,40,0.12);border:1px solid rgba(196,91,40,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .c-item-ic svg{width:20px;height:20px;stroke:var(--terra);fill:none;stroke-width:1.8;stroke-linecap:round}
+  .c-item .c-txt{font-size:14px;color:rgba(255,255,255,0.4)}
+  .c-item .c-txt strong{display:block;color:#fff;margin-bottom:2px}
+  .contact-form{background:var(--light);padding:80px 5%;display:flex;align-items:center}
+  .contact-form form{width:100%;max-width:460px;display:flex;flex-direction:column;gap:14px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  input,select,textarea{
+    width:100%;padding:15px 18px;background:#fff;border:1.5px solid var(--border);
+    border-radius:10px;color:var(--ink);font-size:14px;font-family:inherit;outline:none;transition:all .3s;
   }
-  .num-cell:last-child { border-right: none }
-  .num-cell:hover { background: var(--dark2) }
-  .num-cell .nn { font-family: var(--condensed); font-size: 3.5rem; color: var(--yellow); line-height: 1; margin-bottom: 8px }
-  .num-cell .nl { font-size: 12px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase }
+  input:focus,select:focus,textarea:focus{border-color:var(--terra);box-shadow:0 0 0 3px var(--terra-soft)}
+  input::placeholder,textarea::placeholder{color:#bbb}
+  select{color:var(--muted)}
+  textarea{resize:vertical;min-height:110px}
+  .btn-submit{
+    padding:16px;background:var(--ink);border:none;border-radius:10px;
+    color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:all .3s;font-family:inherit;
+  }
+  .btn-submit:hover{background:var(--terra);transform:translateY(-1px)}
 
-  /* Gallery */
-  .gallery-section { background: var(--dark2) }
-  .gallery-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px }
-  .gal-item {
-    aspect-ratio: 4/3; position: relative; overflow: hidden;
-    background: linear-gradient(135deg, #2a2218, #1a1510);
-    display: flex; align-items: flex-end; padding: 20px;
-    transition: all 0.4s; cursor: pointer;
+  /* ═══ FOOTER ═══ */
+  footer{background:var(--ink);padding:32px 5%;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.06)}
+  footer p{font-size:13px;color:rgba(255,255,255,0.3)}
+  footer span{color:var(--terra)}
+
+  /* ═══ WATERMARK ═══ */
+  .watermark{
+    position:fixed;bottom:0;left:0;right:0;z-index:999;
+    background:var(--terra);padding:12px 24px;text-align:center;
+    display:flex;align-items:center;justify-content:center;gap:16px;
   }
-  .gal-item::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(17,17,17,0.8) 100%);
-    transition: opacity 0.4s;
+  .watermark p{color:#fff;font-size:13px;font-weight:600}
+  .watermark a{background:var(--ink);color:#fff;padding:8px 22px;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:1px;transition:all .2s;border-radius:6px}
+  .watermark a:hover{background:#fff;color:var(--ink)}
+
+  /* ═══ RESPONSIVE ═══ */
+  @media(max-width:1024px){
+    .hero{grid-template-columns:1fr;min-height:auto}
+    .hero-side{padding:40px 5%;flex-direction:row;gap:32px;text-align:left}
+    .srv-layout{grid-template-columns:1fr}
+    .srv-card.tall{grid-row:span 1}
+    .srv-head{grid-template-columns:1fr}
   }
-  .gal-item:hover { transform: scale(1.02) }
-  .gal-item span {
-    position: relative; z-index: 1; font-size: 13px; font-weight: 600;
-    letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.7);
+  @media(max-width:768px){
+    header{padding:0 20px}
+    nav{display:none}
+    .menu-btn{display:block}
+    .hero-main{padding:40px 20px}
+    .hero-nums{flex-wrap:wrap;gap:24px}
+    .hero-side{flex-direction:column;text-align:center;padding:40px 20px}
+    .srv-section,.gal-section,.proc-section,.quote-section{padding:72px 20px}
+    .band{grid-template-columns:1fr 1fr}
+    .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+    .gal-item.big{grid-row:span 1}
+    .proc-row{flex-direction:column;gap:24px}
+    .proc-row::before{display:none}
+    .contact-split{grid-template-columns:1fr}
+    .contact-dark,.contact-form{padding:60px 20px}
+    .form-row{grid-template-columns:1fr}
+    footer{padding:32px 20px;flex-direction:column;gap:8px;text-align:center}
   }
 
-  /* Testimonials */
-  .test-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px }
-  .t-card {
-    background: var(--dark2); border: 1px solid var(--border); padding: 36px;
-    position: relative; transition: all 0.3s;
-  }
-  .t-card::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 60px; height: 3px;
-    background: var(--yellow); transition: width 0.3s;
-  }
-  .t-card:hover::before { width: 100% }
-  .t-card:hover { border-color: rgba(245,197,24,0.2) }
-  .t-stars { color: var(--yellow); font-size: 14px; margin-bottom: 18px; letter-spacing: 3px }
-  .t-card p { font-size: 14.5px; color: var(--muted); line-height: 1.8; margin-bottom: 24px; font-style: italic }
-  .t-author { display: flex; align-items: center; gap: 12px }
-  .t-avatar {
-    width: 42px; height: 42px; background: var(--yellow); color: #111;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 16px;
-  }
-  .t-info strong { display: block; font-size: 14px; color: #fff }
-  .t-info span { color: var(--muted); font-size: 12px }
-
-  /* Contact */
-  .contact-section { background: var(--dark2) }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start }
-  .c-left h2 { font-family: var(--condensed); font-size: 3rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px }
-  .c-left > p { color: var(--muted); line-height: 1.8; margin-bottom: 36px }
-  .c-items { display: flex; flex-direction: column; gap: 20px }
-  .c-item { display: flex; align-items: center; gap: 16px }
-  .c-item-icon {
-    width: 48px; height: 48px; background: var(--yellow-dim); border: 1px solid rgba(245,197,24,0.2);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .c-item-icon svg { width: 20px; height: 20px; stroke: var(--yellow); fill: none; stroke-width: 1.8; stroke-linecap: round }
-  .c-text { font-size: 14px; color: var(--muted) }
-  .c-text strong { display: block; color: #fff; margin-bottom: 2px }
-  form { display: flex; flex-direction: column; gap: 12px }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
-  input, select, textarea {
-    width: 100%; padding: 16px 18px; background: var(--dark);
-    border: 1px solid var(--border); color: #fff; font-size: 14px;
-    font-family: inherit; outline: none; transition: border-color 0.3s;
-  }
-  input:focus, select:focus, textarea:focus { border-color: var(--yellow) }
-  input::placeholder, textarea::placeholder { color: #555 }
-  select { color: #555 }
-  select option { background: var(--dark) }
-  textarea { resize: vertical; min-height: 120px }
-  .btn-submit {
-    padding: 18px; background: var(--yellow); border: none; color: #111;
-    font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
-    cursor: pointer; transition: all 0.3s; font-family: inherit;
-  }
-  .btn-submit:hover { background: #fff; transform: translateY(-1px) }
-
-  /* Footer */
-  footer {
-    border-top: 1px solid var(--border); padding: 40px 48px;
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
-  }
-  footer p { font-size: 13px; color: var(--muted) }
-  footer span { color: var(--yellow) }
-
-  /* Watermark */
-  .watermark {
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
-    background: var(--yellow); padding: 12px 24px; text-align: center;
-    display: flex; align-items: center; justify-content: center; gap: 16px;
-  }
-  .watermark p { color: #111; font-size: 13px; font-weight: 600 }
-  .watermark a {
-    background: #111; color: #fff; padding: 8px 22px;
-    font-size: 12px; font-weight: 700; text-decoration: none; letter-spacing: 1px;
-    text-transform: uppercase; transition: all 0.2s;
-  }
-  .watermark a:hover { background: #333 }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    header { padding: 0 20px }
-    nav { display: none }
-    .menu-btn { display: block }
-    section { padding: 72px 20px }
-    .hero { padding: 0 20px 60px }
-    .hero h1 { font-size: clamp(3rem, 12vw, 5rem) }
-    .hero-counters { flex-wrap: wrap; gap: 32px }
-    .srv-grid { grid-template-columns: 1fr }
-    .numbers-strip { grid-template-columns: 1fr 1fr }
-    .gallery-row { grid-template-columns: 1fr 1fr }
-    .contact-grid { grid-template-columns: 1fr }
-    .form-row { grid-template-columns: 1fr }
-    footer { padding: 40px 20px }
-  }
-
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s }
-  .reveal.visible { opacity: 1; transform: none }
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+  .reveal.visible{opacity:1;transform:none}
 </style>
 </head>
 <body>
 
 <header>
-  <a href="#" class="logo">
-    <div class="mark">D</div>
-    DUFRANNES
-  </a>
+  <a href="#" class="logo">dufrannes<i>.</i></a>
   <nav>
     <a href="#services">Services</a>
     <a href="#realisations">Réalisations</a>
     <a href="#avis">Avis</a>
     <a href="#contact">Contact</a>
   </nav>
-  <a href="#contact" class="h-cta">Devis gratuit</a>
-  <button class="menu-btn" onclick="document.querySelector('nav').style.cssText=document.querySelector('nav').style.display==='flex'?'':'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(17,17,17,0.97);padding:24px 32px;gap:20px;z-index:99'" aria-label="Menu">
-    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="12" x2="19" y2="12"/><line x1="3" y1="18" x2="19" y2="18"/></svg>
-  </button>
+  <div style="display:flex;align-items:center;gap:14px">
+    <a href="#contact" class="nav-cta">Devis gratuit</a>
+    <button class="menu-btn" onclick="document.querySelector('nav').style.cssText=document.querySelector('nav').style.display==='flex'?'':'display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:rgba(250,250,250,0.97);backdrop-filter:blur(16px);padding:24px 20px;gap:20px;z-index:99;border-bottom:1px solid #E8E6E1'" aria-label="Menu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="12" x2="19" y2="12"/><line x1="3" y1="18" x2="19" y2="18"/></svg>
+    </button>
+  </div>
 </header>
 
-<!-- HERO -->
+<!-- ═══ HERO ═══ -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-stripe"></div>
-  <div class="hero-tag">Entreprise de construction</div>
-  <h1>ON <span>CONSTRUIT</span><br>VOTRE AVENIR</h1>
-  <p class="hero-sub">Construction, rénovation et aménagement depuis plus de 7 ans. Travail soigné, délais respectés, devis gratuit.</p>
-  <div class="hero-btns">
-    <a href="#contact" class="btn-y">Devis gratuit</a>
-    <a href="tel:0495503870" class="btn-o">0495 50 38 70</a>
+  <div class="hero-main">
+    <div class="hero-label">Entreprise de construction &mdash; Depuis 7 ans</div>
+    <h1 class="hero-title">Dufrannes<br><span>Constructions.</span></h1>
+    <p class="hero-desc">Construction, rénovation et aménagement en Belgique. Travail soigné, délais respectés et devis gratuit pour tous vos projets.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-solid">Demander un devis gratuit</a>
+      <a href="tel:0495503870" class="btn-line">0495 50 38 70</a>
+    </div>
+    <div class="hero-nums">
+      <div class="hnum"><strong>7+</strong><span>Ans d'expérience</span></div>
+      <div class="hnum"><strong>4.7/5</strong><span>Avis Google</span></div>
+      <div class="hnum"><strong>200+</strong><span>Chantiers livrés</span></div>
+    </div>
   </div>
-  <div class="hero-counters">
-    <div class="counter"><div class="counter-n">7+</div><div class="counter-l">Ans d'expérience</div></div>
-    <div class="counter"><div class="counter-n">4.7</div><div class="counter-l">Note Google</div></div>
-    <div class="counter"><div class="counter-n">200+</div><div class="counter-l">Chantiers réalisés</div></div>
+  <div class="hero-side">
+    <div class="side-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+    <h3>Contactez-nous</h3>
+    <p>Devis gratuit et sans engagement pour tous vos projets de construction.</p>
+    <a href="tel:0495503870" class="side-tel">0495 50 38 70</a>
+    <div class="side-addr">Rue du Castillon 208<br>Lun-Ven : 7h00 - 19h00</div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="srv-section">
-  <div class="container">
-    <div class="shead reveal">
-      <div class="stag">Nos services</div>
-      <h2 class="stitle">Ce qu'on fait pour vous</h2>
-      <p class="ssub">Des fondations à la finition, on prend en charge l'ensemble de vos travaux de construction.</p>
-    </div>
-    <div class="srv-grid">
-      <div class="srv-card reveal" data-num="01">
-        <h3>Construction neuve</h3>
-        <p>Maisons, annexes, garages. Du gros oeuvre aux finitions, on construit votre projet de A à Z avec des matériaux de qualité.</p>
-      </div>
-      <div class="srv-card reveal" data-num="02">
-        <h3>Rénovation</h3>
-        <p>Transformation, agrandissement, remise à neuf. Donnez une seconde vie à votre bien immobilier avec notre expertise.</p>
-      </div>
-      <div class="srv-card reveal" data-num="03">
-        <h3>Toiture & Isolation</h3>
-        <p>Pose, réparation et isolation de toiture. Protection durable et économies d'énergie pour votre habitation.</p>
-      </div>
-      <div class="srv-card reveal" data-num="04">
-        <h3>Aménagement extérieur</h3>
-        <p>Terrasses, allées, clôtures et aménagements extérieurs pour sublimer votre propriété et augmenter sa valeur.</p>
-      </div>
-    </div>
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-bar">
+  <div class="mq-track">
+    <span>CONSTRUCTION</span><span>RÉNOVATION</span><span>TOITURE</span><span>ISOLATION</span><span>AMÉNAGEMENT</span><span>MAÇONNERIE</span><span>TERRASSE</span><span>FAÇADE</span>
+    <span>CONSTRUCTION</span><span>RÉNOVATION</span><span>TOITURE</span><span>ISOLATION</span><span>AMÉNAGEMENT</span><span>MAÇONNERIE</span><span>TERRASSE</span><span>FAÇADE</span>
   </div>
-</section>
-
-<!-- NUMBERS -->
-<div class="numbers-strip">
-  <div class="num-cell reveal"><div class="nn">7+</div><div class="nl">Années</div></div>
-  <div class="num-cell reveal"><div class="nn">200+</div><div class="nl">Chantiers</div></div>
-  <div class="num-cell reveal"><div class="nn">4.7/5</div><div class="nl">Avis Google</div></div>
-  <div class="num-cell reveal"><div class="nn">100%</div><div class="nl">Devis gratuit</div></div>
 </div>
 
-<!-- GALLERY -->
-<section id="realisations" class="gallery-section">
-  <div class="container">
-    <div class="shead reveal" style="text-align:center">
-      <div class="stag" style="padding-left:0"><span style="display:none">—</span>Réalisations</div>
-      <h2 class="stitle">Nos derniers chantiers</h2>
-      <p class="ssub" style="margin:0 auto">Vos photos de chantiers terminés seront affichées ici.</p>
+<!-- ═══ SERVICES ═══ -->
+<section id="services" class="srv-section">
+  <div class="srv-head">
+    <div>
+      <div class="stag">Nos services</div>
+      <h2>Ce qu'on construit<br>pour vous.</h2>
     </div>
-    <div class="gallery-row">
-      <div class="gal-item reveal"><span>Construction neuve</span></div>
-      <div class="gal-item reveal"><span>Rénovation complète</span></div>
-      <div class="gal-item reveal"><span>Extension maison</span></div>
-      <div class="gal-item reveal"><span>Toiture</span></div>
-      <div class="gal-item reveal"><span>Aménagement</span></div>
-      <div class="gal-item reveal"><span>Terrasse</span></div>
+    <p>Des fondations à la finition, on prend en charge l'ensemble de vos travaux. Chaque chantier est unique, chaque projet est traité avec le même soin.</p>
+  </div>
+  <div class="srv-layout">
+    <div class="srv-card tall reveal">
+      <div class="num">01</div>
+      <h3>Construction neuve</h3>
+      <p>Maisons, annexes, garages. Du gros oeuvre aux finitions, on construit votre projet de A à Z avec des matériaux de qualité et un suivi rigoureux à chaque étape.</p>
+      <div class="srv-tag">Notre spécialité &rarr;</div>
+    </div>
+    <div class="srv-card reveal">
+      <div class="num">02</div>
+      <h3>Rénovation</h3>
+      <p>Transformation, agrandissement, remise à neuf. Donnez une seconde vie à votre bien.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="num">03</div>
+      <h3>Toiture & Isolation</h3>
+      <p>Pose, réparation et isolation de toiture. Protection et économies d'énergie durables.</p>
+    </div>
+  </div>
+  <div style="margin-top:16px">
+    <div class="srv-card reveal" style="max-width:100%">
+      <div class="num">04</div>
+      <h3>Aménagement extérieur</h3>
+      <p>Terrasses, allées, clôtures et aménagements pour sublimer votre propriété et augmenter sa valeur.</p>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="avis">
-  <div class="container">
-    <div class="shead reveal">
-      <div class="stag">Avis clients</div>
-      <h2 class="stitle">Ils nous font confiance</h2>
-    </div>
-    <div class="test-row">
-      <div class="t-card reveal">
-        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>Travail impeccable du début à la fin. L'équipe est ponctuelle, le chantier était propre chaque soir. Je recommande les yeux fermés.</p>
-        <div class="t-author"><div class="t-avatar">P</div><div class="t-info"><strong>Philippe R.</strong><span>Rénovation complète</span></div></div>
-      </div>
-      <div class="t-card reveal">
-        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>Notre annexe a été construite en un temps record. Le devis était respecté à l'euro près. Très professionnel.</p>
-        <div class="t-author"><div class="t-avatar">S</div><div class="t-info"><strong>Sandra L.</strong><span>Construction annexe</span></div></div>
-      </div>
-      <div class="t-card reveal">
-        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-        <p>Bon travail pour la réfection de notre toiture. Quelques jours de retard mais le résultat est nickel.</p>
-        <div class="t-author"><div class="t-avatar">M</div><div class="t-info"><strong>Marc D.</strong><span>Toiture</span></div></div>
-      </div>
-    </div>
+<!-- ═══ BAND CHIFFRES ═══ -->
+<div class="band">
+  <div class="band-cell reveal"><div class="band-n">7+</div><div class="band-l">Années</div></div>
+  <div class="band-cell reveal"><div class="band-n">200+</div><div class="band-l">Chantiers</div></div>
+  <div class="band-cell reveal"><div class="band-n">4.7/5</div><div class="band-l">Google</div></div>
+  <div class="band-cell reveal"><div class="band-n">100%</div><div class="band-l">Devis gratuit</div></div>
+</div>
+
+<!-- ═══ GALLERY ═══ -->
+<section id="realisations" class="gal-section">
+  <div class="shead" style="text-align:center;margin-bottom:48px">
+    <div class="stag" style="display:inline-block">Réalisations</div>
+    <h2 style="font-family:var(--display);font-size:clamp(2rem,3vw,2.6rem);font-weight:800;letter-spacing:-0.5px">Nos derniers chantiers</h2>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item big reveal"><span>Construction neuve</span></div>
+    <div class="gal-item reveal"><span>Rénovation</span></div>
+    <div class="gal-item reveal"><span>Extension</span></div>
+    <div class="gal-item reveal"><span>Toiture</span></div>
+    <div class="gal-item big reveal"><span>Aménagement</span></div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="c-left reveal">
-        <div class="stag">Parlons de votre projet</div>
-        <h2>Demandez votre devis gratuit</h2>
-        <p>Décrivez vos travaux et recevez un devis détaillé sans engagement. Intervention rapide dans toute la région.</p>
-        <div class="c-items">
-          <div class="c-item">
-            <div class="c-item-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-            <div class="c-text"><strong>Téléphone</strong>0495 50 38 70</div>
-          </div>
-          <div class="c-item">
-            <div class="c-item-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div class="c-text"><strong>Adresse</strong>Rue du Castillon 208</div>
-          </div>
-          <div class="c-item">
-            <div class="c-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div class="c-text"><strong>Horaires</strong>Lun-Ven : 7h00 - 19h00</div>
-          </div>
-        </div>
+<!-- ═══ TESTIMONIAL ═══ -->
+<section id="avis" class="quote-section">
+  <div class="stag">Avis clients</div>
+  <div class="big-quote reveal">
+    Travail impeccable du début à la fin. L'équipe est ponctuelle, le chantier était propre chaque soir. Le devis a été respecté à l'euro près. Je recommande les yeux fermés.
+  </div>
+  <div class="qt-author reveal">Philippe R.</div>
+  <div class="qt-role reveal">Rénovation complète — 4 mois de travaux</div>
+  <div class="qt-dots">
+    <div class="qt-dot active"></div>
+    <div class="qt-dot"></div>
+    <div class="qt-dot"></div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section class="proc-section">
+  <div style="text-align:center;margin-bottom:16px">
+    <div class="stag" style="display:inline-block">Comment ça marche</div>
+    <h2 style="font-family:var(--display);font-size:clamp(2rem,3vw,2.6rem);font-weight:800;letter-spacing:-0.5px">De l'idée au chantier terminé</h2>
+  </div>
+  <div class="proc-row">
+    <div class="proc-step reveal"><div class="proc-dot">01</div><h3>Premier contact</h3><p>Appelez-nous ou envoyez votre demande. On échange sur votre projet.</p></div>
+    <div class="proc-step reveal"><div class="proc-dot">02</div><h3>Visite & Devis</h3><p>On se déplace, on évalue les travaux et on vous envoie un devis détaillé.</p></div>
+    <div class="proc-step reveal"><div class="proc-dot">03</div><h3>Chantier</h3><p>Les travaux démarrent. Suivi régulier et communication transparente.</p></div>
+    <div class="proc-step reveal"><div class="proc-dot">04</div><h3>Livraison</h3><p>Réception du chantier, nettoyage complet et garantie sur nos travaux.</p></div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<div id="contact" class="contact-split">
+  <div class="contact-dark">
+    <div class="stag">Parlons de votre projet</div>
+    <h2>Demandez votre devis gratuit.</h2>
+    <p>Décrivez vos travaux et recevez un devis détaillé sans engagement. Intervention rapide dans toute la région.</p>
+    <div class="c-items">
+      <div class="c-item">
+        <div class="c-item-ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div class="c-txt"><strong>Téléphone</strong>0495 50 38 70</div>
       </div>
-      <form class="reveal" onsubmit="event.preventDefault();this.style.display='none';document.getElementById('thx').style.display='flex'">
-        <div class="form-row">
-          <input type="text" placeholder="Votre prénom" required>
-          <input type="text" placeholder="Votre nom" required>
-        </div>
-        <input type="email" placeholder="Votre email" required>
-        <input type="tel" placeholder="Téléphone">
-        <select>
-          <option disabled selected>Type de travaux</option>
-          <option>Construction neuve</option>
-          <option>Rénovation</option>
-          <option>Toiture & Isolation</option>
-          <option>Aménagement extérieur</option>
-          <option>Autre</option>
-        </select>
-        <textarea placeholder="Décrivez vos travaux..."></textarea>
-        <button type="submit" class="btn-submit">Envoyer ma demande &rarr;</button>
-      </form>
-      <div id="thx" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;text-align:center">
-        <div style="font-size:3rem;margin-bottom:16px">&#9989;</div>
-        <h3 style="font-family:var(--condensed);font-size:2rem;letter-spacing:2px;margin-bottom:12px">MERCI !</h3>
-        <p style="color:var(--muted)">Votre demande a été envoyée. On vous recontacte rapidement.</p>
+      <div class="c-item">
+        <div class="c-item-ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="c-txt"><strong>Adresse</strong>Rue du Castillon 208</div>
+      </div>
+      <div class="c-item">
+        <div class="c-item-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="c-txt"><strong>Horaires</strong>Lun-Ven : 7h00 - 19h00</div>
       </div>
     </div>
   </div>
-</section>
+  <div class="contact-form">
+    <form onsubmit="event.preventDefault();this.style.display='none';document.getElementById('thx').style.display='flex'">
+      <div class="form-row">
+        <input type="text" placeholder="Votre prénom" required>
+        <input type="text" placeholder="Votre nom" required>
+      </div>
+      <input type="email" placeholder="Votre email" required>
+      <input type="tel" placeholder="Téléphone">
+      <select>
+        <option disabled selected>Type de travaux</option>
+        <option>Construction neuve</option>
+        <option>Rénovation</option>
+        <option>Toiture & Isolation</option>
+        <option>Aménagement extérieur</option>
+        <option>Autre</option>
+      </select>
+      <textarea placeholder="Décrivez vos travaux..."></textarea>
+      <button type="submit" class="btn-submit">Envoyer ma demande &rarr;</button>
+    </form>
+    <div id="thx" style="display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%">
+      <div style="font-size:3rem;margin-bottom:16px">&#9989;</div>
+      <h3 style="font-family:var(--display);font-size:1.6rem;margin-bottom:12px">Merci !</h3>
+      <p style="color:var(--muted)">Votre demande a bien été envoyée.</p>
+    </div>
+  </div>
+</div>
 
 <footer>
   <p>&copy; 2025 <span>Dufrannes Constructions</span></p>
-  <p>Rue du Castillon 208 &middot; 0495 50 38 70</p>
+  <p style="font-size:12px;color:rgba(255,255,255,0.2)">Rue du Castillon 208 &middot; 0495 50 38 70</p>
 </footer>
 
 <div class="watermark">
-  <p>Prévisualisation gratuite par <strong>Créopus</strong> — Agence Web</p>
+  <p>Prévisualisation gratuite par <strong>Créopus</strong></p>
   <a href="https://www.creopus.be">Créopus.be</a>
 </div>
 
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); observer.unobserve(el.target) } })
-}, { threshold: 0.1 })
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+const o=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');o.unobserve(el.target)}})},{threshold:.1})
+document.querySelectorAll('.reveal').forEach(el=>o.observe(el))
 </script>
 </body>
 </html>
