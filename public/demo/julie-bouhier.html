@@ -169,7 +169,8 @@
   .trust-section .ssub { color: rgba(255,255,255,0.5) }
   .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 48px }
   .trust-cell { position: relative }
-  .trust-num { font-family: var(--serif); font-size: 3rem; color: var(--sage); opacity: 0.3; margin-bottom: 12px; font-style: italic }
+  .trust-icon { width: 48px; height: 48px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; margin-bottom: 16px }
+  .trust-icon svg { width: 24px; height: 24px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round }
   .trust-cell h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #fff }
   .trust-cell p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7 }
 
@@ -403,17 +404,17 @@
   <p class="ssub">Des soins professionnels, humains et ponctuels, directement chez vous.</p>
   <div class="trust-grid">
     <div class="trust-cell reveal">
-      <div class="trust-num">01</div>
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
       <h3>Diplômée & conventionnée</h3>
       <p>Infirmière agréée, conventionnée avec toutes les mutuelles belges. Remboursement garanti.</p>
     </div>
     <div class="trust-cell reveal">
-      <div class="trust-num">02</div>
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
       <h3>Ponctuelle & fiable</h3>
       <p>Des horaires respectés et une présence régulière. Vous pouvez compter sur moi, chaque jour.</p>
     </div>
     <div class="trust-cell reveal">
-      <div class="trust-num">03</div>
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
       <h3>Douce & à l'écoute</h3>
       <p>Chaque patient est unique. J'adapte mes soins avec empathie, patience et bienveillance.</p>
     </div>
