@@ -1,0 +1,23 @@
+# Robots.txt — Créopus
+# Agence Web & Design en Belgique
+# https://www.creopus.be
+
+User-agent: *
+Allow: /
+
+# Empêcher l'indexation des pages de démo (destinées aux prospects)
+Disallow: /demo/
+Disallow: /logo-facebook.html
+
+# Sitemap
+Sitemap: https://www.creopus.be/sitemap.xml
+
+# Crawl-delay pour bots peu utiles (économise la bande passante)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
