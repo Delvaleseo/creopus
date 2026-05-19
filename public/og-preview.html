@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Créopus — OG Preview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box }
+  body {
+    width: 1200px;
+    height: 630px;
+    background: #0a0a12;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Effet de glow en arrière-plan */
+  .bg-glow-1 {
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(34,211,238,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .bg-glow-2 {
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(232,121,168,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Container principal */
+  .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    height: 100%;
+    padding: 80px;
+    gap: 80px;
+    align-items: center;
+  }
+
+  /* Section gauche */
+  .left {
+    flex: 1;
+  }
+
+  .logo-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .logo-block svg {
+    width: 70px;
+    height: 70px;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-name {
+    font-size: 28px;
+    letter-spacing: 5px;
+    font-weight: 300;
+    color: #e8e8f0;
+  }
+
+  .brand-name b {
+    font-weight: 900;
+    color: #22d3ee;
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    color: #7a7a90;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* Titre principal */
+  h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  h1 em {
+    font-style: italic;
+    background: linear-gradient(135deg, #67e8f9 0%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 22px;
+    color: #c0c0d0;
+    line-height: 1.5;
+    margin-bottom: 32px;
+    max-width: 500px;
+  }
+
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .feature-tag {
+    padding: 10px 20px;
+    background: rgba(34,211,238,0.08);
+    border: 1px solid rgba(34,211,238,0.2);
+    border-radius: 100px;
+    font-size: 14px;
+    color: #67e8f9;
+    font-weight: 500;
+  }
+
+  .url {
+    font-size: 18px;
+    color: #22d3ee;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  /* Section droite - Visuel */
+  .right {
+    width: 380px;
+    height: 470px;
+    position: relative;
+  }
+
+  .visual-card {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(34,211,238,0.1) 0%, rgba(232,121,168,0.08) 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .visual-card::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(34,211,238,0.2) 0%, transparent 70%);
+  }
+
+  .price-badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, #e879a8 0%, #f59e6b 100%);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    z-index: 2;
+  }
+
+  .big-globe {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .visual-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .visual-sub {
+    font-size: 14px;
+    color: #c0c0d0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .stars {
+    display: flex;
+    gap: 4px;
+    margin-top: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .star {
+    color: #fbbf24;
+    font-size: 18px;
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-glow-1"></div>
+<div class="bg-glow-2"></div>
+
+<div class="container">
+  <!-- Section gauche : Texte -->
+  <div class="left">
+    <div class="logo-block">
+      <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#e879a8"/>
+            <stop offset="50%" stop-color="#f59e6b"/>
+            <stop offset="100%" stop-color="#e879a8"/>
+          </linearGradient>
+          <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+            <stop offset="0%" stop-color="rgba(103,232,249,0.25)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+        </defs>
+        <circle cx="25" cy="25" r="21" fill="none" stroke="url(#ring-grad)" stroke-width="1.5" opacity="0.7"/>
+        <circle cx="25" cy="25" r="18" fill="#0a0a12"/>
+        <ellipse cx="25" cy="25" rx="18" ry="18" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.4"/>
+        <ellipse cx="25" cy="25" rx="14" ry="18" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="0.4"/>
+        <ellipse cx="25" cy="25" rx="9" ry="18" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.4"/>
+        <ellipse cx="25" cy="25" rx="4" ry="18" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.4"/>
+        <line x1="7" y1="25" x2="43" y2="25" stroke="rgba(255,255,255,0.15)" stroke-width="0.4"/>
+        <line x1="9" y1="18" x2="41" y2="18" stroke="rgba(255,255,255,0.1)" stroke-width="0.4"/>
+        <line x1="9" y1="32" x2="41" y2="32" stroke="rgba(255,255,255,0.1)" stroke-width="0.4"/>
+        <line x1="12" y1="13" x2="38" y2="13" stroke="rgba(255,255,255,0.06)" stroke-width="0.4"/>
+        <line x1="12" y1="37" x2="38" y2="37" stroke="rgba(255,255,255,0.06)" stroke-width="0.4"/>
+        <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="#1a1a2e" stroke-width="2.5" transform="rotate(-25 25 25)"/>
+        <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.6" transform="rotate(-25 25 25)"/>
+        <circle cx="25" cy="24" r="8" fill="url(#glow)"/>
+        <text x="25" y="30" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle" opacity="0.95">C</text>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-name">CRE<b>OPUS</b></span>
+        <span class="brand-tagline">Agence Web & Design</span>
+      </div>
+    </div>
+
+    <h1>Votre site web<br><em>en 7 jours.</em></h1>
+
+    <p class="subtitle">Sites pros, e-commerce et logos sur-mesure pour artisans, PME et indépendants en Belgique 🇧🇪</p>
+
+    <div class="features">
+      <span class="feature-tag">✨ Design unique</span>
+      <span class="feature-tag">📱 100% responsive</span>
+      <span class="feature-tag">🔍 SEO Google</span>
+    </div>
+
+    <div class="url">🌐 www.creopus.be</div>
+  </div>
+
+  <!-- Section droite : Visuel décoratif -->
+  <div class="right">
+    <div class="visual-card">
+      <div class="price-badge">DÈS 399€</div>
+
+      <svg class="big-globe" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ring-grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#e879a8"/>
+            <stop offset="50%" stop-color="#f59e6b"/>
+            <stop offset="100%" stop-color="#e879a8"/>
+          </linearGradient>
+          <radialGradient id="glow2" cx="50%" cy="40%" r="50%">
+            <stop offset="0%" stop-color="rgba(103,232,249,0.35)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+        </defs>
+        <circle cx="25" cy="25" r="21" fill="none" stroke="url(#ring-grad2)" stroke-width="1.5" opacity="0.8"/>
+        <circle cx="25" cy="25" r="18" fill="#0a0a12"/>
+        <ellipse cx="25" cy="25" rx="18" ry="18" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.4"/>
+        <ellipse cx="25" cy="25" rx="14" ry="18" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.4"/>
+        <ellipse cx="25" cy="25" rx="9" ry="18" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.4"/>
+        <ellipse cx="25" cy="25" rx="4" ry="18" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.4"/>
+        <line x1="7" y1="25" x2="43" y2="25" stroke="rgba(255,255,255,0.15)" stroke-width="0.4"/>
+        <line x1="9" y1="18" x2="41" y2="18" stroke="rgba(255,255,255,0.1)" stroke-width="0.4"/>
+        <line x1="9" y1="32" x2="41" y2="32" stroke="rgba(255,255,255,0.1)" stroke-width="0.4"/>
+        <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="#1a1a2e" stroke-width="2.5" transform="rotate(-25 25 25)"/>
+        <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="0.6" transform="rotate(-25 25 25)"/>
+        <circle cx="25" cy="24" r="8" fill="url(#glow2)"/>
+        <text x="25" y="30" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle" opacity="0.95">C</text>
+      </svg>
+
+      <div class="visual-title">Devis gratuit</div>
+      <div class="visual-sub">Réponse sous 24h</div>
+
+      <div class="stars">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
