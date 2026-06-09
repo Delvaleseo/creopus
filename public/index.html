@@ -8,7 +8,7 @@
 <meta name="description" content="Créopus crée des sites web professionnels, logos et identités visuelles pour artisans, PME et e-commerces en Belgique. Devis gratuit, livraison rapide.">
 <meta name="keywords" content="création site web Belgique, agence web Belgique, site vitrine, e-commerce, logo, identité visuelle, création site internet, web design Belgique">
 <meta property="og:title" content="Créopus — Agence Web & Design en Belgique">
-<meta property="og:description" content="Sites web professionnels, logos et identités visuelles pour artisans, PME et e-commerces. Devis gratuit, livraison rapide. Dès 499€.">
+<meta property="og:description" content="Sites web professionnels, logos et identités visuelles pour artisans, PME et e-commerces. Devis gratuit, livraison rapide. Dès 399€.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.creopus.be">
 <meta property="og:locale" content="fr_BE">
@@ -18,10 +18,10 @@
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Créopus - Agence Web & Design en Belgique - Sites web professionnels dès 499€">
+<meta property="og:image:alt" content="Créopus - Agence Web & Design en Belgique - Sites web professionnels dès 399€">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Créopus — Agence Web & Design en Belgique">
-<meta name="twitter:description" content="Sites web professionnels, logos et identités visuelles. Dès 499€. Devis gratuit.">
+<meta name="twitter:description" content="Sites web professionnels, logos et identités visuelles. Dès 399€. Devis gratuit.">
 <meta name="twitter:image" content="https://www.creopus.be/og-image.png">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="author" content="Créopus — Agence Web Belgique">
@@ -31,10 +31,9 @@
 <meta name="topic" content="Agence web, création site internet, e-commerce, logo, web design Belgique">
 <meta name="summary" content="Créopus est une agence web belge qui crée des sites vitrines (dès 499€), e-commerces (dès 1 299€) et logos (dès 149€) sur-mesure pour artisans, PME et indépendants. Devis gratuit sous 24h sur creopus.be.">
 <link rel="canonical" href="https://www.creopus.be">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
+<!-- Schema.org — Organisation -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,1472 +95,837 @@
 </script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-  img, svg { display: block; max-width: 100%; height: auto }
+  html { scroll-behavior: smooth }
+  body { font-family: 'Inter', sans-serif; background: #0a0a12; color: #e8e8f0; overflow-x: hidden }
 
   :root {
-    --bg: #07070b;
-    --bg2: #0f0f17;
-    --bg3: #181826;
-    --bg-card: rgba(255,255,255,0.025);
-    --ink: #f4f4f5;
-    --ink2: #c4c4cf;
-    --muted: #8585a0;
-    --rule: rgba(255,255,255,0.08);
-    --rule-strong: rgba(255,255,255,0.16);
-
-    --cyan: #22d3ee;
-    --cyan-light: #67e8f9;
-    --cyan-glow: rgba(34,211,238,0.35);
-    --pink: #f472b6;
-    --pink-glow: rgba(244,114,182,0.3);
-    --orange: #fb923c;
-    --gold: #facc15;
-    --emerald: #34d399;
-
-    --serif: 'Instrument Serif', Georgia, serif;
-    --sans: 'Inter', system-ui, -apple-system, sans-serif;
-    --mono: 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
-
-    --gutter: clamp(20px, 4vw, 56px);
-    --ease: cubic-bezier(0.32, 0.72, 0.18, 1);
+    --ink: #e8e8f0;
+    --ink2: #c0c0d0;
+    --muted: #7a7a90;
+    --light: #12121e;
+    --accent: #22d3ee;
+    --accent-light: #67e8f9;
+    --accent-soft: rgba(34,211,238,0.08);
+    --accent-glow: rgba(34,211,238,0.15);
+    --accent2: #e879a8;
+    --accent2-light: #f59e6b;
+    --bg: #0a0a12;
+    --bg2: #0f0f1a;
+    --bg3: #161625;
+    --border: rgba(255,255,255,0.08);
+    --radius: 20px;
+    --serif: 'DM Serif Display', Georgia, serif;
   }
 
-  ::selection { background: var(--cyan); color: var(--bg); }
-
-  body {
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--ink);
-    background: var(--bg);
-    overflow-x: hidden;
-    position: relative;
-  }
-  a { color: inherit; text-decoration: none }
-
-  /* ── Noise overlay ── */
+  /* ── Noise Overlay ── */
   body::before {
-    content: '';
-    position: fixed; inset: 0; z-index: 1; pointer-events: none;
-    opacity: 0.035;
+    content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+    opacity: 0.03;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  /* ── Aurora gradient ── */
-  body::after {
-    content: '';
-    position: fixed; top: -30%; left: -10%; width: 80vw; height: 80vh;
-    background: radial-gradient(ellipse at center, rgba(34,211,238,0.12) 0%, rgba(244,114,182,0.06) 35%, transparent 70%);
-    z-index: 0; pointer-events: none;
-    filter: blur(80px);
-    animation: aurora 18s ease-in-out infinite alternate;
-  }
-  @keyframes aurora {
-    0% { transform: translate(0,0) rotate(0deg) scale(1); opacity: 0.7 }
-    100% { transform: translate(20%, 10%) rotate(20deg) scale(1.2); opacity: 1 }
   }
 
   /* ── Header ── */
   header {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 16px var(--gutter);
+    padding: 0 48px; height: 68px;
     display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-    background: rgba(7,7,11,0.7);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid var(--rule);
+    background: rgba(10,10,18,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
   }
-  .h-left { justify-self: start; display: flex; align-items: center; gap: 12px }
-  .h-tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted) }
-  .h-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); box-shadow: 0 0 12px var(--emerald); animation: pulse 2.4s ease-in-out infinite }
-  @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.35 } }
-  .h-logo { justify-self: center; display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink) }
-  .h-logo svg { height: 32px; width: 32px }
-  .h-logo span { font-size: 17px; letter-spacing: 0.18em; font-weight: 300 }
-  .h-logo span b { font-weight: 800; color: var(--cyan) }
-  .h-right { justify-self: end; display: flex; align-items: center; gap: 18px }
-  .h-right .nav { display: flex; gap: 28px }
-  .h-right .nav a { font-size: 13px; color: var(--ink2); font-weight: 500; transition: color .2s }
-  .h-right .nav a:hover { color: var(--cyan-light) }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); justify-self: center }
+  .logo span { font-size: 20px; letter-spacing: 4px; font-weight: 300 }
+  .logo b { font-weight: 900; color: var(--accent) }
+  nav { display: flex; gap: 32px }
+  nav a { color: var(--muted); text-decoration: none; font-size: 13.5px; font-weight: 500; transition: color 0.2s; position: relative }
+  nav a:hover { color: var(--accent-light) }
+  nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); border-radius: 2px; transition: width 0.3s }
+  nav a:hover::after { width: 100% }
+  .h-right { display: flex; align-items: center; gap: 14px; justify-self: end }
   .h-cta {
-    font-size: 13px; font-weight: 700; letter-spacing: 0.02em;
-    padding: 10px 20px; border-radius: 100px;
-    background: var(--cyan); color: var(--bg);
-    transition: all .25s;
-    box-shadow: 0 4px 16px rgba(34,211,238,0.25);
+    padding: 9px 24px; background: var(--accent); border-radius: 10px;
+    color: #0a0a12; font-size: 13px; font-weight: 700; text-decoration: none;
+    transition: all 0.25s;
   }
-  .h-cta:hover { background: var(--cyan-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,211,238,0.35) }
-  .menu-btn { display: none; background: rgba(255,255,255,0.05); border: 1px solid var(--rule); padding: 8px 12px; cursor: pointer; color: var(--ink); border-radius: 8px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em }
+  .h-cta:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(34,211,238,0.3) }
+  .menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--ink) }
 
-  /* ── HERO ── */
+  /* ── Hero ── */
   .hero {
-    min-height: 100vh; padding: 120px var(--gutter) 60px;
-    position: relative; z-index: 2;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center; padding: 90px 24px 50px;
+    position: relative; overflow: hidden;
   }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 8px 18px; border-radius: 100px;
-    background: rgba(34,211,238,0.08);
-    border: 1px solid rgba(34,211,238,0.2);
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--cyan-light);
-    margin-bottom: 32px;
-    backdrop-filter: blur(10px);
+  .hero-ring {
+    position: absolute; width: 420px; height: 420px; border-radius: 50%;
+    border: 1px solid rgba(34,211,238,0.1);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    animation: ring-spin 40s linear infinite;
   }
-  .hero-eyebrow svg { width: 12px; height: 12px; stroke: var(--cyan); fill: none; stroke-width: 2 }
-
-  .hero h1 {
-    font-family: var(--sans); font-weight: 800;
-    font-size: clamp(48px, 8vw, 120px);
-    line-height: 0.96; letter-spacing: -0.045em;
-    margin-bottom: 28px;
-    max-width: 1100px;
-    color: var(--ink);
+  .hero-ring::after {
+    content: ''; position: absolute; width: 16px; height: 16px;
+    background: var(--accent); border-radius: 50%; top: -8px; left: 50%; margin-left: -8px;
+    box-shadow: 0 0 20px rgba(34,211,238,0.5);
   }
-  .hero h1 em {
-    font-family: var(--serif); font-style: italic; font-weight: 400;
-    background: linear-gradient(120deg, var(--cyan) 0%, var(--pink) 100%);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding: 0 0.1em;
+  .hero-ring2 {
+    position: absolute; width: 320px; height: 320px; border-radius: 50%;
+    border: 1px dashed rgba(232,121,168,0.1);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    animation: ring-spin 30s linear infinite reverse;
   }
-  .hero-lede {
-    font-size: clamp(17px, 1.5vw, 21px);
-    color: var(--ink2); max-width: 620px; line-height: 1.55;
-    margin-bottom: 44px;
+  @keyframes ring-spin { 0% { transform: translate(-50%,-50%) rotate(0deg) } 100% { transform: translate(-50%,-50%) rotate(360deg) } }
+  .hero-blob {
+    position: absolute; width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(34,211,238,0.06) 0%, rgba(232,121,168,0.03) 50%, transparent 70%);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    animation: pulse 6s ease-in-out infinite alternate;
   }
-  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 64px }
-  .btn-primary {
-    padding: 16px 32px; border-radius: 100px;
-    background: var(--cyan); color: var(--bg);
-    font-weight: 700; font-size: 15px; letter-spacing: 0.02em;
-    transition: all .3s;
-    display: inline-flex; align-items: center; gap: 10px;
-    box-shadow: 0 8px 28px rgba(34,211,238,0.3);
-  }
-  .btn-primary:hover { background: var(--cyan-light); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(34,211,238,0.45) }
-  .btn-secondary {
-    padding: 16px 28px; border-radius: 100px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--rule-strong);
-    color: var(--ink); font-weight: 500; font-size: 15px;
-    transition: all .3s;
+  @keyframes pulse { 0% { transform: translate(-50%,-50%) scale(0.9); opacity: 0.5 } 100% { transform: translate(-50%,-50%) scale(1.1); opacity: 1 } }
+  .hero > *:not(.hero-ring):not(.hero-ring2):not(.hero-blob) { position: relative; z-index: 1 }
+  .hero-tag {
     display: inline-flex; align-items: center; gap: 8px;
-    backdrop-filter: blur(10px);
+    background: var(--accent-soft); color: var(--accent); font-size: 12px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; padding: 8px 20px; border-radius: 100px;
+    margin-bottom: 28px; border: 1px solid rgba(34,211,238,0.15);
   }
-  .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--cyan); color: var(--cyan-light) }
+  .hero-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: blink 2s infinite; box-shadow: 0 0 8px rgba(34,211,238,0.6) }
+  @keyframes blink { 0%,100% { opacity: 1 } 50% { opacity: 0.3 } }
+  .hero h1 {
+    font-family: var(--serif); font-size: clamp(3rem, 6.5vw, 5.5rem);
+    font-weight: 400; line-height: 1.08; margin-bottom: 28px;
+    letter-spacing: -0.02em; max-width: 800px; color: #fff;
+  }
+  .hero h1 em { color: var(--accent); font-style: italic; text-shadow: 0 0 40px rgba(34,211,238,0.3) }
+  .hero-p { font-size: 1.1rem; color: var(--muted); max-width: 520px; line-height: 1.8; margin-bottom: 40px }
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px }
+  .btn-fill {
+    padding: 16px 36px; background: var(--accent); border-radius: 14px;
+    color: #0a0a12; font-size: 15px; font-weight: 700; text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-fill:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(34,211,238,0.3) }
+  .btn-ghost {
+    padding: 16px 32px; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 14px;
+    color: var(--ink); font-size: 15px; font-weight: 500; text-decoration: none; transition: all 0.3s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent) }
+  .hero-stats { display: flex; gap: 48px; justify-content: center }
+  .h-stat { text-align: center; padding: 16px 24px; border-radius: 16px; transition: background 0.3s }
+  .h-stat:hover { background: var(--accent-soft) }
+  .h-stat-n { font-family: var(--serif); font-size: 2.2rem; color: var(--accent); text-shadow: 0 0 20px rgba(34,211,238,0.2) }
+  .h-stat-l { font-size: 12px; color: var(--muted); margin-top: 4px; font-weight: 500; letter-spacing: 0.5px }
 
-  .hero-trust { display: flex; gap: 36px; flex-wrap: wrap; justify-content: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted) }
-  .hero-trust span { display: inline-flex; align-items: center; gap: 8px }
-  .hero-trust span::before { content: ''; display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--cyan) }
+  /* ── Marquee ── */
+  .marquee-bar { padding: 28px 0; overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2) }
+  .marquee-inner { display: flex; gap: 48px; animation: mx 22s linear infinite; width: max-content }
+  .marquee-inner span { font-size: 13px; font-weight: 700; letter-spacing: 3px; color: rgba(255,255,255,0.25); text-transform: uppercase; white-space: nowrap }
+  .marquee-inner span::after { content: '·'; margin-left: 48px; color: var(--accent); opacity: 0.4 }
+  @keyframes mx { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }
 
-  /* ── PORTFOLIO INTRO ── */
-  .pf-intro {
-    padding: 120px var(--gutter) 60px;
-    position: relative; z-index: 2;
-    text-align: center;
-  }
-  .pf-intro-eyebrow {
-    display: inline-block; padding: 6px 14px; border-radius: 100px;
-    background: rgba(244,114,182,0.1);
-    border: 1px solid rgba(244,114,182,0.25);
-    color: var(--pink);
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-  .pf-intro h2 {
-    font-family: var(--sans); font-weight: 800;
-    font-size: clamp(38px, 5.6vw, 76px);
-    line-height: 1.02; letter-spacing: -0.035em;
-    max-width: 880px; margin: 0 auto 20px;
-  }
-  .pf-intro h2 em {
-    font-family: var(--serif); font-style: italic; font-weight: 400;
-    color: var(--cyan-light);
-  }
-  .pf-intro p { color: var(--ink2); font-size: 17px; max-width: 540px; margin: 0 auto; line-height: 1.6 }
+  /* ── Sections ── */
+  section { padding: 100px 48px }
+  .container { max-width: 1140px; margin: 0 auto }
+  .stag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px }
+  .stitle { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 14px }
+  .ssub { font-size: 1rem; color: var(--muted); max-width: 480px; line-height: 1.7 }
+  .shead { margin-bottom: 56px }
 
-  /* ── PROJECT SHOWCASE (commun) ── */
-  .proj {
-    position: relative; z-index: 2;
-    padding: 100px var(--gutter);
-    overflow: hidden;
+  /* ── Services — Alternating rows ── */
+  .srv-section { background: var(--bg2) }
+  .srv-list { display: flex; flex-direction: column; gap: 0 }
+  .srv-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    padding: 56px 0; border-bottom: 1px solid var(--border);
   }
-  .proj-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 0.85fr 1.2fr; gap: 80px; align-items: center }
-  .proj.reverse .proj-inner { grid-template-columns: 1.2fr 0.85fr }
-  .proj.reverse .proj-text { order: 2 }
-  .proj.reverse .proj-visual { order: 1 }
-
-  .proj-folio { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; display: flex; align-items: center; gap: 12px }
-  .proj-folio b { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--ink); font-size: 22px; letter-spacing: 0; text-transform: none }
-  .proj-folio .pf-bar { width: 32px; height: 1px; background: currentColor; opacity: 0.4 }
-  .proj h3 {
-    font-family: var(--sans); font-weight: 800;
-    font-size: clamp(48px, 7vw, 96px);
-    line-height: 0.95; letter-spacing: -0.04em;
-    margin-bottom: 14px;
-  }
-  .proj h3 em { font-family: var(--serif); font-style: italic; font-weight: 400 }
-  .proj-cat { display: inline-block; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 24px }
-  .proj p { font-size: 17px; line-height: 1.7; color: var(--ink2); max-width: 480px; margin-bottom: 28px }
-  .proj-stats { display: grid; grid-template-columns: repeat(3, auto); gap: 36px; margin-bottom: 32px; padding: 24px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule) }
-  .proj-stat-n { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 32px; line-height: 1 }
-  .proj-stat-l { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 6px }
-  .proj-brands { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px }
-  .proj-brands span { padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--rule); border-radius: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink2) }
-  .proj-cta {
-    display: inline-flex; align-items: center; gap: 12px;
-    padding: 14px 28px; border-radius: 100px;
-    font-weight: 700; font-size: 14px; letter-spacing: 0.02em;
-    transition: all .3s;
-  }
-
-  /* Mockup container */
-  .proj-visual { position: relative; perspective: 1800px }
-  .mockup {
-    position: relative;
-    aspect-ratio: 16/10;
-    border-radius: 16px;
-    overflow: hidden;
-    transform: rotateY(-10deg) rotateX(6deg) rotate(0deg);
-    box-shadow:
-      0 30px 80px -20px rgba(0,0,0,0.6),
-      0 50px 120px -30px rgba(34,211,238,0.25),
-      inset 0 1px 1px rgba(255,255,255,0.1);
-    transform-style: preserve-3d;
-    transition: transform .6s var(--ease), box-shadow .6s var(--ease);
-    will-change: transform;
-  }
-  .proj.reverse .mockup { transform: rotateY(10deg) rotateX(6deg) }
-  .proj-visual:hover .mockup { transform: rotateY(0deg) rotateX(0deg) }
-  .mockup-bar {
-    height: 32px;
-    background: linear-gradient(180deg, #1a1a26 0%, #14141e 100%);
-    display: flex; align-items: center; padding: 0 14px; gap: 6px;
-    border-bottom: 1px solid var(--rule);
-    position: relative; z-index: 2;
-  }
-  .mockup-bar .dot { width: 11px; height: 11px; border-radius: 50%; background: #2a2a3a }
-  .mockup-bar .dot:nth-child(1) { background: #ff5f57 }
-  .mockup-bar .dot:nth-child(2) { background: #febc2e }
-  .mockup-bar .dot:nth-child(3) { background: #28c840 }
-  .mockup-bar .url { margin-left: 18px; flex: 1; max-width: 380px; padding: 4px 12px; background: rgba(255,255,255,0.05); border-radius: 6px; font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: center; letter-spacing: 0.04em }
-  .mockup img {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover; object-position: top center;
-    display: block;
-    background: #14141e;
-  }
-  .mockup-glow {
-    position: absolute; inset: -40px; z-index: -1;
-    background: radial-gradient(ellipse at center, var(--cyan-glow) 0%, transparent 60%);
-    filter: blur(40px);
-    opacity: 0.6;
-  }
-
-  /* ── Recréation hero Delvale (mockup interne fidèle) ── */
-  .dv-mock {
-    position: absolute; inset: 32px 0 0 0;
-    background: #1a1416;
-    display: flex; flex-direction: column;
-    overflow: hidden;
-  }
-  .dv-nav {
-    display: grid; grid-template-columns: 1fr auto 1fr;
-    padding: 14px 22px; align-items: center;
-    background: rgba(15,10,12,0.9);
-    backdrop-filter: blur(20px);
-    z-index: 4; position: relative;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-  .dv-logo { font-family: var(--serif); font-style: italic; font-size: 26px; color: #fff; letter-spacing: -0.02em; justify-self: start; line-height: 1 }
-  .dv-logo-red { color: #ef4444; font-style: normal; font-weight: 800; letter-spacing: 0.02em }
-  .dv-logo-vale { color: #fff; font-style: italic }
-  .dv-tabs { display: flex; gap: 28px; justify-self: center }
-  .dv-tab { font-family: var(--sans); color: rgba(255,255,255,0.55); font-size: 13px; padding: 4px 0 8px; font-weight: 500; letter-spacing: 0.02em; position: relative }
-  .dv-tab-active { color: #fff }
-  .dv-tab-active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: #ef4444 }
-  .dv-icons { display: flex; gap: 14px; justify-self: end; color: rgba(255,255,255,0.7) }
-  .dv-split { flex: 1; position: relative; display: grid; grid-template-columns: 1fr 1fr }
-  .dv-half { position: relative; overflow: hidden; background-size: cover; background-position: center }
-  .dv-half::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%);
-  }
-  /* Vraies photos depuis le CDN Shopify de Delvale (générées par toi en février 2026) */
-  .dv-femme { background-image: url('https://delvale.com/cdn/shop/files/ChatGPT_Image_21_fevr._2026_14_37_13.png?v=14339783218846122692'); background-position: center top; }
-  .dv-homme { background-image: url('https://delvale.com/cdn/shop/files/ChatGPT_Image_21_fevr._2026_14_44_05.png?v=4931081156239055938'); background-position: center top; }
-  .dv-card {
-    position: absolute; left: 50%; top: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(15,10,12,0.78);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(255,255,255,0.07);
-    padding: 22px 36px;
-    text-align: center;
-    width: 78%; max-width: 480px;
-    z-index: 3;
-  }
-  .dv-card-eyebrow {
-    font-family: var(--sans);
-    font-size: 9.5px; letter-spacing: 0.25em; text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 12px; font-weight: 500;
-  }
-  .dv-card-title {
-    font-family: var(--serif);
-    font-size: 32px; color: #fff;
-    line-height: 1.1; margin-bottom: 10px;
-    letter-spacing: -0.01em;
-  }
-  .dv-card-title em { font-style: italic; font-weight: 400 }
-  .dv-card-desc {
-    font-family: var(--sans);
-    font-size: 11.5px; color: rgba(255,255,255,0.75);
-    line-height: 1.55; max-width: 360px; margin: 0 auto;
-  }
-  .dv-tag {
-    position: absolute; bottom: 16px;
-    font-family: var(--sans);
-    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: rgba(255,255,255,0.85); font-weight: 500;
-    padding: 5px 10px;
-    background: rgba(15,10,12,0.7);
-    z-index: 2;
-  }
-  .dv-tag-left { left: 16px }
-  .dv-tag-right { right: 16px }
-
-  /* ── Recréation hero Delvablue (mockup interne fidèle) ── */
-  .db-mock {
-    position: absolute; inset: 32px 0 0 0;
-    background: #faf7f2;
-    display: flex; flex-direction: column;
-    overflow: hidden;
-  }
-  .db-promo {
-    background: #1e3a8a;
-    color: #fff;
-    text-align: center;
-    padding: 7px;
-    font-family: var(--sans); font-size: 11px; font-weight: 500;
-    letter-spacing: 0.02em;
-  }
-  .db-nav {
-    background: linear-gradient(90deg, #1e40af 0%, #2563eb 100%);
-    padding: 12px 22px;
-    display: flex; align-items: center; justify-content: space-between;
-    color: #fff;
-  }
-  .db-brand { display: flex; align-items: center; gap: 10px }
-  .db-smile {
-    width: 22px; height: 22px; border-radius: 6px;
-    background: #fbbf24;
-    position: relative;
+  .srv-row:last-child { border-bottom: none }
+  .srv-row.reverse .srv-info { order: 2 }
+  .srv-row.reverse .srv-visual { order: 1 }
+  .srv-num { font-family: var(--serif); font-size: 5rem; color: var(--accent); opacity: 0.15; line-height: 1; margin-bottom: 16px }
+  .srv-info h3 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 14px; color: #fff }
+  .srv-info p { color: var(--muted); line-height: 1.8; font-size: 15px; margin-bottom: 16px }
+  .srv-price { font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.5px }
+  .srv-visual {
+    background: linear-gradient(135deg, var(--bg3) 0%, rgba(34,211,238,0.04) 50%, var(--bg3) 100%);
+    border-radius: var(--radius); padding: 48px;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    border: 1px solid rgba(34,211,238,0.08); min-height: 260px;
+    transition: all 0.4s; position: relative; overflow: hidden;
   }
-  .db-eye {
-    width: 4px; height: 4px; border-radius: 50%; background: #1e3a8a;
-    position: absolute;
+  .srv-visual::before {
+    content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(34,211,238,0.06) 0%, transparent 70%);
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    transition: transform 0.4s;
   }
-  .db-eye:nth-child(1) { left: 5px; top: 6px }
-  .db-eye:nth-child(2) { right: 5px; top: 6px }
-  .db-mouth {
-    position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
-    width: 8px; height: 4px; border-radius: 0 0 8px 8px;
-    border-bottom: 1.5px solid #1e3a8a;
-    border-left: 1.5px solid #1e3a8a;
-    border-right: 1.5px solid #1e3a8a;
-  }
-  .db-name {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-style: italic; font-size: 22px; color: #fff;
-    letter-spacing: -0.01em; line-height: 1;
-  }
-  .db-icons { display: flex; gap: 14px; color: rgba(255,255,255,0.9) }
-  .db-hero {
-    flex: 1; display: grid; grid-template-columns: 0.9fr 1.1fr;
-    align-items: center;
-    padding: 24px 32px;
-    gap: 24px;
-    background: linear-gradient(180deg, #faf7f2 0%, #f5e9d3 100%);
-  }
-  .db-img-wrap {
-    aspect-ratio: 1/1;
-    border-radius: 24px; overflow: hidden;
-    box-shadow: 0 10px 28px rgba(30,58,138,0.15), 0 2px 8px rgba(0,0,0,0.06);
-    background: #fff;
-    max-width: 280px; margin-left: auto;
-  }
-  .db-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 24px }
-  .db-text { padding: 12px 0 }
-  .db-eyebrow {
-    font-family: var(--sans);
-    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
-    color: #f97316; font-weight: 700;
-    margin-bottom: 14px;
-  }
-  .db-title {
-    font-family: var(--sans);
-    font-size: 28px; font-weight: 800; line-height: 1.05;
-    color: #1e3a8a; letter-spacing: -0.025em;
-    margin-bottom: 16px;
-  }
-  .db-title em { font-style: normal; color: #f97316 }
-  .db-cta {
-    display: inline-block;
-    font-family: var(--sans); font-size: 12px; font-weight: 600;
-    background: #1e3a8a; color: #fff;
-    padding: 9px 18px; border-radius: 100px;
-  }
+  .srv-row:hover .srv-visual::before { transform: translate(-50%,-50%) scale(1.5) }
+  .srv-row:hover .srv-visual { border-color: rgba(34,211,238,0.2); box-shadow: 0 16px 48px rgba(34,211,238,0.06) }
+  .srv-visual svg { width: 72px; height: 72px; stroke: var(--accent); fill: none; stroke-width: 1.2; stroke-linecap: round; position: relative; z-index: 1; transition: transform 0.4s }
+  .srv-row:hover .srv-visual svg { transform: scale(1.08) }
 
-  /* ── PROJET 1 — DELVALE (rouge/noir luxe mode) ── */
-  .proj-delvale { background: linear-gradient(180deg, var(--bg) 0%, #0f0a0a 100%); border-top: 1px solid var(--rule) }
-  .proj-delvale h3 { color: #fff }
-  .proj-delvale h3 em { color: #ef4444 }
-  .proj-delvale .proj-cat { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); color: #f87171 }
-  .proj-delvale .proj-stat-n { color: #ef4444 }
-  .proj-delvale .proj-cta { background: #ef4444; color: #fff; box-shadow: 0 8px 24px rgba(239,68,68,0.3) }
-  .proj-delvale .proj-cta:hover { background: #fff; color: #0f0a0a; transform: translateY(-2px) }
-  .proj-delvale .mockup-glow { background: radial-gradient(ellipse at center, rgba(239,68,68,0.4) 0%, transparent 60%); opacity: 0.7 }
-  .proj-delvale .mockup { box-shadow: 0 30px 80px -20px rgba(0,0,0,0.7), 0 50px 120px -30px rgba(239,68,68,0.35), inset 0 1px 1px rgba(255,255,255,0.1) }
+  /* ── Why — Numbers ── */
+  .why-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.05) }
+  .why-cell { background: var(--bg); padding: 52px 36px; text-align: center; transition: background 0.3s }
+  .why-cell:hover { background: var(--accent-soft) }
+  .why-cell .why-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; border: 1px solid rgba(34,211,238,0.1) }
+  .why-cell .why-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round }
+  .why-cell h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: #fff }
+  .why-cell p { font-size: 14px; color: var(--muted); line-height: 1.7 }
 
-  /* ── PROJET 2 — PETSCOMPARE (vert éditorial) ── */
-  .proj-pets { background: linear-gradient(180deg, #0f0a0a 0%, #0a0f0c 100%); border-top: 1px solid var(--rule) }
-  .proj-pets h3 em { color: #34d399 }
-  .proj-pets .proj-cat { background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.25); color: #34d399 }
-  .proj-pets .proj-stat-n { color: #34d399 }
-  .proj-pets .proj-cta { background: #34d399; color: #051a10; box-shadow: 0 8px 24px rgba(52,211,153,0.3) }
-  .proj-pets .proj-cta:hover { background: #fff; transform: translateY(-2px) }
-  .proj-pets .mockup-glow { background: radial-gradient(ellipse at center, rgba(52,211,153,0.4) 0%, transparent 60%); opacity: 0.6 }
-  .proj-pets .mockup { box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6), 0 50px 120px -30px rgba(52,211,153,0.35), inset 0 1px 1px rgba(255,255,255,0.1) }
-
-  /* ── PROJET 3 — DELVABLUE (bleu pastel tendre) ── */
-  .proj-blue { background: linear-gradient(180deg, #0a0f0c 0%, #0a0e15 100%); border-top: 1px solid var(--rule) }
-  .proj-blue h3 em { color: #60a5fa }
-  .proj-blue .proj-cat { background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.25); color: #60a5fa }
-  .proj-blue .proj-stat-n { color: #60a5fa }
-  .proj-blue .proj-cta { background: rgba(96,165,250,0.15); color: #93c5fd; border: 1px solid rgba(96,165,250,0.3); pointer-events: none; cursor: default }
-  .proj-blue .proj-cta:hover { background: rgba(96,165,250,0.15); transform: none }
-  .proj-blue .mockup-glow { background: radial-gradient(ellipse at center, rgba(96,165,250,0.4) 0%, transparent 60%); opacity: 0.6 }
-  .proj-blue .mockup { box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6), 0 50px 120px -30px rgba(96,165,250,0.35), inset 0 1px 1px rgba(255,255,255,0.1) }
-  .proj-blue .mockup-overlay {
-    position: absolute; inset: 32px 0 0 0;
-    background: linear-gradient(180deg, rgba(10,14,21,0) 30%, rgba(10,14,21,0.95) 100%);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff;
-    z-index: 3;
-    flex-direction: column; gap: 14px;
-  }
-  .proj-blue .mockup-overlay .badge {
-    background: #60a5fa; color: #051026;
-    padding: 8px 18px; border-radius: 100px;
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
-    box-shadow: 0 8px 24px rgba(96,165,250,0.4);
-  }
-  .proj-blue .mockup-overlay .label {
-    font-family: var(--serif); font-style: italic; font-size: 26px; color: #f4f4f5;
-  }
-
-  /* ── SERVICES ── */
-  .services {
-    position: relative; z-index: 2;
-    padding: 140px var(--gutter); background: var(--bg);
-    border-top: 1px solid var(--rule);
-  }
-  .services-head { max-width: 1100px; margin: 0 auto 64px; text-align: center }
-  .stag {
-    display: inline-block; padding: 6px 14px; border-radius: 100px;
-    background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.2);
-    color: var(--cyan-light);
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  .stitle {
-    font-family: var(--sans); font-weight: 800;
-    font-size: clamp(36px, 5.4vw, 68px); line-height: 1.02; letter-spacing: -0.035em;
-    max-width: 800px; margin: 0 auto 18px;
-  }
-  .stitle em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--pink) }
-  .ssub { color: var(--ink2); font-size: 17px; max-width: 540px; margin: 0 auto; line-height: 1.6 }
-
-  .srv-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px }
-  .srv-card {
-    position: relative;
-    padding: 40px 36px; border-radius: 24px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
-    border: 1px solid var(--rule);
-    transition: all .4s var(--ease);
-    overflow: hidden;
-  }
-  .srv-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent 0%, var(--cyan) 50%, transparent 100%);
-    opacity: 0; transition: opacity .4s;
-  }
-  .srv-card:hover { transform: translateY(-4px); border-color: var(--rule-strong); background: linear-gradient(180deg, rgba(34,211,238,0.04) 0%, rgba(255,255,255,0.02) 100%) }
-  .srv-card:hover::before { opacity: 1 }
-  .srv-icon {
-    width: 56px; height: 56px; border-radius: 16px;
-    background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.2);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 24px;
-    box-shadow: 0 8px 24px rgba(34,211,238,0.1);
-  }
-  .srv-icon svg { width: 26px; height: 26px; stroke: var(--cyan); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round }
-  .srv-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.015em }
-  .srv-card p { font-size: 15px; line-height: 1.65; color: var(--ink2); margin-bottom: 20px }
-  .srv-card .price { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan) }
-
-  /* ── PROCESS ── */
-  .process {
-    position: relative; z-index: 2;
-    padding: 140px var(--gutter);
-    background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-    border-top: 1px solid var(--rule);
-  }
-  .process-head { max-width: 1100px; margin: 0 auto 64px; text-align: center }
-  .process-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative }
-  .process-grid::before {
-    content: ''; position: absolute; top: 40px; left: 8%; right: 8%; height: 2px;
-    background: linear-gradient(90deg, transparent 0%, rgba(34,211,238,0.3) 20%, rgba(244,114,182,0.3) 50%, rgba(34,211,238,0.3) 80%, transparent 100%);
-  }
-  .proc-step {
-    position: relative;
-    padding: 32px 24px;
-    text-align: center;
-  }
-  .proc-num {
-    width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px;
-    background: var(--bg2); border: 1px solid var(--rule-strong);
-    display: flex; align-items: center; justify-content: center;
-    position: relative; z-index: 2;
-    font-family: var(--serif); font-style: italic; font-size: 32px; color: var(--cyan-light);
-    box-shadow: inset 0 0 24px rgba(34,211,238,0.15);
-  }
-  .proc-step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em }
-  .proc-step p { font-size: 14px; color: var(--ink2); line-height: 1.6 }
-
-  /* ── PRICING ── */
-  .pricing {
-    position: relative; z-index: 2;
-    padding: 140px var(--gutter); background: var(--bg);
-    border-top: 1px solid var(--rule);
-  }
-  .pricing-head { max-width: 1100px; margin: 0 auto 48px; text-align: center }
-  .tabs { display: flex; gap: 8px; margin: 0 auto 56px; justify-content: center; flex-wrap: wrap }
+  /* ── Tabs + Pricing ── */
+  .tabs-wrap { display: flex; gap: 6px; margin-bottom: 48px; flex-wrap: wrap }
   .tab-btn {
-    padding: 11px 24px; border-radius: 100px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--rule);
-    color: var(--ink2);
-    font-size: 13.5px; font-weight: 600; letter-spacing: 0.01em;
-    cursor: pointer; font-family: inherit;
-    transition: all .25s;
+    padding: 10px 24px; border-radius: 10px; border: 1.5px solid rgba(255,255,255,0.1);
+    background: transparent; color: var(--muted); font-size: 13.5px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; font-family: inherit;
   }
-  .tab-btn:hover { border-color: var(--cyan); color: var(--cyan-light) }
-  .tab-btn.active { background: var(--cyan); border-color: var(--cyan); color: var(--bg) }
-  .tab-panel { display: none; max-width: 1240px; margin: 0 auto }
+  .tab-btn.active { background: var(--accent); border-color: var(--accent); color: #0a0a12 }
+  .tab-btn:hover:not(.active) { border-color: var(--accent); color: var(--accent) }
+  .tab-panel { display: none }
   .tab-panel.active { display: block }
-  .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px }
-  .price-card {
-    padding: 36px 30px; border-radius: 24px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
-    border: 1px solid var(--rule);
-    transition: all .4s var(--ease);
-    position: relative; overflow: hidden;
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px }
+  .p-card {
+    background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 36px 28px; transition: all 0.4s; position: relative;
   }
-  .price-card:hover { transform: translateY(-6px); border-color: var(--rule-strong); box-shadow: 0 20px 60px rgba(0,0,0,0.4) }
-  .price-card.pop { border: 2px solid var(--cyan); box-shadow: 0 16px 48px rgba(34,211,238,0.15) }
+  .p-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); border-color: var(--accent) }
+  .p-card.pop { border: 2px solid var(--accent); box-shadow: 0 16px 48px rgba(34,211,238,0.08) }
   .pop-badge {
-    position: absolute; top: -1px; right: 24px;
-    padding: 6px 14px;
-    background: var(--cyan); color: var(--bg);
-    border-radius: 0 0 10px 10px;
-    font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    position: absolute; top: -13px; left: 28px;
+    background: var(--accent); color: #0a0a12; font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px;
   }
-  .price-name { font-size: 19px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.015em }
-  .price-desc { font-size: 14px; color: var(--ink2); line-height: 1.6; margin-bottom: 24px; min-height: 44px }
-  .price-amt { display: flex; align-items: baseline; gap: 4px; margin-bottom: 22px }
-  .price-amt .eur { font-size: 18px; color: var(--cyan); font-weight: 700 }
-  .price-amt .val { font-family: var(--serif); font-size: 56px; line-height: 1; color: var(--ink); font-weight: 400 }
-  .price-amt .per { font-size: 13px; color: var(--muted); margin-left: 6px }
-  .price-feat { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px }
-  .price-feat li { font-size: 13.5px; color: var(--ink2); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55 }
-  .price-feat li::before { content: ''; width: 14px; height: 14px; border-radius: 50%; background: rgba(34,211,238,0.15); display: inline-flex; flex-shrink: 0; margin-top: 3px; position: relative }
-  .price-feat li::after {
-    content: ''; position: absolute; width: 6px; height: 4px; border-left: 1.5px solid var(--cyan); border-bottom: 1.5px solid var(--cyan);
-    transform: rotate(-45deg); margin-left: 4px; margin-top: 7px;
-  }
-  .price-cta {
-    display: block; padding: 13px; border-radius: 100px; text-align: center;
-    background: rgba(255,255,255,0.05); border: 1px solid var(--rule-strong);
-    color: var(--ink); font-weight: 600; font-size: 14px;
-    transition: all .25s;
-  }
-  .price-cta:hover { background: var(--cyan); color: var(--bg); border-color: var(--cyan) }
-  .price-card.pop .price-cta { background: var(--cyan); color: var(--bg); border: none; font-weight: 700 }
-  .price-card.pop .price-cta:hover { background: var(--cyan-light) }
-  .price-note { text-align: center; font-size: 12px; color: var(--muted); margin-top: 12px }
+  .p-name { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; color: #fff }
+  .p-desc { font-size: 13.5px; color: var(--muted); line-height: 1.65; margin-bottom: 24px }
+  .p-price { display: flex; align-items: baseline; gap: 2px; margin-bottom: 6px }
+  .p-eur { font-size: 1rem; font-weight: 700; margin-right: 2px; color: var(--accent) }
+  .p-val { font-family: var(--serif); font-size: 2.8rem; color: #fff; line-height: 1 }
+  .p-per { font-size: 0.85rem; color: var(--muted); margin-left: 4px }
+  .sep { height: 1px; background: var(--border); margin: 22px 0 }
+  .feat { list-style: none; display: flex; flex-direction: column; gap: 10px }
+  .feat li { font-size: 13.5px; color: var(--ink2); display: flex; align-items: flex-start; gap: 10px }
+  .feat li::before { content: ''; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; margin-top: 7px; flex-shrink: 0; box-shadow: 0 0 6px rgba(34,211,238,0.4) }
+  .p-cta { display: block; text-align: center; margin-top: 24px; padding: 13px; border-radius: 100px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.3s }
+  .p-cta.ol { border: 1.5px solid rgba(255,255,255,0.12); color: var(--ink) }
+  .p-cta.ol:hover { border-color: var(--accent); color: var(--accent) }
+  .p-cta.fl { background: var(--accent); color: #0a0a12; border: none; font-weight: 700 }
+  .p-cta.fl:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,211,238,0.25) }
+  .p-note { text-align: center; font-size: 11px; color: var(--muted); margin-top: 12px }
+  .maint-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px }
 
-  /* ── TESTIMONIALS ── */
-  .testi {
-    position: relative; z-index: 2;
-    padding: 140px var(--gutter);
-    background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%);
-    border-top: 1px solid var(--rule);
+  /* ── CTA Band ── */
+  .cta-band {
+    background: linear-gradient(135deg, var(--bg3) 0%, rgba(34,211,238,0.05) 100%); border-radius: 24px; padding: 56px 52px;
+    display: flex; align-items: center; justify-content: space-between; gap: 36px; flex-wrap: wrap;
+    border: 1px solid rgba(34,211,238,0.1);
   }
-  .testi-head { max-width: 800px; margin: 0 auto 56px; text-align: center }
-  .testi-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px }
-  .testi-card {
-    padding: 36px 30px; border-radius: 20px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--rule);
-    transition: all .3s;
-    position: relative; overflow: hidden;
+  .cta-band h2 { font-family: var(--serif); font-size: 1.8rem; color: #fff; margin-bottom: 10px }
+  .cta-band p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 500px }
+  .btn-cta-accent {
+    padding: 16px 38px; background: var(--accent); border-radius: 14px;
+    color: #0a0a12; font-weight: 700; font-size: 15px; text-decoration: none;
+    transition: all 0.3s; flex-shrink: 0;
   }
-  .testi-card::before {
-    content: '\201C';
-    position: absolute; top: 0; right: 20px;
-    font-family: var(--serif); font-size: 120px; line-height: 1;
-    color: var(--cyan); opacity: 0.1;
-    pointer-events: none;
-  }
-  .testi-card:hover { border-color: var(--rule-strong); transform: translateY(-3px) }
-  .stars { color: var(--gold); font-size: 15px; letter-spacing: 3px; margin-bottom: 18px }
-  .testi-card p { font-size: 15px; line-height: 1.75; color: var(--ink2); margin-bottom: 24px; position: relative; z-index: 1 }
-  .testi-author { display: flex; align-items: center; gap: 12px }
-  .testi-avatar {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--cyan), var(--pink));
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; color: var(--bg); font-size: 16px;
-  }
-  .testi-info strong { display: block; color: var(--ink); font-size: 14px; font-weight: 600 }
-  .testi-info span { color: var(--muted); font-size: 12px }
+  .btn-cta-accent:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(34,211,238,0.3) }
 
-  /* ── CONTACT ── */
-  .contact {
-    position: relative; z-index: 2;
-    padding: 140px var(--gutter);
-    background: var(--bg);
-    border-top: 1px solid var(--rule);
-  }
-  .contact-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start }
-  .contact-left h2 { font-family: var(--sans); font-weight: 800; font-size: clamp(36px, 5vw, 64px); line-height: 1.02; letter-spacing: -0.035em; margin-bottom: 24px }
-  .contact-left h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--cyan) }
-  .contact-left p { color: var(--ink2); font-size: 17px; line-height: 1.65; max-width: 420px; margin-bottom: 36px }
-  .contact-items { display: flex; flex-direction: column; gap: 18px }
-  .contact-item { display: flex; align-items: center; gap: 16px }
-  .contact-icon { width: 46px; height: 46px; border-radius: 14px; background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0 }
-  .contact-icon svg { width: 20px; height: 20px; stroke: var(--cyan); fill: none; stroke-width: 1.8; stroke-linecap: round }
-  .contact-text strong { display: block; color: var(--ink); font-size: 14px; margin-bottom: 2px; font-weight: 600 }
-  .contact-text span { color: var(--ink2); font-size: 14px }
+  /* ── Testimonials ── */
+  .test-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px }
+  .t-card { background: var(--bg2); border-radius: var(--radius); padding: 36px; transition: all 0.3s; border: 1px solid var(--border); position: relative; overflow: hidden }
+  .t-card::before { content: '\201C'; position: absolute; top: 12px; right: 20px; font-size: 6rem; font-family: Georgia, serif; color: var(--accent); opacity: 0.08; line-height: 1; pointer-events: none }
+  .t-card:hover { border-color: rgba(34,211,238,0.2); transform: translateY(-3px); box-shadow: 0 16px 48px rgba(0,0,0,0.2) }
+  .t-stars { color: var(--accent2); font-size: 16px; margin-bottom: 18px; letter-spacing: 2px }
+  .t-card p { font-size: 15px; color: var(--ink2); line-height: 1.8; margin-bottom: 24px }
+  .t-author { display: flex; align-items: center; gap: 12px }
+  .t-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: var(--accent); border: 1px solid rgba(34,211,238,0.15) }
+  .t-info strong { display: block; font-size: 14px; color: #fff }
+  .t-info span { color: var(--muted); font-size: 12px }
 
-  form.contact-form { display: flex; flex-direction: column; gap: 14px }
+  /* ── Process ── */
+  .proc-section { background: var(--bg2) }
+  .proc-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative }
+  .proc-row::before { content: ''; position: absolute; top: 48px; left: 15%; right: 15%; height: 2px; background: linear-gradient(90deg, transparent, rgba(34,211,238,0.15), rgba(34,211,238,0.15), transparent); border-radius: 2px }
+  .proc-step { padding: 40px 28px; text-align: center; position: relative }
+  .proc-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.15); display: flex; align-items: center; justify-content: center; margin-bottom: 16px }
+  .proc-step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: #fff }
+  .proc-step p { font-size: 13.5px; color: var(--muted); line-height: 1.7 }
+
+  /* ── Contact ── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start }
+  .c-left h2 { font-family: var(--serif); font-size: 2rem; margin-bottom: 16px; color: #fff }
+  .c-left > p { color: var(--muted); line-height: 1.8; margin-bottom: 36px }
+  .c-items { display: flex; flex-direction: column; gap: 18px }
+  .c-item { display: flex; align-items: center; gap: 14px }
+  .c-icon { width: 46px; height: 46px; border-radius: 12px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(34,211,238,0.1) }
+  .c-icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round }
+  .c-text { font-size: 14px; color: var(--muted) }
+  .c-text strong { display: block; color: #fff; margin-bottom: 2px }
+  form { display: flex; flex-direction: column; gap: 14px }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px }
-  form input, form select, form textarea {
-    width: 100%; padding: 16px 20px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--rule);
-    border-radius: 14px;
-    color: var(--ink); font-size: 15px; font-family: inherit;
-    transition: all .25s; outline: none;
+  input, select, textarea {
+    width: 100%; padding: 14px 18px; background: var(--bg2);
+    border: 1.5px solid rgba(255,255,255,0.08); border-radius: 12px;
+    color: var(--ink); font-size: 14px; font-family: inherit;
+    transition: all 0.3s; outline: none;
   }
-  form input:focus, form select:focus, form textarea:focus { border-color: var(--cyan); background: rgba(34,211,238,0.05); box-shadow: 0 0 0 4px rgba(34,211,238,0.1) }
-  form input::placeholder, form textarea::placeholder { color: var(--muted) }
-  form select { color: var(--ink); cursor: pointer }
-  form select option { background: var(--bg2); color: var(--ink) }
-  form textarea { resize: vertical; min-height: 120px; line-height: 1.55 }
-  .form-submit {
-    padding: 17px 24px; border-radius: 100px; border: none;
-    background: var(--cyan); color: var(--bg);
-    font-weight: 700; font-size: 15px; font-family: inherit;
-    cursor: pointer; transition: all .3s;
-    display: inline-flex; align-items: center; gap: 10px; justify-content: center;
-    box-shadow: 0 8px 24px rgba(34,211,238,0.25);
+  input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow) }
+  input::placeholder, textarea::placeholder { color: #555 }
+  select { color: var(--muted) }
+  textarea { resize: vertical; min-height: 120px }
+  .btn-submit {
+    padding: 16px; background: var(--accent); border: none; border-radius: 100px;
+    color: #0a0a12; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: inherit;
   }
-  .form-submit:hover { background: var(--cyan-light); transform: translateY(-1px); box-shadow: 0 12px 32px rgba(34,211,238,0.35) }
+  .btn-submit:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,211,238,0.3) }
 
-  /* ── FOOTER ── */
-  footer {
-    position: relative; z-index: 2;
-    padding: 80px var(--gutter) 32px;
-    background: #050508;
-    border-top: 1px solid var(--rule);
-  }
-  .footer-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--rule) }
-  .f-brand .f-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px }
-  .f-brand .f-logo svg { height: 32px }
-  .f-brand .f-logo span { font-size: 17px; letter-spacing: 0.18em; font-weight: 300; color: var(--ink) }
-  .f-brand .f-logo span b { font-weight: 800; color: var(--cyan) }
-  .f-brand p { font-size: 14px; color: var(--ink2); line-height: 1.65; max-width: 340px }
-  .f-col h4 { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cyan); margin-bottom: 18px }
-  .f-col a { display: block; color: var(--ink2); font-size: 14px; padding: 5px 0; transition: color .2s }
-  .f-col a:hover { color: var(--cyan-light) }
-  .footer-bottom {
-    max-width: 1240px; margin: 32px auto 0;
-    display: flex; justify-content: space-between; align-items: center; gap: 24px;
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
-  }
-
-  /* ── Reveal ── */
-  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .9s var(--ease), transform .9s var(--ease) }
-  .reveal.visible { opacity: 1; transform: none }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none }
-    .mockup, body::after { animation: none; transition: none }
-  }
-
-  /* ── Mobile menu ── */
-  .mobile-menu {
-    position: fixed; inset: 64px 0 0 0; z-index: 99;
-    background: rgba(7,7,11,0.98);
-    backdrop-filter: blur(20px);
-    padding: 32px var(--gutter);
-    display: none; flex-direction: column; gap: 4px;
-    border-top: 1px solid var(--rule);
-  }
-  .mobile-menu.open { display: flex }
-  .mobile-menu a { font-size: 22px; font-weight: 600; padding: 14px 0; border-bottom: 1px solid var(--rule); color: var(--ink) }
-  .mobile-menu a:last-child { border: 0; margin-top: 16px; background: var(--cyan); color: var(--bg); padding: 14px 24px; border-radius: 100px; text-align: center; font-size: 15px }
+  /* ── Footer ── */
+  footer { background: #060610; color: rgba(255,255,255,0.4); padding: 64px 48px 32px; border-top: 1px solid var(--border) }
+  .f-inner { max-width: 1140px; margin: 0 auto }
+  .f-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px }
+  .f-brand span { font-size: 20px; letter-spacing: 4px; font-weight: 300; color: rgba(255,255,255,0.9) }
+  .f-brand b { font-weight: 900; color: var(--accent) }
+  .f-brand p { font-size: 13.5px; line-height: 1.7; margin-top: 14px; max-width: 260px }
+  .f-col h4 { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 18px; letter-spacing: 0.5px }
+  .f-col a { display: block; font-size: 13.5px; color: rgba(255,255,255,0.35); text-decoration: none; margin-bottom: 10px; transition: color 0.2s }
+  .f-col a:hover { color: var(--accent) }
+  .f-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px }
+  .f-bottom p { font-size: 13px }
+  .f-bottom span { color: var(--accent) }
 
   /* ── Responsive ── */
   @media (max-width: 1024px) {
-    .proj-inner, .proj.reverse .proj-inner { grid-template-columns: 1fr; gap: 48px }
-    .proj.reverse .proj-text, .proj.reverse .proj-visual { order: unset }
-    .contact-grid { grid-template-columns: 1fr; gap: 48px }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px }
-    .srv-grid, .price-grid, .testi-grid { grid-template-columns: 1fr 1fr }
-    .process-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px }
-    .process-grid::before { display: none }
+    .srv-row { grid-template-columns: 1fr; gap: 32px }
+    .srv-row.reverse .srv-info, .srv-row.reverse .srv-visual { order: unset }
   }
   @media (max-width: 768px) {
-    header { padding: 14px 20px; grid-template-columns: auto 1fr auto }
-    .h-left { display: none }
-    .h-right .nav { display: none }
-    .menu-btn { display: inline-flex }
-    .h-cta { padding: 8px 16px; font-size: 12px }
-    .h-logo span { font-size: 14px }
-    .hero { padding: 100px 20px 60px; min-height: 0 }
-    .hero h1 { font-size: 44px }
-    .hero-lede { font-size: 16px }
-    .hero-trust { gap: 16px; font-size: 10px }
-    .pf-intro { padding: 80px 20px 32px }
-    .pf-intro h2 { font-size: 38px }
-    .proj { padding: 64px 20px }
-    .proj h3 { font-size: 48px }
-    .proj-stats { grid-template-columns: 1fr 1fr; gap: 20px }
-    .services, .process, .pricing, .testi, .contact { padding: 80px 20px }
-    .stitle { font-size: 34px }
-    .srv-grid, .price-grid, .testi-grid { grid-template-columns: 1fr }
-    .process-grid { grid-template-columns: 1fr; gap: 28px }
-    .form-row { grid-template-columns: 1fr; gap: 14px }
-    .footer-grid { grid-template-columns: 1fr; gap: 28px }
-    .footer-bottom { flex-direction: column; gap: 8px; text-align: center }
-    .mockup-bar .url { max-width: 200px; font-size: 9px }
-    .testi-card::before { font-size: 80px }
+    header { padding: 0 20px }
+    nav { display: none }
+    .menu-btn { display: block }
+    section { padding: 72px 20px }
+    .hero { padding: 80px 20px 40px }
+    .hero h1 { font-size: clamp(2.4rem, 8vw, 3.5rem) }
+    .hero-ring, .hero-ring2 { display: none }
+    .hero-stats { gap: 28px }
+    .why-strip { grid-template-columns: 1fr }
+    .proc-row { grid-template-columns: 1fr 1fr }
+    .proc-step::after { display: none }
+    .contact-grid { grid-template-columns: 1fr }
+    .form-row { grid-template-columns: 1fr }
+    .f-grid { grid-template-columns: 1fr 1fr }
+    .cta-band { padding: 40px 24px }
+  }
+  @media (max-width: 480px) {
+    .f-grid { grid-template-columns: 1fr }
+    .proc-row { grid-template-columns: 1fr }
+    .hero-btns { flex-direction: column; align-items: center }
+    .hero-stats { flex-direction: column; gap: 16px }
   }
 
-  @media (max-width: 480px) {
-    .hero h1 { font-size: 38px }
-    .proj h3 { font-size: 40px }
-    .stitle { font-size: 30px }
-  }
+  /* ── Reveal ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease }
+  .reveal.visible { opacity: 1; transform: none }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="h-left">
-    <span class="h-dot"></span>
-    <span class="h-tag">Disponible · Devis sous 24h</span>
-  </div>
-  <a href="#" class="h-logo">
-    <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="#" class="logo">
+    <svg viewBox="0 0 50 50" style="height:36px" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f472b6"/><stop offset="50%" stop-color="#fb923c"/><stop offset="100%" stop-color="#f472b6"/></linearGradient>
-        <radialGradient id="glow" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="rgba(103,232,249,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+        <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#67e8f9"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient>
+        <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#e879a8"/><stop offset="50%" stop-color="#f59e6b"/><stop offset="100%" stop-color="#e879a8"/></linearGradient>
+        <radialGradient id="glow" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="rgba(103,232,249,0.25)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
       </defs>
-      <circle cx="25" cy="25" r="21" fill="none" stroke="url(#ring-grad)" stroke-width="1.5" opacity="0.75"/>
-      <circle cx="25" cy="25" r="18" fill="#07070b"/>
+      <circle cx="25" cy="25" r="21" fill="none" stroke="url(#ring-grad)" stroke-width="1.5" opacity="0.7"/>
+      <circle cx="25" cy="25" r="18" fill="#0a0a12"/>
       <ellipse cx="25" cy="25" rx="18" ry="18" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.4"/>
       <ellipse cx="25" cy="25" rx="14" ry="18" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="0.4"/>
       <ellipse cx="25" cy="25" rx="9" ry="18" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.4"/>
+      <ellipse cx="25" cy="25" rx="4" ry="18" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.4"/>
       <line x1="7" y1="25" x2="43" y2="25" stroke="rgba(255,255,255,0.15)" stroke-width="0.4"/>
       <line x1="9" y1="18" x2="41" y2="18" stroke="rgba(255,255,255,0.1)" stroke-width="0.4"/>
       <line x1="9" y1="32" x2="41" y2="32" stroke="rgba(255,255,255,0.1)" stroke-width="0.4"/>
+      <line x1="12" y1="13" x2="38" y2="13" stroke="rgba(255,255,255,0.06)" stroke-width="0.4"/>
+      <line x1="12" y1="37" x2="38" y2="37" stroke="rgba(255,255,255,0.06)" stroke-width="0.4"/>
       <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="#1a1a2e" stroke-width="2.5" transform="rotate(-25 25 25)"/>
       <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.6" transform="rotate(-25 25 25)"/>
       <circle cx="25" cy="24" r="8" fill="url(#glow)"/>
-      <text x="25" y="30" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle">C</text>
+      <text x="25" y="30" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle" opacity="0.95">C</text>
     </svg>
     <span>CRE<b>OPUS</b></span>
   </a>
   <div class="h-right">
-    <nav class="nav">
-      <a href="#travaux">Travaux</a>
-      <a href="#services">Services</a>
-      <a href="#tarifs">Tarifs</a>
-    </nav>
     <a href="#contact" class="h-cta">Devis gratuit</a>
-    <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">Menu</button>
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="12" x2="19" y2="12"/><line x1="3" y1="18" x2="19" y2="18"/></svg>
+    </button>
   </div>
 </header>
 
-<nav class="mobile-menu" id="mobileMenu">
-  <a href="#travaux" onclick="toggleMenu()">Travaux</a>
-  <a href="#services" onclick="toggleMenu()">Services</a>
-  <a href="#tarifs" onclick="toggleMenu()">Tarifs</a>
-  <a href="#process" onclick="toggleMenu()">Process</a>
-  <a href="#contact" onclick="toggleMenu()">Devis gratuit</a>
-</nav>
-
 <!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-eyebrow">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-    Agence Web · Belgique · Depuis 2024
+  <div class="hero-blob"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring2"></div>
+
+  <div class="hero-tag"><span class="dot"></span>Agence Web & Design</div>
+  <h1>Nous créons des sites<br>qui <em>convertissent</em></h1>
+  <p class="hero-p">Sites professionnels, logos et identités visuelles sur-mesure pour artisans, indépendants et e-commerces. Livraison rapide, zéro template.</p>
+  <div class="hero-btns">
+    <a href="#tarifs" class="btn-fill">Voir les offres</a>
+    <a href="#contact" class="btn-ghost">Devis gratuit &rarr;</a>
   </div>
-  <h1>Sites web qui <em>convertissent</em><br>pour les marques qui osent.</h1>
-  <p class="hero-lede">On crée des sites vitrines, des boutiques en ligne et des identités visuelles sur-mesure. Conçus, dessinés, codés à la main par une équipe humaine en Belgique.</p>
-  <div class="hero-cta">
-    <a href="#contact" class="btn-primary">Démarrer un projet <span>→</span></a>
-    <a href="#travaux" class="btn-secondary">Voir les travaux ↓</a>
-  </div>
-  <div class="hero-trust">
-    <span>3 projets livrés en 2026</span>
-    <span>Note moyenne 5/5</span>
-    <span>Livraison dès 5 jours</span>
-    <span>Sans engagement</span>
+  <div class="hero-stats">
+    <div class="h-stat"><div class="h-stat-n">5j</div><div class="h-stat-l">Livraison min.</div></div>
+    <div class="h-stat"><div class="h-stat-n">100%</div><div class="h-stat-l">Sur-mesure</div></div>
+    <div class="h-stat"><div class="h-stat-n">5/5</div><div class="h-stat-l">Satisfaction</div></div>
   </div>
 </section>
 
-<!-- ── PORTFOLIO INTRO ── -->
-<section class="pf-intro reveal" id="travaux">
-  <div class="pf-intro-eyebrow">Nos réalisations</div>
-  <h2>Trois projets,<br><em>trois mondes.</em></h2>
-  <p>Une boutique mode multi-marques, un comparateur de prix pour les animaux, et une marque tendre pour les tout-petits. Mêmes exigences, trois langages.</p>
-</section>
-
-<!-- ── PROJET 1 — DELVALE ── -->
-<section class="proj proj-delvale">
-  <div class="proj-inner">
-    <div class="proj-text reveal">
-      <div class="proj-folio">Travail Nº 1 <span class="pf-bar"></span> <b>Delvale</b></div>
-      <h3>Delvale</h3>
-      <span class="proj-cat">E-commerce mode multi-marques</span>
-      <p>Une boutique en ligne pour Lui et pour Elle, qui réunit les plus grandes maisons. Direction artistique noir & rouge, navigation par marque, panier optimisé conversion.</p>
-      <div class="proj-stats">
-        <div>
-          <div class="proj-stat-n">15+</div>
-          <div class="proj-stat-l">Marques</div>
-        </div>
-        <div>
-          <div class="proj-stat-n">500+</div>
-          <div class="proj-stat-l">Produits</div>
-        </div>
-        <div>
-          <div class="proj-stat-n">FR · NL · DE</div>
-          <div class="proj-stat-l">Langues</div>
-        </div>
-      </div>
-      <div class="proj-brands">
-        <span>Karl Lagerfeld</span><span>EA7</span><span>Calvin Klein</span><span>Tommy Hilfiger</span><span>Guess</span><span>LIU JO</span><span>New Balance</span><span>& plus…</span>
-      </div>
-      <a href="https://delvale.com" target="_blank" rel="noopener" class="proj-cta">Visiter Delvale <span>↗</span></a>
-    </div>
-    <div class="proj-visual reveal">
-      <div class="mockup">
-        <div class="mockup-bar">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="url">delvale.com</span>
-        </div>
-        <!-- Recréation fidèle du hero Delvale (split Femme/Homme + carte centrale) -->
-        <div class="dv-mock">
-          <div class="dv-nav">
-            <div class="dv-logo">D<span class="dv-logo-red">EL</span><span class="dv-logo-vale">vale</span></div>
-            <div class="dv-tabs">
-              <span class="dv-tab">Femme</span>
-              <span class="dv-tab dv-tab-active">Homme</span>
-            </div>
-            <div class="dv-icons">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 002 1.6h9.7a2 2 0 002-1.6L23 6H6"/></svg>
-            </div>
-          </div>
-          <div class="dv-split">
-            <div class="dv-half dv-femme"></div>
-            <div class="dv-half dv-homme"></div>
-            <div class="dv-card">
-              <div class="dv-card-eyebrow">— AUTHENTICITÉ GARANTIE —</div>
-              <div class="dv-card-title"><em>L'art du vestiaire</em></div>
-              <div class="dv-card-desc">Les pièces signatures des plus grandes maisons, sélectionnées avec soin pour Lui comme pour Elle.</div>
-            </div>
-            <div class="dv-tag dv-tag-left">VESTIAIRE — POUR ELLE</div>
-            <div class="dv-tag dv-tag-right">VESTIAIRE — POUR LUI</div>
-          </div>
-        </div>
-        <div class="mockup-glow"></div>
-      </div>
-    </div>
+<!-- ── MARQUEE ── -->
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    <span>SHOPIFY</span><span>WORDPRESS</span><span>FIGMA</span><span>REACT</span><span>STRIPE</span><span>GOOGLE ADS</span><span>ANALYTICS</span><span>NEXT.JS</span><span>TAILWIND</span><span>NODE.JS</span>
+    <span>SHOPIFY</span><span>WORDPRESS</span><span>FIGMA</span><span>REACT</span><span>STRIPE</span><span>GOOGLE ADS</span><span>ANALYTICS</span><span>NEXT.JS</span><span>TAILWIND</span><span>NODE.JS</span>
   </div>
-</section>
-
-<!-- ── PROJET 2 — PETSCOMPARE ── -->
-<section class="proj proj-pets reverse">
-  <div class="proj-inner">
-    <div class="proj-visual reveal">
-      <div class="mockup">
-        <div class="mockup-bar">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="url">petscompare.fr</span>
-        </div>
-        <img src="https://image.thum.io/get/width/1600/crop/900/noanimate/https://www.petscompare.fr" alt="Capture du site Petscompare" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#0a1a14,#0a3a24)';this.removeAttribute('src')">
-        <div class="mockup-glow"></div>
-      </div>
-    </div>
-    <div class="proj-text reveal">
-      <div class="proj-folio">Travail Nº 2 <span class="pf-bar"></span> <b>Petscompare</b></div>
-      <h3>Petscompare</h3>
-      <span class="proj-cat">Comparateur de prix éditorial</span>
-      <p>Treize mille produits passés au crible chaque matin sur huit boutiques européennes. Conçu comme un quotidien typographique, qui donne envie de lire un comparateur de prix.</p>
-      <div class="proj-stats">
-        <div>
-          <div class="proj-stat-n">13 094</div>
-          <div class="proj-stat-l">Produits / jour</div>
-        </div>
-        <div>
-          <div class="proj-stat-n">8</div>
-          <div class="proj-stat-l">Boutiques</div>
-        </div>
-        <div>
-          <div class="proj-stat-n">2 975 €</div>
-          <div class="proj-stat-l">Économies / jour</div>
-        </div>
-      </div>
-      <a href="https://www.petscompare.fr" target="_blank" rel="noopener" class="proj-cta">Visiter Petscompare <span>↗</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ── PROJET 3 — DELVABLUE ── -->
-<section class="proj proj-blue">
-  <div class="proj-inner">
-    <div class="proj-text reveal">
-      <div class="proj-folio">Travail Nº 3 <span class="pf-bar"></span> <b>Delvablue</b></div>
-      <h3>Delvablue</h3>
-      <span class="proj-cat">Magasin de jouets · Tout-petits</span>
-      <p>Une boutique chaleureuse pour les tout-petits — doudous, peluches, premiers jouets — dans des bleus doux et des beiges tendres. Pensée pour donner envie d'offrir, dès la première page.</p>
-      <div class="proj-stats">
-        <div>
-          <div class="proj-stat-n">2026</div>
-          <div class="proj-stat-l">Sortie</div>
-        </div>
-        <div>
-          <div class="proj-stat-n">0—3 ans</div>
-          <div class="proj-stat-l">Cible</div>
-        </div>
-        <div>
-          <div class="proj-stat-n">Shopify</div>
-          <div class="proj-stat-l">Stack</div>
-        </div>
-      </div>
-      <a class="proj-cta">En préparation</a>
-    </div>
-    <div class="proj-visual reveal">
-      <div class="mockup">
-        <div class="mockup-bar">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="url">delvablue.com</span>
-        </div>
-        <!-- Recréation fidèle du hero Delvablue -->
-        <div class="db-mock">
-          <div class="db-promo">🚛 Livraison offerte dès 49€</div>
-          <div class="db-nav">
-            <div class="db-brand">
-              <div class="db-smile">
-                <span class="db-eye"></span><span class="db-eye"></span>
-                <span class="db-mouth"></span>
-              </div>
-              <span class="db-name">DelvaBlue</span>
-            </div>
-            <div class="db-icons">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-            </div>
-          </div>
-          <div class="db-hero">
-            <div class="db-img-wrap">
-              <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=900&h=900&fit=crop&q=80" alt="Doudous">
-            </div>
-            <div class="db-text">
-              <div class="db-eyebrow">— POUR LES TOUT-PETITS —</div>
-              <h2 class="db-title">Le doudou<br>qu'ils vont<br><em>adorer</em></h2>
-              <div class="db-cta">Découvrir →</div>
-            </div>
-          </div>
-        </div>
-        <div class="mockup-overlay">
-          <span class="badge">Bientôt en ligne</span>
-          <span class="label">Mise en ligne courant 2026</span>
-        </div>
-        <div class="mockup-glow"></div>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- ── SERVICES ── -->
-<section class="services" id="services">
-  <div class="services-head reveal">
-    <div class="stag">Nos expertises</div>
-    <h2 class="stitle">Tout ce dont vous avez<br>besoin <em>en un seul endroit.</em></h2>
-    <p class="ssub">Du site vitrine au e-commerce complet, en passant par votre logo et l'identité de votre marque.</p>
-  </div>
-  <div class="srv-grid">
-    <div class="srv-card reveal">
-      <div class="srv-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 4v0M11 4v0M14 4v0"/></svg></div>
-      <h3>Sites vitrines</h3>
-      <p>Landing pages et sites multi-pages pour présenter votre activité et générer des contacts qualifiés. Design unique, responsive, SEO intégré.</p>
-      <span class="price">Dès 499€</span>
+<section id="services" class="srv-section">
+  <div class="container">
+    <div class="shead reveal">
+      <div class="stag">Ce qu'on fait</div>
+      <h2 class="stitle">Nos expertises</h2>
+      <p class="ssub">Du site vitrine au e-commerce complet, en passant par votre identité visuelle.</p>
     </div>
-    <div class="srv-card reveal">
-      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg></div>
-      <h3>Boutiques e-commerce</h3>
-      <p>Boutiques en ligne prêtes à vendre. Paiement sécurisé, gestion des stocks, multi-langues, design optimisé pour la conversion.</p>
-      <span class="price">Dès 1 299€</span>
-    </div>
-    <div class="srv-card reveal">
-      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
-      <h3>Logo & identité visuelle</h3>
-      <p>Logo, charte graphique, supports de communication. Pour une image cohérente sur tous vos canaux, du web au print.</p>
-      <span class="price">Dès 149€</span>
-    </div>
-    <div class="srv-card reveal">
-      <div class="srv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></div>
-      <h3>Maintenance & support</h3>
-      <p>Suivi régulier, mises à jour, sauvegardes et interventions rapides pour que votre site reste performant et sécurisé toute l'année.</p>
-      <span class="price">Dès 39€/mois</span>
-    </div>
-  </div>
-</section>
-
-<!-- ── PROCESS ── -->
-<section class="process" id="process">
-  <div class="process-head reveal">
-    <div class="stag">Comment ça marche</div>
-    <h2 class="stitle">Un process clair,<br><em>quatre étapes.</em></h2>
-    <p class="ssub">De votre idée à la mise en ligne, on vous accompagne à chaque étape avec des délais respectés.</p>
-  </div>
-  <div class="process-grid">
-    <div class="proc-step reveal">
-      <div class="proc-num">01</div>
-      <h3>Brief &amp; devis</h3>
-      <p>On échange sur votre projet, vos objectifs, votre budget. Devis détaillé sous 24h.</p>
-    </div>
-    <div class="proc-step reveal">
-      <div class="proc-num">02</div>
-      <h3>Design &amp; maquette</h3>
-      <p>Maquette visuelle à valider avant tout développement. Aucune surprise.</p>
-    </div>
-    <div class="proc-step reveal">
-      <div class="proc-num">03</div>
-      <h3>Développement</h3>
-      <p>Code propre, responsive, optimisé SEO. Vous suivez l'avancement sur un lien dédié.</p>
-    </div>
-    <div class="proc-step reveal">
-      <div class="proc-num">04</div>
-      <h3>Livraison &amp; suivi</h3>
-      <p>Mise en ligne, formation à l'utilisation, support post-livraison inclus 30 jours.</p>
+    <div class="srv-list">
+      <div class="srv-row reveal">
+        <div class="srv-info">
+          <h3>Sites Vitrines</h3>
+          <p>Landing pages et sites multi-pages pour présenter votre activité et générer des contacts qualifiés. Design unique, responsive, SEO intégré.</p>
+          <div class="srv-price">Dès 499 &euro;</div>
+        </div>
+        <div class="srv-visual">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+      </div>
+      <div class="srv-row reverse reveal">
+        <div class="srv-info">
+          <h3>E-commerce</h3>
+          <p>Boutiques en ligne prêtes à vendre avec paiement sécurisé, gestion des stocks et design optimisé pour la conversion.</p>
+          <div class="srv-price">Dès 1 299 &euro;</div>
+        </div>
+        <div class="srv-visual">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        </div>
+      </div>
+      <div class="srv-row reveal">
+        <div class="srv-info">
+          <h3>Logo & Identité Visuelle</h3>
+          <p>Création de logo, charte graphique et supports de communication pour une image professionnelle et cohérente.</p>
+          <div class="srv-price">Dès 149 &euro;</div>
+        </div>
+        <div class="srv-visual">
+          <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        </div>
+      </div>
+      <div class="srv-row reverse reveal">
+        <div class="srv-info">
+          <h3>Maintenance & Support</h3>
+          <p>Suivi régulier, mises à jour, sauvegardes et interventions rapides pour que votre site reste performant et sécurisé.</p>
+          <div class="srv-price">Dès 39 &euro;/mois</div>
+        </div>
+        <div class="srv-visual">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── PRICING ── -->
-<section class="pricing" id="tarifs">
-  <div class="pricing-head reveal">
-    <div class="stag">Tarifs clairs</div>
-    <h2 class="stitle">Des offres pour <em>chaque besoin.</em></h2>
-    <p class="ssub">Pas de surprise. Des prix fixes, un périmètre défini, une livraison dans les délais.</p>
+<!-- ── WHY US ── -->
+<div class="why-strip">
+  <div class="why-cell reveal">
+    <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+    <h3>Design sur-mesure, zéro template</h3>
+    <p>Chaque site est conçu de zéro pour votre marque. Pas de thème générique.</p>
   </div>
-  <div class="tabs reveal">
-    <button class="tab-btn active" data-tab="sites" onclick="switchTab('sites',this)">Sites web</button>
-    <button class="tab-btn" data-tab="commerce" onclick="switchTab('commerce',this)">Commerce + Web</button>
-    <button class="tab-btn" data-tab="logos" onclick="switchTab('logos',this)">Logo &amp; identité</button>
-    <button class="tab-btn" data-tab="maintenance" onclick="switchTab('maintenance',this)">Maintenance</button>
+  <div class="why-cell reveal">
+    <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+    <h3>Optimisé pour convertir</h3>
+    <p>Structure et appels à l'action pensés pour transformer vos visiteurs en clients.</p>
   </div>
+  <div class="why-cell reveal">
+    <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+    <h3>Livraison rapide & prix fixe</h3>
+    <p>Un devis clair dès le départ, aucune surprise. Votre site en ligne dans les délais.</p>
+  </div>
+</div>
 
-  <div id="tab-sites" class="tab-panel active">
-    <div class="price-grid">
-      <div class="price-card">
-        <div class="price-name">Landing Page</div>
-        <div class="price-desc">Idéal pour lancer une offre ou tester un concept. Une page, un objectif.</div>
-        <div class="price-amt"><span class="eur">€</span><span class="val">499</span></div>
-        <ul class="price-feat">
-          <li>Page unique optimisée conversion</li>
-          <li>Design unique à votre image</li>
-          <li>Formulaire de contact intégré</li>
-          <li>Adapté mobile, tablette &amp; desktop</li>
-          <li>Mise en ligne &amp; formation incluses</li>
-          <li>Livraison en 5—7 jours</li>
-        </ul>
-        <a href="#contact" class="price-cta">Choisir →</a>
-        <div class="price-note">Paiement en 2× possible</div>
-      </div>
-      <div class="price-card pop">
-        <div class="pop-badge">Populaire</div>
-        <div class="price-name">Vitrine Essentiel</div>
-        <div class="price-desc">Votre carte de visite en ligne. Parfait pour être trouvé sur Google.</div>
-        <div class="price-amt"><span class="eur">€</span><span class="val">899</span></div>
-        <ul class="price-feat">
-          <li>Jusqu'à 6 pages sur-mesure</li>
-          <li>Design professionnel unique</li>
-          <li>Blog intégré (optionnel)</li>
-          <li>Formulaire de contact &amp; Google Maps</li>
-          <li>Référencement Google configuré</li>
-          <li>Livraison en 10—15 jours</li>
-        </ul>
-        <a href="#contact" class="price-cta">Choisir →</a>
-        <div class="price-note">Paiement en 2× possible</div>
-      </div>
-      <div class="price-card">
-        <div class="price-name">Vitrine Premium</div>
-        <div class="price-desc">Le site qui vous démarque. Animations, SEO avancé et espace admin.</div>
-        <div class="price-amt"><span class="eur">€</span><span class="val">1 499</span></div>
-        <ul class="price-feat">
-          <li>Jusqu'à 10 pages sur-mesure</li>
-          <li>Animations &amp; effets visuels premium</li>
-          <li>Interface admin simple (sans coder)</li>
-          <li>SEO avancé + Google Search Console</li>
-          <li>Formation à l'utilisation (30 min)</li>
-          <li>Livraison en 3—4 semaines</li>
-        </ul>
-        <a href="#contact" class="price-cta">Choisir →</a>
-        <div class="price-note">Satisfait ou remboursé · Paiement en 3×</div>
-      </div>
-      <div class="price-card">
-        <div class="price-name">E-commerce Starter</div>
-        <div class="price-desc">Votre première boutique en ligne, prête à vendre dès la livraison.</div>
-        <div class="price-amt"><span class="eur">€</span><span class="val">1 299</span></div>
-        <ul class="price-feat">
-          <li>20 produits configurés</li>
-          <li>Paiement sécurisé (Stripe / PayPal)</li>
-          <li>Gestion des stocks automatisée</li>
-          <li>Design adapté à votre marque</li>
-          <li>Emails de confirmation automatiques</li>
-          <li>Livraison en 2—3 semaines</li>
-        </ul>
-        <a href="#contact" class="price-cta">Choisir →</a>
-        <div class="price-note">Paiement en 2× possible</div>
-      </div>
-      <div class="price-card">
-        <div class="price-name">E-commerce Pro</div>
-        <div class="price-desc">Une boutique complète pour développer votre business en ligne.</div>
-        <div class="price-amt"><span class="eur">€</span><span class="val">2 499</span></div>
-        <ul class="price-feat">
-          <li>8 pages + catalogue 50 produits</li>
-          <li>Paiement sécurisé multi-options</li>
-          <li>Avis clients &amp; notation</li>
-          <li>Emails automatiques (confirmation, suivi, relance)</li>
-          <li>Intégration réseaux sociaux</li>
-          <li>Formation (1h) · Livraison en 3—4 semaines</li>
-        </ul>
-        <a href="#contact" class="price-cta">Choisir →</a>
-        <div class="price-note">Paiement en 3× possible</div>
-      </div>
-      <div class="price-card">
-        <div class="price-name">E-commerce Premium</div>
-        <div class="price-desc">La solution ultime. Zéro limite, performances maximales.</div>
-        <div class="price-amt"><span class="eur">€</span><span class="val">3 999</span></div>
-        <ul class="price-feat">
-          <li>Catalogue produits illimité</li>
-          <li>Multi-devises &amp; multi-langues</li>
-          <li>Programme fidélité &amp; codes promo</li>
-          <li>Tableau de bord analytics</li>
-          <li>SEO e-commerce avancé</li>
-          <li>Formation complète (2h) + support 30j</li>
-        </ul>
-        <a href="#contact" class="price-cta">Choisir →</a>
-        <div class="price-note">Satisfait ou remboursé · Paiement en 4×</div>
+<!-- ── TARIFS ── -->
+<section id="tarifs">
+  <div class="container">
+    <div class="shead reveal">
+      <div class="stag">Tarifs clairs</div>
+      <h2 class="stitle">Des offres pour chaque besoin</h2>
+      <p class="ssub">Pas de surprise. Des prix fixes, un périmètre défini, une livraison dans les délais.</p>
+    </div>
+    <div class="tabs-wrap reveal">
+      <button class="tab-btn active" onclick="switchTab('sites',this)">Sites Web</button>
+      <button class="tab-btn" onclick="switchTab('commerce',this)">Commerce + Web</button>
+      <button class="tab-btn" onclick="switchTab('logos',this)">Logo & Identité</button>
+      <button class="tab-btn" onclick="switchTab('maintenance',this)">Maintenance</button>
+    </div>
+
+    <div id="tab-sites" class="tab-panel active">
+      <div class="cards-grid">
+        <div class="p-card reveal">
+          <div class="p-name">Landing Page</div>
+          <div class="p-desc">Idéal pour lancer une offre ou tester un concept. Une page, un objectif : convertir.</div>
+          <div class="p-price"><span class="p-eur">&euro;</span><span class="p-val">499</span></div>
+          <div class="sep"></div>
+          <ul class="feat"><li>Page unique optimisée conversion</li><li>Design unique à votre image</li><li>Formulaire de contact intégré</li><li>Adapté mobile, tablette & desktop</li><li>Mise en ligne & formation incluses</li><li>Livraison en 5-7 jours</li></ul>
+          <a href="#contact" class="p-cta ol">Choisir &rarr;</a>
+          <div class="p-note">Paiement en 2x possible</div>
+        </div>
+        <div class="p-card reveal">
+          <div class="p-name">Vitrine Essentiel</div>
+          <div class="p-desc">Votre carte de visite en ligne. Parfait pour être trouvé sur Google.</div>
+          <div class="p-price"><span class="p-eur">&euro;</span><span class="p-val">899</span></div>
+          <div class="sep"></div>
+          <ul class="feat"><li>Jusqu'à 6 pages sur-mesure</li><li>Design professionnel unique</li><li>Blog intégré (optionnel)</li><li>Formulaire de contact & Google Maps</li><li>Référencement Google configuré</li><li>Livraison en 10-15 jours</li></ul>
+          <a href="#contact" class="p-cta ol">Choisir &rarr;</a>
+          <div class="p-note">Paiement en 2x possible</div>
+        </div>
+        <div class="p-card pop reveal">
+          <div class="pop-badge">POPULAIRE</div>
+          <div class="p-name">Vitrine Premium</div>
+          <div class="p-desc">Le site qui vous démarque. Animations, SEO avancé et espace admin.</div>
+          <div class="p-price"><span class="p-eur">&euro;</span><span class="p-val">1 499</span></div>
+          <div class="sep"></div>
+          <ul class="feat"><li>Jusqu'à 10 pages sur-mesure</li><li>Animations & effets visuels premium</li><li>Interface admin simple (sans coder)</li><li>SEO avancé + Google Search Console</li><li>Formulaires avancés</li><li>Formation à l'utilisation (30 min)</li><li>Livraison en 3-4 semaines</li></ul>
+          <a href="#contact" class="p-cta fl">Choisir &rarr;</a>
+          <div class="p-note">Satisfait ou remboursé &middot; Paiement en 3x</div>
+        </div>
+        <div class="p-card reveal">
+          <div class="p-name">E-commerce Starter</div>
+          <div class="p-desc">Votre première boutique en ligne, prête à vendre dès la livraison.</div>
+          <div class="p-price"><span class="p-eur">&euro;</span><span class="p-val">1 299</span></div>
+          <div class="sep"></div>
+          <ul class="feat"><li>20 produits configurés</li><li>Paiement sécurisé (Stripe / PayPal)</li><li>Gestion des stocks automatisée</li><li>Design adapté à votre marque</li><li>Emails de confirmation automatiques</li><li>Livraison en 2-3 semaines</li></ul>
+          <a href="#contact" class="p-cta ol">Choisir &rarr;</a>
+          <div class="p-note">Paiement en 2x possible</div>
+        </div>
+        <div class="p-card reveal">
+          <div class="p-name">E-commerce Pro</div>
+          <div class="p-desc">Une boutique complète pour développer votre business en ligne.</div>
+          <div class="p-price"><span class="p-eur">&euro;</span><span class="p-val">2 499</span></div>
+          <div class="sep"></div>
+          <ul class="feat"><li>8 pages + catalogue 50 produits</li><li>Paiement sécurisé multi-options</li><li>Gestion avancée des stocks</li><li>Avis clients & notation</li><li>Emails automatiques (confirmation, suivi, relance)</li><li>Intégration réseaux sociaux</li><li>Formation (1h)</li><li>Livraison en 3-4 semaines</li></ul>
+          <a href="#contact" class="p-cta ol">Choisir &rarr;</a>
+          <div class="p-note">Paiement en 3x possible</div>
+        </div>
+        <div class="p-card reveal">
+          <div class="p-name">E-commerce Premium</div>
+          <div class="p-desc">La solution ultime. Zéro limite, performances maximales.</div>
+          <div class="p-price"><span class="p-eur">&euro;</span><span class="p-val">3 999</span></div>
+          <div class="sep"></div>
+          <ul class="feat"><li>Catalogue produits illimité</li><li>Multi-devises & multi-langues</li><li>Gestion stocks avancée & alertes</li><li>Programme fidélité & codes promo</li><li>Tableau de bord analytics</li><li>SEO e-commerce avancé</li><li>Formation complète (2h) + support 30j</li><li>Livraison en 4-6 semaines</li></ul>
+          <a href="#contact" class="p-cta fl">Choisir &rarr;</a>
+          <div class="p-note">Satisfait ou remboursé &middot; Paiement en 4x</div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="tab-commerce" class="tab-panel">
-    <div class="price-grid" style="grid-template-columns:1fr;max-width:880px;margin:0 auto">
-      <div class="price-card pop" style="padding:48px 40px">
-        <div class="pop-badge">Nouveau</div>
-        <div class="price-name" style="font-size:24px">Commerce + Web</div>
-        <div class="price-desc">Pour les commerces physiques (night shops, boutiques mode, bijouteries…) qui veulent vendre aussi en ligne. Stock magasin et site web synchronisés automatiquement.</div>
-        <div class="price-amt"><span class="eur">€</span><span class="val">999</span></div>
-        <ul class="price-feat" style="display:grid;grid-template-columns:1fr 1fr;gap:12px 24px">
-          <li>Site e-commerce sur-mesure</li>
-          <li>Configuration Shopify POS</li>
-          <li>Compatible avec votre matériel</li>
-          <li>Stock magasin ↔ site synchronisé</li>
-          <li>Import jusqu'à 100 produits</li>
-          <li>Paramétrage livraisons</li>
-          <li>Étiquettes code-barres</li>
-          <li>Formation 2h sur place</li>
-          <li>Support 30 jours inclus</li>
-          <li>Livraison en 10 jours</li>
-        </ul>
-        <a href="#contact" class="price-cta">Demander un devis →</a>
-        <div class="price-note">Abonnement Shopify 29€/mois en plus (non inclus)</div>
+    <div id="tab-commerce" class="tab-panel">
+      <div class="cards-grid" style="max-width:1100px">
+        <div class="p-card pop reveal">
+          <div class="pop-badge">NOUVEAU</div>
+          <div class="p-name">Commerce + Web</div>
+          <div class="p-desc">Pour les commerces physiques qui veulent vendre aussi en ligne. Stock magasin et site web synchronisés automatiquement.</div>
+          <div class="p-price"><span class="p-eur">&euro;</span><span class="p-val">999</span></div>
+          <div class="sep"></div>
+          <ul class="feat">
+            <li>Site e-commerce sur-mesure</li>
+            <li>Configuration caisse digitale (Shopify POS)</li>
+            <li>Compatible avec votre matériel existant</li>
+            <li>Synchronisation stock magasin &harr; site web</li>
+            <li>Import jusqu'à 100 produits</li>
+            <li>Paramétrage livraisons (Bpost, Mondial Relay...)</li>
+            <li>Étiquettes code-barres (si nécessaire)</li>
+            <li>Formation 2h sur place</li>
+            <li>Support 30 jours inclus</li>
+            <li>Livraison en 10 jours</li>
+          </ul>
+          <a href="#contact" class="p-cta fl">Choisir &rarr;</a>
+          <div class="p-note">Idéal pour : night shops, boutiques vêtements, bijouteries, parfumeries, fleuristes...</div>
+        </div>
+        <div class="p-card reveal" style="background: linear-gradient(135deg, var(--bg3) 0%, rgba(34,211,238,0.04) 50%, var(--bg3) 100%); border: 1px solid rgba(34,211,238,0.15)">
+          <div class="p-name">Comment ça marche ?</div>
+          <div class="p-desc" style="margin-bottom: 20px">Une solution simple pour vendre en magasin et en ligne, sans gérer 2 stocks différents.</div>
+          <ul class="feat" style="margin-top: 0">
+            <li>🏪 <strong>En magasin :</strong> vous scannez un produit, la vente est enregistrée</li>
+            <li>🌐 <strong>En ligne :</strong> votre site se met à jour automatiquement</li>
+            <li>🔄 <strong>Stock unifié :</strong> plus jamais de produit vendu deux fois</li>
+            <li>💳 <strong>Paiement :</strong> Bancontact, Visa, cash, Apple Pay</li>
+            <li>📊 <strong>Reporting :</strong> ventes magasin + web dans un seul tableau</li>
+            <li>🇧🇪 <strong>100% conforme</strong> à la réglementation belge</li>
+          </ul>
+          <div class="p-note" style="margin-top: 24px"><strong>Abonnement Shopify nécessaire :</strong> 29&euro;/mois (non inclus). Maintenance Créopus optionnelle : 39&euro;/mois.</div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="tab-logos" class="tab-panel">
-    <div class="price-grid">
-      <div class="price-card">
-        <div class="price-name">Logo Essentiel</div>
-        <div class="price-desc">Votre premier logo pro. Simple, efficace, mémorable.</div>
-        <div class="price-amt"><span class="eur">€</span><span class="val">149</span></div>
-        <ul class="price-feat">
-          <li>2 propositions créatives</li>
-          <li>1 série de retouches</li>
-          <li>Fichiers HD (PNG, JPG &amp; SVG)</li>
-          <li>Version fond transparent</li>
-          <li>Guide d'utilisation basique</li>
-          <li>Livraison en 5—7 jours</li>
-        </ul>
-        <a href="#contact" class="price-cta">Choisir →</a>
-      </div>
-      <div class="price-card pop">
-        <div class="pop-badge">Populaire</div>
-        <div class="price-name">Logo Premium</div>
-        <div class="price-desc">Un logo complet avec déclinaisons pour web, print, réseaux sociaux.</div>
-        <div class="price-amt"><span class="eur">€</span><span class="val">299</span></div>
-        <ul class="price-feat">
-          <li>3 propositions créatives</li>
-          <li>3 séries de retouches</li>
-          <li>Tous formats (PNG, SVG, PDF, AI)</li>
-          <li>Déclinaisons couleur, noir &amp; blanc</li>
-          <li>Mini charte graphique</li>
-          <li>Livraison en 7—10 jours</li>
-        </ul>
-        <a href="#contact" class="price-cta">Choisir →</a>
-        <div class="price-note">Retouches jusqu'à satisfaction</div>
-      </div>
-      <div class="price-card">
-        <div class="price-name">Identité Visuelle</div>
-        <div class="price-desc">L'identité complète de votre marque. Cohérence et impact.</div>
-        <div class="price-amt"><span class="eur">€</span><span class="val">799</span></div>
-        <ul class="price-feat">
-          <li>5 propositions créatives</li>
-          <li>Retouches illimitées</li>
-          <li>Tous formats + fichiers sources</li>
-          <li>Charte graphique complète</li>
-          <li>Carte de visite &amp; papeterie</li>
-          <li>Kit réseaux sociaux complet</li>
-        </ul>
-        <a href="#contact" class="price-cta">Choisir →</a>
-        <div class="price-note">Sources inclus</div>
+    <div id="tab-logos" class="tab-panel">
+      <div class="cards-grid" style="max-width:900px">
+        <div class="p-card reveal">
+          <div class="p-name">Logo Essentiel</div>
+          <div class="p-desc">Votre premier logo pro. Simple, efficace, mémorable.</div>
+          <div class="p-price"><span class="p-eur">&euro;</span><span class="p-val">149</span></div>
+          <div class="sep"></div>
+          <ul class="feat"><li>2 propositions créatives</li><li>1 série de retouches</li><li>Fichiers HD (PNG, JPG & SVG)</li><li>Version fond transparent</li><li>Guide d'utilisation basique</li><li>Livraison en 5-7 jours</li></ul>
+          <a href="#contact" class="p-cta ol">Choisir &rarr;</a>
+        </div>
+        <div class="p-card pop reveal">
+          <div class="pop-badge">POPULAIRE</div>
+          <div class="p-name">Logo Premium</div>
+          <div class="p-desc">Un logo complet avec déclinaisons. Prêt pour web, print, réseaux sociaux.</div>
+          <div class="p-price"><span class="p-eur">&euro;</span><span class="p-val">299</span></div>
+          <div class="sep"></div>
+          <ul class="feat"><li>3 propositions créatives</li><li>3 séries de retouches</li><li>Tous formats (PNG, SVG, PDF, AI)</li><li>Déclinaisons couleur, noir & blanc</li><li>Mini charte graphique</li><li>Versions réseaux sociaux</li><li>Livraison en 7-10 jours</li></ul>
+          <a href="#contact" class="p-cta fl">Choisir &rarr;</a>
+          <div class="p-note">Retouches jusqu'à satisfaction</div>
+        </div>
+        <div class="p-card reveal">
+          <div class="p-name">Identité Visuelle</div>
+          <div class="p-desc">L'identité complète de votre marque. Cohérence et impact.</div>
+          <div class="p-price"><span class="p-eur">&euro;</span><span class="p-val">799</span></div>
+          <div class="sep"></div>
+          <ul class="feat"><li>5 propositions créatives</li><li>Retouches illimitées</li><li>Tous formats + fichiers sources</li><li>Charte graphique complète</li><li>Carte de visite & papeterie</li><li>Kit réseaux sociaux complet</li><li>Livraison en 2-3 semaines</li></ul>
+          <a href="#contact" class="p-cta ol">Choisir &rarr;</a>
+          <div class="p-note">Retouches illimitées &middot; Sources inclus</div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="tab-maintenance" class="tab-panel">
-    <div class="price-grid" style="grid-template-columns:repeat(2,1fr);max-width:880px;margin:0 auto">
-      <div class="price-card">
-        <div class="price-name">Maintenance Essentiel</div>
-        <div class="price-desc">Votre site reste à jour et sécurisé sans effort.</div>
-        <div class="price-amt"><span class="eur">€</span><span class="val">39</span><span class="per">/mois</span></div>
-        <ul class="price-feat">
-          <li>1 intervention mensuelle</li>
-          <li>Mises à jour CMS &amp; plugins</li>
-          <li>Sauvegarde mensuelle</li>
-          <li>Rapport de santé</li>
-          <li>Correction bugs mineurs</li>
-          <li>30 min de modifications incluses</li>
-        </ul>
-        <a href="#contact" class="price-cta">Souscrire →</a>
-        <div class="price-note">Sans engagement</div>
+    <div id="tab-maintenance" class="tab-panel">
+      <div class="maint-grid">
+        <div class="p-card reveal">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--muted);margin-bottom:14px">1 FOIS / MOIS</div>
+          <div class="p-name">Essentiel</div>
+          <div class="p-price" style="margin-top:12px"><span class="p-val" style="font-size:2.4rem">39</span><span class="p-eur" style="font-size:1.2rem;margin-left:4px">&euro;</span><span class="p-per">/ mois</span></div>
+          <p style="font-size:13px;color:var(--muted);margin:10px 0 20px;line-height:1.6">Votre site reste à jour et sécurisé sans effort.</p>
+          <div class="sep"></div>
+          <ul class="feat" style="margin-top:16px"><li>1 intervention mensuelle</li><li>Mises à jour CMS & plugins</li><li>Sauvegarde mensuelle</li><li>Rapport de santé</li><li>Correction bugs mineurs</li><li>30 min de modifications incluses</li></ul>
+          <a href="#contact" class="p-cta ol">Souscrire &rarr;</a>
+          <div class="p-note">Sans engagement</div>
+        </div>
+        <div class="p-card pop reveal">
+          <div class="pop-badge">RECOMMANDÉ</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--muted);margin-bottom:14px">2 FOIS / MOIS</div>
+          <div class="p-name">Confort</div>
+          <div class="p-price" style="margin-top:12px"><span class="p-val" style="font-size:2.4rem">69</span><span class="p-eur" style="font-size:1.2rem;margin-left:4px">&euro;</span><span class="p-per">/ mois</span></div>
+          <p style="font-size:13px;color:var(--muted);margin:10px 0 20px;line-height:1.6">L'équilibre parfait. Suivi régulier, réactivité.</p>
+          <div class="sep"></div>
+          <ul class="feat" style="margin-top:16px"><li>2 interventions par mois</li><li>Mises à jour prioritaires</li><li>Sauvegarde bi-mensuelle</li><li>Monitoring 24/7</li><li>1h de modifications incluses</li><li>Réponse garantie sous 48h</li></ul>
+          <a href="#contact" class="p-cta fl">Souscrire &rarr;</a>
+          <div class="p-note">Sans engagement</div>
+        </div>
+        <div class="p-card reveal">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--muted);margin-bottom:14px">1 FOIS / SEMAINE</div>
+          <div class="p-name">Premium</div>
+          <div class="p-price" style="margin-top:12px"><span class="p-val" style="font-size:2.4rem">119</span><span class="p-eur" style="font-size:1.2rem;margin-left:4px">&euro;</span><span class="p-per">/ mois</span></div>
+          <p style="font-size:13px;color:var(--muted);margin:10px 0 20px;line-height:1.6">Pour sites actifs et e-commerces à fort trafic.</p>
+          <div class="sep"></div>
+          <ul class="feat" style="margin-top:16px"><li>4 interventions par mois</li><li>Mises à jour temps réel</li><li>Sauvegarde hebdomadaire</li><li>Surveillance sécurité 24/7</li><li>2h de modifications incluses</li><li>Réponse sous 24h</li></ul>
+          <a href="#contact" class="p-cta ol">Souscrire &rarr;</a>
+          <div class="p-note">Sans engagement</div>
+        </div>
       </div>
-      <div class="price-card pop">
-        <div class="pop-badge">Recommandé</div>
-        <div class="price-name">Maintenance Confort</div>
-        <div class="price-desc">L'équilibre parfait. Suivi régulier, réactivité.</div>
-        <div class="price-amt"><span class="eur">€</span><span class="val">69</span><span class="per">/mois</span></div>
-        <ul class="price-feat">
-          <li>2 interventions par mois</li>
-          <li>Mises à jour prioritaires</li>
-          <li>Sauvegarde bi-mensuelle</li>
-          <li>Monitoring 24/7</li>
-          <li>1h de modifications incluses</li>
-          <li>Réponse garantie sous 48h</li>
-        </ul>
-        <a href="#contact" class="price-cta">Souscrire →</a>
-        <div class="price-note">Sans engagement</div>
+    </div>
+
+    <div class="cta-band reveal" style="margin-top:56px">
+      <div>
+        <h2>Projet sur mesure ?</h2>
+        <p>Portail, application web, plateforme complexe, intégration API... Chaque projet unique mérite un devis personnalisé.</p>
       </div>
+      <a href="#contact" class="btn-cta-accent">Demander un devis &rarr;</a>
     </div>
   </div>
 </section>
 
 <!-- ── TESTIMONIALS ── -->
-<section class="testi">
-  <div class="testi-head reveal">
-    <div class="stag">Ils nous ont fait confiance</div>
-    <h2 class="stitle">Ce que disent <em>nos clients.</em></h2>
+<section>
+  <div class="container">
+    <div class="shead reveal" style="text-align:center">
+      <div class="stag">Témoignages</div>
+      <h2 class="stitle">Ce que disent nos clients</h2>
+    </div>
+    <div class="test-grid">
+      <div class="t-card reveal">
+        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Un travail exceptionnel. Mon site vitrine est exactement ce que j'imaginais, livré en une semaine. Les clients me disent souvent que le site fait très pro.</p>
+        <div class="t-author"><div class="t-avatar">S</div><div class="t-info"><strong>Sophie M.</strong><span>Architecte d'intérieur</span></div></div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Notre boutique en ligne a été livrée clé en main. En 3 semaines on avait tout : produits, paiement, stock. Le chiffre d'affaires a suivi dès le premier mois.</p>
+        <div class="t-author"><div class="t-avatar">K</div><div class="t-info"><strong>Karim B.</strong><span>Fondateur — KBeauty Shop</span></div></div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Je cherchais un logo et une identité complète pour mon cabinet. Le résultat est élégant et cohérent sur tous mes supports. Je recommande à 100%.</p>
+        <div class="t-author"><div class="t-avatar">L</div><div class="t-info"><strong>Laura D.</strong><span>Kinésithérapeute</span></div></div>
+      </div>
+    </div>
   </div>
-  <div class="testi-grid">
-    <div class="testi-card reveal">
-      <div class="stars">★★★★★</div>
-      <p>Un travail exceptionnel. Mon site vitrine est exactement ce que j'imaginais, livré en une semaine. Les clients me disent souvent que le site fait très pro.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">S</div>
-        <div class="testi-info"><strong>Sophie M.</strong><span>Architecte d'intérieur</span></div>
-      </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section id="process" class="proc-section">
+  <div class="container">
+    <div class="shead reveal" style="text-align:center">
+      <div class="stag">Comment ça marche</div>
+      <h2 class="stitle">Un process simple et efficace</h2>
+      <p class="ssub" style="margin:0 auto">De votre idée à votre site en ligne, on vous accompagne à chaque étape.</p>
     </div>
-    <div class="testi-card reveal">
-      <div class="stars">★★★★★</div>
-      <p>Notre boutique en ligne a été livrée clé en main. En 3 semaines on avait tout : produits, paiement, stock. Le chiffre d'affaires a suivi dès le premier mois.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">K</div>
-        <div class="testi-info"><strong>Karim B.</strong><span>Fondateur — KBeauty Shop</span></div>
-      </div>
-    </div>
-    <div class="testi-card reveal">
-      <div class="stars">★★★★★</div>
-      <p>Je cherchais un logo et une identité complète pour mon cabinet. Le résultat est élégant et cohérent sur tous mes supports. Je recommande à 100%.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">L</div>
-        <div class="testi-info"><strong>Laura D.</strong><span>Kinésithérapeute</span></div>
-      </div>
+    <div class="proc-row">
+      <div class="proc-step reveal"><div class="proc-icon"><svg viewBox="0 0 24 24" style="width:28px;height:28px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><h3>Brief & Devis</h3><p>On échange sur votre projet, vos objectifs et votre budget. Devis détaillé sous 24h.</p></div>
+      <div class="proc-step reveal"><div class="proc-icon"><svg viewBox="0 0 24 24" style="width:28px;height:28px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><h3>Design & Maquette</h3><p>On vous soumet une maquette visuelle pour validation avant tout développement.</p></div>
+      <div class="proc-step reveal"><div class="proc-icon"><svg viewBox="0 0 24 24" style="width:28px;height:28px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3>Développement</h3><p>Votre site est développé avec soin, responsive et optimisé SEO dès le départ.</p></div>
+      <div class="proc-step reveal"><div class="proc-icon"><svg viewBox="0 0 24 24" style="width:28px;height:28px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3>Livraison & Suivi</h3><p>Mise en ligne, formation à l'utilisation et support post-livraison inclus.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ── CONTACT ── -->
-<section class="contact" id="contact">
-  <div class="contact-grid">
-    <div class="contact-left reveal">
-      <div class="stag" style="margin-bottom:18px">Parlons de votre projet</div>
-      <h2>Demandez votre<br><em>devis gratuit.</em></h2>
-      <p>Décrivez-nous votre projet et recevez un devis personnalisé sous 24h. Aucun engagement, réponse garantie.</p>
-      <div class="contact-items">
-        <div class="contact-item">
-          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div class="contact-text"><strong>Email</strong><span>contact@creopus.be</span></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div class="contact-text"><strong>Délai de réponse</strong><span>Sous 24h ouvrées</span></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div class="contact-text"><strong>Localisation</strong><span>La Louvière · Belgique</span></div>
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="c-left reveal">
+        <div class="stag">Parlons de votre projet</div>
+        <h2>Demandez votre<br>devis gratuit</h2>
+        <p>Décrivez-nous votre projet et recevez un devis personnalisé sous 24h. Aucun engagement, réponse garantie.</p>
+        <div class="c-items">
+          <div class="c-item">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="c-text"><strong>Email</strong>contact@creopus.be</div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="c-text"><strong>Délai de réponse</strong>Sous 24h ouvrées</div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="c-text"><strong>Localisation</strong>Belgique — 100% en ligne</div>
+          </div>
         </div>
       </div>
+      <form class="reveal" action="https://formspree.io/f/xreoozak" method="POST">
+        <input type="hidden" name="_subject" value="Nouvelle demande de devis — Créopus">
+        <input type="hidden" name="_next" value="https://www.creopus.be">
+        <div class="form-row">
+          <input type="text" name="prenom" placeholder="Votre prénom" required>
+          <input type="text" name="nom" placeholder="Votre nom" required>
+        </div>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <input type="tel" name="telephone" placeholder="Téléphone (optionnel)">
+        <select name="projet" required>
+          <option value="" disabled selected>Type de projet</option>
+          <option>Landing Page — 499€</option>
+          <option>Vitrine Essentiel — 899€</option>
+          <option>Vitrine Premium — 1 499€</option>
+          <option>E-commerce Starter — 1 299€</option>
+          <option>E-commerce Pro — 2 499€</option>
+          <option>E-commerce Premium — 3 999€</option>
+          <option>Commerce + Web (magasin physique) — 999€</option>
+          <option>Logo Essentiel — 149€</option>
+          <option>Logo Premium — 299€</option>
+          <option>Identité Visuelle — 499€</option>
+          <option>Maintenance (à partir de 39€/mois)</option>
+          <option>Projet sur mesure</option>
+        </select>
+        <textarea name="message" placeholder="Décrivez votre projet, vos besoins, votre activité..."></textarea>
+        <button type="submit" class="btn-submit">Envoyer ma demande &rarr;</button>
+      </form>
     </div>
-    <form class="contact-form reveal" action="https://formspree.io/f/xreoozak" method="POST">
-      <input type="hidden" name="_subject" value="Nouvelle demande de devis — Créopus">
-      <input type="hidden" name="_next" value="https://www.creopus.be">
-      <div class="form-row">
-        <input type="text" name="prenom" placeholder="Votre prénom" required>
-        <input type="text" name="nom" placeholder="Votre nom" required>
-      </div>
-      <input type="email" name="email" placeholder="Votre email" required>
-      <input type="tel" name="telephone" placeholder="Téléphone (optionnel)">
-      <select name="projet" required>
-        <option value="" disabled selected>Type de projet</option>
-        <option>Landing Page — 499€</option>
-        <option>Vitrine Essentiel — 899€</option>
-        <option>Vitrine Premium — 1 499€</option>
-        <option>E-commerce Starter — 1 299€</option>
-        <option>E-commerce Pro — 2 499€</option>
-        <option>E-commerce Premium — 3 999€</option>
-        <option>Commerce + Web (magasin physique) — 999€</option>
-        <option>Logo Essentiel — 149€</option>
-        <option>Logo Premium — 299€</option>
-        <option>Identité Visuelle — 799€</option>
-        <option>Maintenance (à partir de 39€/mois)</option>
-        <option>Projet sur mesure</option>
-      </select>
-      <textarea name="message" placeholder="Décrivez votre projet, vos besoins, votre activité..."></textarea>
-      <button type="submit" class="form-submit">Envoyer ma demande <span>→</span></button>
-    </form>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-grid">
-    <div class="f-brand">
-      <a href="#" class="f-logo">
-        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="21" fill="none" stroke="#f472b6" stroke-width="1.5" opacity="0.7"/>
-          <circle cx="25" cy="25" r="18" fill="#07070b"/>
-          <ellipse cx="25" cy="25" rx="18" ry="18" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.4"/>
-          <ellipse cx="25" cy="25" rx="14" ry="18" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.4"/>
-          <ellipse cx="25" cy="25" rx="9" ry="18" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.4"/>
-          <line x1="7" y1="25" x2="43" y2="25" stroke="rgba(255,255,255,0.15)" stroke-width="0.4"/>
-          <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="#1a1a2e" stroke-width="2.5" transform="rotate(-25 25 25)"/>
-          <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.6" transform="rotate(-25 25 25)"/>
-          <text x="25" y="30" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle">C</text>
-        </svg>
-        <span>CRE<b>OPUS</b></span>
-      </a>
-      <p>Agence web & design basée à La Louvière en Belgique. Sites professionnels, logos et identités visuelles pour artisans, indépendants, PME et e-commerces.</p>
+<!-- ── À PROPOS (GEO) ── -->
+<section style="background:var(--bg2);padding:60px 48px">
+  <div class="container">
+    <div class="shead reveal" style="text-align:center">
+      <div class="stag">À propos</div>
+      <h2 class="stitle">Créopus — Agence Web en Belgique</h2>
     </div>
-    <div class="f-col">
-      <h4>Travaux</h4>
-      <a href="https://delvale.com" target="_blank" rel="noopener">Delvale ↗</a>
-      <a href="https://www.petscompare.fr" target="_blank" rel="noopener">Petscompare ↗</a>
-      <a href="#travaux">Delvablue</a>
-    </div>
-    <div class="f-col">
-      <h4>Services</h4>
-      <a href="#tarifs">Sites web</a>
-      <a href="#tarifs">E-commerce</a>
-      <a href="#tarifs">Logo &amp; identité</a>
-      <a href="#tarifs">Maintenance</a>
-    </div>
-    <div class="f-col">
-      <h4>Maison</h4>
-      <a href="#process">Notre process</a>
-      <a href="#contact">Devis gratuit</a>
-      <a href="mailto:contact@creopus.be">contact@creopus.be</a>
-      <a href="https://www.creopus.be">creopus.be</a>
+    <div class="reveal" style="max-width:800px;margin:0 auto;line-height:1.9;color:var(--muted);font-size:15px">
+      <p><strong style="color:#fff">Créopus</strong> est une agence web belge spécialisée dans la création de sites internet professionnels, boutiques en ligne et identités visuelles. Basée en Belgique, l'agence accompagne les artisans, indépendants, PME et e-commerces dans leur transformation digitale.</p><br>
+      <p>Contrairement aux agences traditionnelles, Créopus propose des <strong style="color:#fff">sites 100% sur-mesure à des prix accessibles</strong> : à partir de 499€ pour une landing page, 899€ pour un site vitrine et 1 299€ pour un e-commerce. Chaque projet est conçu de zéro.</p><br>
+      <p>L'agence maîtrise les technologies modernes : <strong style="color:#fff">Shopify, WordPress, React, Figma, Stripe</strong> et propose la création de logos (dès 149€), chartes graphiques et identités visuelles complètes.</p><br>
+      <p>Créopus se distingue par sa <strong style="color:#fff">rapidité de livraison</strong> (5 à 15 jours), ses prix fixes sans surprise, et un accompagnement personnalisé. Devis gratuit sous 24h sur <strong style="color:var(--accent)">creopus.be</strong>.</p><br>
+      <p>Zone d'intervention : Belgique, France, Luxembourg. Contact : <strong style="color:var(--accent)">contact@creopus.be</strong></p>
     </div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2026 Créopus · La Louvière, Belgique</span>
-    <span>Conçu et codé à la main</span>
+</section>
+
+<footer>
+  <div class="f-inner">
+    <div class="f-grid">
+      <div class="f-brand">
+        <span>CRE<b>OPUS</b></span>
+        <p>Agence web & design spécialisée dans la création de sites professionnels pour artisans, PME et e-commerces.</p>
+      </div>
+      <div class="f-col">
+        <h4>Services</h4>
+        <a href="#tarifs" onclick="switchTabByName('sites')">Sites Vitrines</a>
+        <a href="#tarifs" onclick="switchTabByName('sites')">E-commerce</a>
+        <a href="#tarifs" onclick="switchTabByName('logos')">Logo & Identité</a>
+        <a href="#tarifs" onclick="switchTabByName('maintenance')">Maintenance</a>
+      </div>
+      <div class="f-col">
+        <h4>Agence</h4>
+        <a href="#process">Notre process</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact">Devis gratuit</a>
+      </div>
+      <div class="f-col">
+        <h4>Légal</h4>
+        <a href="#">Mentions légales</a>
+        <a href="#">CGV</a>
+        <a href="#">Confidentialité</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p>&copy; 2025 <span>Créopus</span>. Tous droits réservés.</p>
+      <p>Fait avec passion en Belgique</p>
+    </div>
   </div>
 </footer>
 
 <script>
-  // Mobile menu
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
-
-  // Tabs
   function switchTab(name, btn) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-' + name).classList.add('active');
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'))
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'))
+    document.getElementById('tab-' + name).classList.add('active')
+    btn.classList.add('active')
   }
-
-  // Reveal on scroll
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  function switchTabByName(name) {
+    const btn = [...document.querySelectorAll('.tab-btn')].find(b => b.textContent.toLowerCase().includes(name === 'sites' ? 'site' : name === 'logos' ? 'logo' : 'maint'))
+    if (btn) switchTab(name, btn)
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); observer.unobserve(el.target) } })
+  }, { threshold: 0.1 })
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+  function toggleMenu() {
+    const nav = document.querySelector('nav')
+    const open = nav.style.display === 'flex'
+    nav.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:rgba(10,10,18,0.97);backdrop-filter:blur(20px);padding:24px 32px;border-bottom:1px solid rgba(255,255,255,0.08);gap:20px;z-index:99'
+  }
 </script>
-
 </body>
 </html>
