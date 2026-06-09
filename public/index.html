@@ -392,8 +392,9 @@
     content: ''; position: absolute; inset: 0;
     background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%);
   }
-  .dv-femme { background-image: url('https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=900&h=1200&fit=crop&q=80'); }
-  .dv-homme { background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&h=1200&fit=crop&q=80'); }
+  /* Vraies photos depuis le CDN Shopify de Delvale (générées par toi en février 2026) */
+  .dv-femme { background-image: url('https://delvale.com/cdn/shop/files/ChatGPT_Image_21_fevr._2026_14_37_13.png?v=14339783218846122692'); background-position: center top; }
+  .dv-homme { background-image: url('https://delvale.com/cdn/shop/files/ChatGPT_Image_21_fevr._2026_14_44_05.png?v=4931081156239055938'); background-position: center top; }
   .dv-card {
     position: absolute; left: 50%; top: 50%;
     transform: translate(-50%, -50%);
@@ -434,6 +435,90 @@
   }
   .dv-tag-left { left: 16px }
   .dv-tag-right { right: 16px }
+
+  /* ── Recréation hero Delvablue (mockup interne fidèle) ── */
+  .db-mock {
+    position: absolute; inset: 32px 0 0 0;
+    background: #faf7f2;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .db-promo {
+    background: #1e3a8a;
+    color: #fff;
+    text-align: center;
+    padding: 7px;
+    font-family: var(--sans); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .db-nav {
+    background: linear-gradient(90deg, #1e40af 0%, #2563eb 100%);
+    padding: 12px 22px;
+    display: flex; align-items: center; justify-content: space-between;
+    color: #fff;
+  }
+  .db-brand { display: flex; align-items: center; gap: 10px }
+  .db-smile {
+    width: 22px; height: 22px; border-radius: 6px;
+    background: #fbbf24;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+  .db-eye {
+    width: 4px; height: 4px; border-radius: 50%; background: #1e3a8a;
+    position: absolute;
+  }
+  .db-eye:nth-child(1) { left: 5px; top: 6px }
+  .db-eye:nth-child(2) { right: 5px; top: 6px }
+  .db-mouth {
+    position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
+    width: 8px; height: 4px; border-radius: 0 0 8px 8px;
+    border-bottom: 1.5px solid #1e3a8a;
+    border-left: 1.5px solid #1e3a8a;
+    border-right: 1.5px solid #1e3a8a;
+  }
+  .db-name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic; font-size: 22px; color: #fff;
+    letter-spacing: -0.01em; line-height: 1;
+  }
+  .db-icons { display: flex; gap: 14px; color: rgba(255,255,255,0.9) }
+  .db-hero {
+    flex: 1; display: grid; grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    padding: 24px 32px;
+    gap: 24px;
+    background: linear-gradient(180deg, #faf7f2 0%, #f5e9d3 100%);
+  }
+  .db-img-wrap {
+    aspect-ratio: 1/1;
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 10px 28px rgba(30,58,138,0.15), 0 2px 8px rgba(0,0,0,0.06);
+    background: #fff;
+    max-width: 280px; margin-left: auto;
+  }
+  .db-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 24px }
+  .db-text { padding: 12px 0 }
+  .db-eyebrow {
+    font-family: var(--sans);
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #f97316; font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .db-title {
+    font-family: var(--sans);
+    font-size: 28px; font-weight: 800; line-height: 1.05;
+    color: #1e3a8a; letter-spacing: -0.025em;
+    margin-bottom: 16px;
+  }
+  .db-title em { font-style: normal; color: #f97316 }
+  .db-cta {
+    display: inline-block;
+    font-family: var(--sans); font-size: 12px; font-weight: 600;
+    background: #1e3a8a; color: #fff;
+    padding: 9px 18px; border-radius: 100px;
+  }
 
   /* ── PROJET 1 — DELVALE (rouge/noir luxe mode) ── */
   .proj-delvale { background: linear-gradient(180deg, var(--bg) 0%, #0f0a0a 100%); border-top: 1px solid var(--rule) }
@@ -874,11 +959,11 @@
       <p>Une boutique en ligne pour Lui et pour Elle, qui réunit les plus grandes maisons. Direction artistique noir & rouge, navigation par marque, panier optimisé conversion.</p>
       <div class="proj-stats">
         <div>
-          <div class="proj-stat-n">7</div>
+          <div class="proj-stat-n">15+</div>
           <div class="proj-stat-l">Marques</div>
         </div>
         <div>
-          <div class="proj-stat-n">100+</div>
+          <div class="proj-stat-n">500+</div>
           <div class="proj-stat-l">Produits</div>
         </div>
         <div>
@@ -887,7 +972,7 @@
         </div>
       </div>
       <div class="proj-brands">
-        <span>Karl Lagerfeld</span><span>EA7</span><span>Calvin Klein</span><span>Tommy Hilfiger</span><span>Guess</span><span>LIU JO</span><span>New Balance</span>
+        <span>Karl Lagerfeld</span><span>EA7</span><span>Calvin Klein</span><span>Tommy Hilfiger</span><span>Guess</span><span>LIU JO</span><span>New Balance</span><span>& plus…</span>
       </div>
       <a href="https://delvale.com" target="_blank" rel="noopener" class="proj-cta">Visiter Delvale <span>↗</span></a>
     </div>
@@ -971,8 +1056,8 @@
     <div class="proj-text reveal">
       <div class="proj-folio">Travail Nº 3 <span class="pf-bar"></span> <b>Delvablue</b></div>
       <h3>Delvablue</h3>
-      <span class="proj-cat">E-commerce tendre · Doudous</span>
-      <p>Une boutique chaleureuse pour les tout-petits, dans des bleus doux et des beiges tendres. Le but : qu'un parent qui découvre la marque ait envie d'offrir, dès la première page.</p>
+      <span class="proj-cat">Magasin de jouets · Tout-petits</span>
+      <p>Une boutique chaleureuse pour les tout-petits — doudous, peluches, premiers jouets — dans des bleus doux et des beiges tendres. Pensée pour donner envie d'offrir, dès la première page.</p>
       <div class="proj-stats">
         <div>
           <div class="proj-stat-n">2026</div>
@@ -995,7 +1080,35 @@
           <span class="dot"></span><span class="dot"></span><span class="dot"></span>
           <span class="url">delvablue.com</span>
         </div>
-        <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f3a?w=1600&h=900&fit=crop" alt="Aperçu du projet Delvablue" loading="lazy">
+        <!-- Recréation fidèle du hero Delvablue -->
+        <div class="db-mock">
+          <div class="db-promo">🚛 Livraison offerte dès 49€</div>
+          <div class="db-nav">
+            <div class="db-brand">
+              <div class="db-smile">
+                <span class="db-eye"></span><span class="db-eye"></span>
+                <span class="db-mouth"></span>
+              </div>
+              <span class="db-name">DelvaBlue</span>
+            </div>
+            <div class="db-icons">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </div>
+          </div>
+          <div class="db-hero">
+            <div class="db-img-wrap">
+              <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=900&h=900&fit=crop&q=80" alt="Doudous">
+            </div>
+            <div class="db-text">
+              <div class="db-eyebrow">— POUR LES TOUT-PETITS —</div>
+              <h2 class="db-title">Le doudou<br>qu'ils vont<br><em>adorer</em></h2>
+              <div class="db-cta">Découvrir →</div>
+            </div>
+          </div>
+        </div>
         <div class="mockup-overlay">
           <span class="badge">Bientôt en ligne</span>
           <span class="label">Mise en ligne courant 2026</span>
