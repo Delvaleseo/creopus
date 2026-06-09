@@ -326,6 +326,70 @@
   }
   .btn-cta-accent:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(34,211,238,0.3) }
 
+  /* ── Portfolio / Réalisations ── */
+  .portfolio-section { padding: 100px 48px; background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border) }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1240px; margin: 56px auto 0 }
+  .pf-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.4s;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .pf-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(34,211,238,0.08) }
+  .pf-thumb {
+    position: relative;
+    aspect-ratio: 9/16;
+    overflow: hidden;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .pf-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+  }
+  .pf-card:hover .pf-thumb img { transform: scale(1.04) }
+  .pf-thumb::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(10,10,18,0.6) 100%);
+    pointer-events: none;
+  }
+  .pf-badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--accent); color: #0a0a12;
+    font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 12px; border-radius: 100px;
+    z-index: 2;
+  }
+  .pf-badge.soon { background: var(--accent2); color: #fff }
+  .pf-body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column }
+  .pf-cat { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px }
+  .pf-body h3 { font-family: var(--serif); font-size: 1.8rem; margin-bottom: 12px; color: #fff; line-height: 1.1 }
+  .pf-body p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 22px; flex: 1 }
+  .pf-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+    color: var(--accent); text-decoration: none;
+    padding-top: 16px; border-top: 1px solid var(--border);
+    transition: color 0.2s, gap 0.2s;
+  }
+  .pf-link:hover { color: var(--accent-light); gap: 12px }
+  .pf-link.disabled { color: var(--muted); pointer-events: none; cursor: default }
+  .pf-link.disabled::after { content: '⏳' }
+
+  @media (max-width: 1024px) {
+    .portfolio-grid { grid-template-columns: 1fr 1fr; gap: 20px }
+  }
+  @media (max-width: 640px) {
+    .portfolio-grid { grid-template-columns: 1fr }
+  }
+
   /* ── Testimonials ── */
   .test-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px }
   .t-card { background: var(--bg2); border-radius: var(--radius); padding: 36px; transition: all 0.3s; border: 1px solid var(--border); position: relative; overflow: hidden }
@@ -428,6 +492,7 @@
 <header>
   <nav>
     <a href="#services">Services</a>
+    <a href="#realisations">Réalisations</a>
     <a href="#tarifs">Tarifs</a>
     <a href="#process">Process</a>
     <a href="#contact">Contact</a>
@@ -564,6 +629,62 @@
     <p>Un devis clair dès le départ, aucune surprise. Votre site en ligne dans les délais.</p>
   </div>
 </div>
+
+<!-- ── PORTFOLIO / RÉALISATIONS ── -->
+<section id="realisations" class="portfolio-section">
+  <div class="container">
+    <div class="shead reveal" style="text-align:center">
+      <div class="stag">Nos réalisations</div>
+      <h2 class="stitle">Des sites livrés, des marques lancées</h2>
+      <p class="ssub" style="margin:0 auto">Trois projets récents conçus, designés et développés par Créopus.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <!-- Delvale -->
+      <article class="pf-card reveal">
+        <div class="pf-thumb">
+          <span class="pf-badge">En ligne</span>
+          <img src="/images/delvale.png" alt="Capture du site Delvale" loading="lazy">
+        </div>
+        <div class="pf-body">
+          <div class="pf-cat">E-commerce mode</div>
+          <h3>Delvale</h3>
+          <p>Boutique multi-marques pour Lui et pour Elle. Karl Lagerfeld, EA7, Calvin Klein, Tommy Hilfiger, Guess, LIU JO, New Balance, et plus. Navigation par marque, panier optimisé conversion.</p>
+          <a href="https://delvale.com" target="_blank" rel="noopener" class="pf-link">Visiter le site &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Petscompare -->
+      <article class="pf-card reveal">
+        <div class="pf-thumb">
+          <span class="pf-badge">En ligne</span>
+          <img src="/images/petscompare.png" alt="Capture du site Petscompare" loading="lazy">
+        </div>
+        <div class="pf-body">
+          <div class="pf-cat">Comparateur · Animaux</div>
+          <h3>Petscompare</h3>
+          <p>Plus de 13&nbsp;000 produits comparés chaque matin sur 8 boutiques européennes. Format magazine éditorial avec édition quotidienne. Gratuit, sans inscription.</p>
+          <a href="https://www.petscompare.fr" target="_blank" rel="noopener" class="pf-link">Visiter le site &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Delvablue -->
+      <article class="pf-card reveal">
+        <div class="pf-thumb">
+          <span class="pf-badge soon">Bientôt en ligne</span>
+          <img src="/images/delvablue.png" alt="Aperçu du site Delvablue" loading="lazy">
+        </div>
+        <div class="pf-body">
+          <div class="pf-cat">Sommeil & bien-être · Tout-petits</div>
+          <h3>Delvablue</h3>
+          <p>Boutique dédiée au sommeil et à la détente pour les tout-petits&nbsp;: doudous, pyjamas doux, veilleuses, couvertures et accessoires apaisants pour des nuits paisibles.</p>
+          <span class="pf-link disabled">Mise en ligne prochainement&nbsp;</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
 
 <!-- ── TARIFS ── -->
 <section id="tarifs">
@@ -888,6 +1009,7 @@
       </div>
       <div class="f-col">
         <h4>Agence</h4>
+        <a href="#realisations">Réalisations</a>
         <a href="#process">Notre process</a>
         <a href="#contact">Contact</a>
         <a href="#contact">Devis gratuit</a>
