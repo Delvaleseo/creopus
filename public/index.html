@@ -326,68 +326,194 @@
   }
   .btn-cta-accent:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(34,211,238,0.3) }
 
-  /* ── Portfolio / Réalisations ── */
-  .portfolio-section { padding: 100px 48px; background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border) }
-  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1240px; margin: 56px auto 0 }
-  .pf-card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+  /* ── Portfolio / Réalisations — Version premium ── */
+  .portfolio-section {
+    padding: 120px 48px;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(34,211,238,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(232,121,168,0.04) 0%, transparent 50%),
+      var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative;
     overflow: hidden;
-    transition: all 0.4s;
+  }
+  .portfolio-section::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(34,211,238,0.25), transparent);
+  }
+  .pf-stats-row {
+    display: flex; flex-wrap: wrap; gap: 48px; justify-content: center;
+    margin: 40px auto 24px; padding: 28px 0;
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    max-width: 720px;
+  }
+  .pf-stat { text-align: center }
+  .pf-stat-n {
+    font-family: var(--serif); font-size: 2.4rem; line-height: 1;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+  }
+  .pf-stat-l { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted) }
+
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1280px; margin: 0 auto }
+  .pf-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.45s cubic-bezier(0.22,1,0.36,1);
     display: flex; flex-direction: column;
     position: relative;
+    backdrop-filter: blur(8px);
   }
-  .pf-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(34,211,238,0.08) }
-  .pf-thumb {
-    position: relative;
-    aspect-ratio: 9/16;
-    overflow: hidden;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-  }
-  .pf-thumb img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
-  }
-  .pf-card:hover .pf-thumb img { transform: scale(1.04) }
-  .pf-thumb::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(10,10,18,0.6) 100%);
+  .pf-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(34,211,238,0.06), transparent 50%);
+    opacity: 0; transition: opacity 0.4s;
     pointer-events: none;
+    border-radius: 24px;
   }
+  .pf-card:hover { transform: translateY(-10px); border-color: rgba(34,211,238,0.4); box-shadow: 0 32px 80px rgba(0,0,0,0.45), 0 0 60px rgba(34,211,238,0.12) }
+  .pf-card:hover::before { opacity: 1 }
+
+  /* Phone mockup wrapper */
+  .pf-phone-wrap {
+    padding: 36px 36px 0;
+    display: flex; justify-content: center;
+    position: relative;
+  }
+  .pf-phone {
+    position: relative;
+    width: 100%; max-width: 240px;
+    aspect-ratio: 9/19.5;
+    background: #0a0a12;
+    border: 6px solid #1a1a26;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow:
+      0 20px 50px rgba(0,0,0,0.5),
+      0 0 30px rgba(34,211,238,0.08),
+      inset 0 0 0 1px rgba(255,255,255,0.05);
+    transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s;
+  }
+  .pf-card:hover .pf-phone {
+    transform: translateY(-4px) rotate(-1deg);
+    box-shadow:
+      0 30px 70px rgba(0,0,0,0.6),
+      0 0 60px rgba(34,211,238,0.18),
+      inset 0 0 0 1px rgba(255,255,255,0.08);
+  }
+  .pf-phone-notch {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 60px; height: 14px;
+    background: #0a0a12; border-radius: 0 0 12px 12px;
+    z-index: 3;
+  }
+  .pf-phone img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
+  }
+  .pf-card:hover .pf-phone img { transform: scale(1.03) }
+
   .pf-badge {
-    position: absolute; top: 14px; left: 14px;
+    position: absolute; top: 18px; right: 18px;
     background: var(--accent); color: #0a0a12;
     font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 6px 12px; border-radius: 100px;
-    z-index: 2;
+    padding: 7px 13px; border-radius: 100px;
+    z-index: 4;
+    box-shadow: 0 4px 14px rgba(34,211,238,0.35);
+    display: inline-flex; align-items: center; gap: 5px;
   }
-  .pf-badge.soon { background: var(--accent2); color: #fff }
-  .pf-body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column }
-  .pf-cat { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px }
-  .pf-body h3 { font-family: var(--serif); font-size: 1.8rem; margin-bottom: 12px; color: #fff; line-height: 1.1 }
-  .pf-body p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 22px; flex: 1 }
+  .pf-badge::before {
+    content: ''; width: 5px; height: 5px; border-radius: 50%;
+    background: #0a0a12;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot { 0%,100% { opacity: 1 } 50% { opacity: 0.3 } }
+  .pf-badge.soon { background: var(--accent2); color: #fff; box-shadow: 0 4px 14px rgba(232,121,168,0.35) }
+  .pf-badge.soon::before { background: #fff }
+
+  .pf-body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column; position: relative; z-index: 1 }
+  .pf-cat { font-size: 10.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: inline-flex; align-items: center; gap: 8px }
+  .pf-cat::before { content: ''; width: 14px; height: 1px; background: var(--accent) }
+  .pf-body h3 {
+    font-family: var(--serif); font-size: 2rem; margin-bottom: 14px; color: #fff; line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .pf-body > p { font-size: 14px; color: var(--ink2); line-height: 1.7; margin-bottom: 22px; flex: 1 }
+
+  /* Tech tags */
+  .pf-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px }
+  .pf-tags span {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.3px;
+    color: var(--ink2);
+    padding: 5px 11px; border-radius: 100px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .pf-card:hover .pf-tags span { border-color: rgba(34,211,238,0.2); background: rgba(34,211,238,0.05) }
+
+  /* Quick stats row inside card */
+  .pf-meta-row {
+    display: flex; gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    margin-bottom: 18px;
+  }
+  .pf-meta-row > div { flex: 1; text-align: center }
+  .pf-meta-row > div + div { border-left: 1px solid var(--border) }
+  .pf-meta-n { font-family: var(--serif); font-size: 1.3rem; color: var(--accent); line-height: 1; margin-bottom: 4px }
+  .pf-meta-l { font-size: 9.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--muted) }
+
   .pf-link {
     display: inline-flex; align-items: center; gap: 8px;
     font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
     color: var(--accent); text-decoration: none;
-    padding-top: 16px; border-top: 1px solid var(--border);
+    padding: 14px 0 0; border-top: 1px solid var(--border);
     transition: color 0.2s, gap 0.2s;
   }
-  .pf-link:hover { color: var(--accent-light); gap: 12px }
+  .pf-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform 0.3s }
+  .pf-link:hover { color: var(--accent-light); gap: 14px }
+  .pf-link:hover svg { transform: translateX(2px) translateY(-2px) }
   .pf-link.disabled { color: var(--muted); pointer-events: none; cursor: default }
-  .pf-link.disabled::after { content: '⏳' }
+
+  /* Bottom CTA */
+  .pf-bottom-cta {
+    margin: 64px auto 0; max-width: 720px;
+    text-align: center;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, rgba(34,211,238,0.05) 0%, rgba(232,121,168,0.03) 100%);
+    border: 1px solid rgba(34,211,238,0.15);
+    border-radius: 24px;
+  }
+  .pf-bottom-cta h3 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 10px; color: #fff }
+  .pf-bottom-cta p { color: var(--muted); font-size: 14.5px; line-height: 1.7; margin-bottom: 22px }
+  .pf-bottom-cta .btn-fill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; background: var(--accent); border-radius: 12px;
+    color: #0a0a12; font-size: 14px; font-weight: 700; text-decoration: none;
+    transition: all 0.3s;
+  }
+  .pf-bottom-cta .btn-fill:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(34,211,238,0.3) }
 
   @media (max-width: 1024px) {
-    .portfolio-grid { grid-template-columns: 1fr 1fr; gap: 20px }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; gap: 24px }
   }
-  @media (max-width: 640px) {
-    .portfolio-grid { grid-template-columns: 1fr }
+  @media (max-width: 760px) {
+    .portfolio-section { padding: 80px 20px }
+    .portfolio-grid { grid-template-columns: 1fr; gap: 20px }
+    .pf-stats-row { gap: 28px }
+    .pf-stat-n { font-size: 1.9rem }
+    .pf-phone-wrap { padding: 28px 28px 0 }
+    .pf-phone { max-width: 200px }
+    .pf-body h3 { font-size: 1.7rem }
   }
 
   /* ── Testimonials ── */
@@ -635,53 +761,154 @@
   <div class="container">
     <div class="shead reveal" style="text-align:center">
       <div class="stag">Nos réalisations</div>
-      <h2 class="stitle">Des sites livrés, des marques lancées</h2>
-      <p class="ssub" style="margin:0 auto">Trois projets récents conçus, designés et développés par Créopus.</p>
+      <h2 class="stitle">Des sites livrés. Des marques lancées.</h2>
+      <p class="ssub" style="margin:0 auto">Trois projets récents conçus, designés et développés intégralement par Créopus — du brief à la mise en ligne.</p>
+
+      <div class="pf-stats-row reveal">
+        <div class="pf-stat">
+          <div class="pf-stat-n">3</div>
+          <div class="pf-stat-l">Sites livrés</div>
+        </div>
+        <div class="pf-stat">
+          <div class="pf-stat-n">13K+</div>
+          <div class="pf-stat-l">Produits gérés</div>
+        </div>
+        <div class="pf-stat">
+          <div class="pf-stat-n">100%</div>
+          <div class="pf-stat-l">Sur-mesure</div>
+        </div>
+        <div class="pf-stat">
+          <div class="pf-stat-n">3 langues</div>
+          <div class="pf-stat-l">FR · NL · DE</div>
+        </div>
+      </div>
     </div>
+
     <div class="portfolio-grid">
 
       <!-- Delvale -->
       <article class="pf-card reveal">
-        <div class="pf-thumb">
-          <span class="pf-badge">En ligne</span>
-          <img src="/images/delvale.png" alt="Capture du site Delvale" loading="lazy">
+        <div class="pf-phone-wrap">
+          <span class="pf-badge">En direct</span>
+          <div class="pf-phone">
+            <div class="pf-phone-notch"></div>
+            <img src="/images/delvale.png" alt="Capture du site Delvale" loading="lazy">
+          </div>
         </div>
         <div class="pf-body">
-          <div class="pf-cat">E-commerce mode</div>
+          <div class="pf-cat">E-commerce · Mode</div>
           <h3>Delvale</h3>
-          <p>Boutique multi-marques pour Lui et pour Elle. Karl Lagerfeld, EA7, Calvin Klein, Tommy Hilfiger, Guess, LIU JO, New Balance, et plus. Navigation par marque, panier optimisé conversion.</p>
-          <a href="https://delvale.com" target="_blank" rel="noopener" class="pf-link">Visiter le site &rarr;</a>
+          <p>Boutique multi-marques pour Lui et pour Elle, qui réunit les plus grandes maisons. Direction artistique noir &amp; rouge, navigation par marque, panier optimisé conversion.</p>
+          <div class="pf-tags">
+            <span>Shopify</span>
+            <span>Multi-marques</span>
+            <span>FR · NL · DE</span>
+            <span>Bancontact</span>
+          </div>
+          <div class="pf-meta-row">
+            <div>
+              <div class="pf-meta-n">15+</div>
+              <div class="pf-meta-l">Marques</div>
+            </div>
+            <div>
+              <div class="pf-meta-n">500+</div>
+              <div class="pf-meta-l">Produits</div>
+            </div>
+            <div>
+              <div class="pf-meta-n">3</div>
+              <div class="pf-meta-l">Langues</div>
+            </div>
+          </div>
+          <a href="https://delvale.com" target="_blank" rel="noopener" class="pf-link">
+            Visiter Delvale
+            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
         </div>
       </article>
 
       <!-- Petscompare -->
       <article class="pf-card reveal">
-        <div class="pf-thumb">
-          <span class="pf-badge">En ligne</span>
-          <img src="/images/petscompare.png" alt="Capture du site Petscompare" loading="lazy">
+        <div class="pf-phone-wrap">
+          <span class="pf-badge">En direct</span>
+          <div class="pf-phone">
+            <div class="pf-phone-notch"></div>
+            <img src="/images/petscompare.png" alt="Capture du site Petscompare" loading="lazy">
+          </div>
         </div>
         <div class="pf-body">
           <div class="pf-cat">Comparateur · Animaux</div>
           <h3>Petscompare</h3>
-          <p>Plus de 13&nbsp;000 produits comparés chaque matin sur 8 boutiques européennes. Format magazine éditorial avec édition quotidienne. Gratuit, sans inscription.</p>
-          <a href="https://www.petscompare.fr" target="_blank" rel="noopener" class="pf-link">Visiter le site &rarr;</a>
+          <p>13&nbsp;094 produits comparés chaque matin sur 8 boutiques européennes. Format magazine éditorial avec édition quotidienne. Gratuit, sans inscription, sans publicité.</p>
+          <div class="pf-tags">
+            <span>Next.js</span>
+            <span>SEO éditorial</span>
+            <span>Scraping</span>
+            <span>API</span>
+          </div>
+          <div class="pf-meta-row">
+            <div>
+              <div class="pf-meta-n">13K+</div>
+              <div class="pf-meta-l">Produits / jour</div>
+            </div>
+            <div>
+              <div class="pf-meta-n">8</div>
+              <div class="pf-meta-l">Boutiques</div>
+            </div>
+            <div>
+              <div class="pf-meta-n">2 975€</div>
+              <div class="pf-meta-l">Économies / j</div>
+            </div>
+          </div>
+          <a href="https://www.petscompare.fr" target="_blank" rel="noopener" class="pf-link">
+            Visiter Petscompare
+            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
         </div>
       </article>
 
       <!-- Delvablue -->
       <article class="pf-card reveal">
-        <div class="pf-thumb">
-          <span class="pf-badge soon">Bientôt en ligne</span>
-          <img src="/images/delvablue.png" alt="Aperçu du site Delvablue" loading="lazy">
+        <div class="pf-phone-wrap">
+          <span class="pf-badge soon">Bientôt</span>
+          <div class="pf-phone">
+            <div class="pf-phone-notch"></div>
+            <img src="/images/delvablue.png" alt="Aperçu du site Delvablue" loading="lazy">
+          </div>
         </div>
         <div class="pf-body">
           <div class="pf-cat">Magasin de jouets · 0 à 12 ans</div>
           <h3>Delvablue</h3>
-          <p>Boutique de jouets pour enfants de 0 à 12 ans&nbsp;: doudous, peluches, premiers jouets d'éveil, jeux et figurines. Une sélection chaleureuse pour faire plaisir à tous les âges.</p>
-          <span class="pf-link disabled">Mise en ligne prochainement&nbsp;</span>
+          <p>Boutique de jouets pour enfants de 0 à 12 ans : doudous, peluches, premiers jouets d'éveil, jeux et figurines. Sélection chaleureuse pour faire plaisir à tous les âges.</p>
+          <div class="pf-tags">
+            <span>Shopify</span>
+            <span>Jouets</span>
+            <span>0 — 12 ans</span>
+            <span>Belgique</span>
+          </div>
+          <div class="pf-meta-row">
+            <div>
+              <div class="pf-meta-n">0—12</div>
+              <div class="pf-meta-l">Tranche d'âge</div>
+            </div>
+            <div>
+              <div class="pf-meta-n">2026</div>
+              <div class="pf-meta-l">Sortie</div>
+            </div>
+            <div>
+              <div class="pf-meta-n">FR</div>
+              <div class="pf-meta-l">Langue</div>
+            </div>
+          </div>
+          <span class="pf-link disabled">Mise en ligne prochainement</span>
         </div>
       </article>
 
+    </div>
+
+    <div class="pf-bottom-cta reveal">
+      <h3>Votre projet, notre prochain travail.</h3>
+      <p>Boutique en ligne, site vitrine, identité visuelle&nbsp;? Discutons-en — devis détaillé sous 24h, sans engagement.</p>
+      <a href="#contact" class="btn-fill">Démarrer mon projet <span>→</span></a>
     </div>
   </div>
 </section>
