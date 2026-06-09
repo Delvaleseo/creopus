@@ -33,9 +33,8 @@
 <link rel="canonical" href="https://www.creopus.be">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Schema.org — Organisation -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,1051 +95,1263 @@
 }
 </script>
 <style>
-  /* ── Reset ── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
   img, svg { display: block; max-width: 100%; height: auto }
 
-  /* ── Tokens Atelier Éditorial ── */
   :root {
-    --paper:      #F2EFE8;
-    --paper-2:    #ECE8DE;
-    --paper-3:    #E4DFD2;
-    --ink:        #0F0E0C;
-    --ink-soft:   #2A2722;
-    --meta:       #6B6760;
-    --rule:       #C4BFB3;
-    --terra:      #C8472A;
-    --terra-deep: #A83A21;
+    --bg: #07070b;
+    --bg2: #0f0f17;
+    --bg3: #181826;
+    --bg-card: rgba(255,255,255,0.025);
+    --ink: #f4f4f5;
+    --ink2: #c4c4cf;
+    --muted: #8585a0;
+    --rule: rgba(255,255,255,0.08);
+    --rule-strong: rgba(255,255,255,0.16);
 
-    --serif: 'Fraunces', 'Times New Roman', Georgia, serif;
-    --sans:  'Space Grotesk', system-ui, -apple-system, sans-serif;
-    --mono:  'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+    --cyan: #22d3ee;
+    --cyan-light: #67e8f9;
+    --cyan-glow: rgba(34,211,238,0.35);
+    --pink: #f472b6;
+    --pink-glow: rgba(244,114,182,0.3);
+    --orange: #fb923c;
+    --gold: #facc15;
+    --emerald: #34d399;
+
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
 
     --gutter: clamp(20px, 4vw, 56px);
-    --rule-w: 1px;
-    --ease:   cubic-bezier(0.7, 0, 0.3, 1);
+    --ease: cubic-bezier(0.32, 0.72, 0.18, 1);
   }
 
-  ::selection { background: var(--terra); color: var(--paper); }
-  ::-moz-selection { background: var(--terra); color: var(--paper); }
+  ::selection { background: var(--cyan); color: var(--bg); }
 
-  /* ── Base typography ── */
   body {
-    font-family: var(--serif);
-    font-size: 18px;
-    line-height: 1.55;
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
     color: var(--ink);
-    background: var(--paper);
+    background: var(--bg);
     overflow-x: hidden;
-    font-variant-numeric: oldstyle-nums;
+    position: relative;
   }
   a { color: inherit; text-decoration: none }
 
-  /* ── Mono caption ── */
-  .meta {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--meta);
-    font-weight: 400;
-  }
-  .meta-ink { color: var(--ink); }
-
-  /* ── Top bar / Header ── */
-  header {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule);
-    padding: 18px var(--gutter);
-    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-  }
-  .head-left { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--meta); justify-self: start }
-  .head-center { display: flex; align-items: center; gap: 10px; justify-self: center; text-decoration: none; color: var(--ink) }
-  .head-center .logo-svg { height: 30px; width: 30px }
-  .head-center span { font-family: var(--sans); font-size: 16px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink) }
-  .head-right { justify-self: end; display: flex; align-items: center; gap: 14px }
-  .head-right .nav-link { font-family: var(--sans); font-size: 12.5px; font-weight: 500; color: var(--meta); transition: color .2s }
-  .head-right .nav-link:hover { color: var(--ink) }
-  .head-cta {
-    font-family: var(--sans); font-size: 13px; font-weight: 600;
-    background: var(--ink); color: var(--paper);
-    padding: 10px 18px; border: 1px solid var(--ink);
-    transition: background .2s, color .2s;
-  }
-  .head-cta:hover { background: var(--terra); border-color: var(--terra); color: var(--paper) }
-  .menu-btn { display: none; background: none; border: 1px solid var(--rule); padding: 8px 10px; cursor: pointer; color: var(--ink); font-family: var(--mono); font-size: 11px; text-transform: uppercase }
-
-  /* ── Section helpers ── */
-  section { padding: 80px var(--gutter); }
-  .wrap { max-width: 1240px; margin: 0 auto }
-  .wrap-tight { max-width: 880px; margin: 0 auto }
-  .wrap-narrow { max-width: 640px; margin: 0 auto }
-
-  /* ── COUVERTURE / HERO ── */
-  .cover {
-    min-height: calc(100vh - 70px);
-    display: grid; grid-template-rows: auto 1fr auto;
-    gap: 40px;
-    padding-top: 60px; padding-bottom: 60px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .cover-top { display: flex; justify-content: space-between; align-items: baseline; gap: 24px }
-  .cover-body { display: flex; flex-direction: column; justify-content: center; max-width: 1100px; margin: 0 auto; width: 100% }
-  .cover-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); margin-bottom: 32px }
-  .cover-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--terra); vertical-align: middle; margin-right: 14px; transform: translateY(-3px) }
-  .cover-h {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(48px, 9vw, 132px);
-    line-height: 0.95;
-    letter-spacing: -0.025em;
-    color: var(--ink);
-    margin-bottom: 28px;
-  }
-  .cover-h em { font-style: italic; color: var(--terra); font-weight: 500 }
-  .cover-lede {
-    font-family: var(--serif);
-    font-size: clamp(17px, 1.5vw, 21px);
-    line-height: 1.55;
-    color: var(--ink-soft);
-    max-width: 520px;
-    margin-bottom: 36px;
-  }
-  .cover-cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap }
-  .btn-ink {
-    font-family: var(--sans); font-size: 14px; font-weight: 600;
-    background: var(--ink); color: var(--paper);
-    padding: 16px 28px; border: 1px solid var(--ink);
-    display: inline-flex; align-items: center; gap: 10px;
-    transition: background .2s, color .2s, border-color .2s;
-  }
-  .btn-ink:hover { background: var(--terra); border-color: var(--terra) }
-  .btn-line {
-    font-family: var(--sans); font-size: 14px; font-weight: 500;
-    color: var(--ink);
-    padding: 16px 4px;
-    border-bottom: 1px solid var(--ink);
-    display: inline-flex; align-items: center; gap: 8px;
-    transition: color .2s, border-color .2s;
-  }
-  .btn-line:hover { color: var(--terra); border-color: var(--terra) }
-  .cover-bottom { display: flex; justify-content: space-between; align-items: end; gap: 24px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--meta) }
-  .cover-folio b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 32px; color: var(--ink); letter-spacing: 0; text-transform: none; vertical-align: middle; margin-left: 8px }
-
-  /* ── SOMMAIRE ── */
-  .sommaire { padding: 80px var(--gutter); background: var(--paper-2); border-bottom: 1px solid var(--rule); }
-  .sommaire-h { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--meta); margin-bottom: 36px }
-  .sommaire-list { list-style: none; max-width: 940px; margin: 0 auto }
-  .sommaire-list li { display: grid; grid-template-columns: auto 1fr auto auto; align-items: baseline; gap: 18px; padding: 22px 0; border-bottom: 1px dashed var(--rule); transition: padding .25s var(--ease); cursor: pointer }
-  .sommaire-list li:hover { padding-left: 16px }
-  .sommaire-list li:hover .somm-title { color: var(--terra) }
-  .somm-num { font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--meta); min-width: 48px }
-  .somm-title { font-family: var(--serif); font-size: clamp(22px, 2.6vw, 32px); color: var(--ink); transition: color .2s }
-  .somm-dots { color: var(--rule); font-family: var(--mono); font-size: 11px; overflow: hidden; white-space: nowrap; letter-spacing: 4px }
-  .somm-page { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--meta) }
-
-  /* ── PORTFOLIO INTRO ── */
-  .pf-intro { padding-top: 100px; padding-bottom: 0 }
-  .pf-intro-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); margin-bottom: 20px }
-  .pf-intro h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 5.6vw, 76px); line-height: 1.02; letter-spacing: -0.02em; max-width: 880px; margin-bottom: 24px }
-  .pf-intro h2 em { font-style: italic; color: var(--terra); font-weight: 500 }
-  .pf-intro p { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); line-height: 1.6; max-width: 540px }
-
-  /* ── PROJECT 1 — DELVALE (lookbook mode noir/rouge) ── */
-  .proj-delvale {
-    padding: 100px var(--gutter);
-    background: #0E0B0B;
-    color: #F2EFE8;
-    margin-top: 80px;
-    position: relative;
-  }
-  .proj-delvale .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center }
-  .proj-delvale-folio { display: flex; align-items: baseline; gap: 12px; margin-bottom: 32px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #8A847C }
-  .proj-delvale-folio b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 22px; color: #F2EFE8; letter-spacing: 0; text-transform: none }
-  .proj-delvale h3 {
-    font-family: var(--serif); font-weight: 400; font-style: italic;
-    font-size: clamp(60px, 9vw, 124px);
-    line-height: 0.92; letter-spacing: -0.03em;
-    color: #F2EFE8; margin-bottom: 24px;
-  }
-  .proj-delvale .meta-label { color: #C8472A; margin-bottom: 28px; display: block }
-  .proj-delvale p { font-family: var(--serif); font-size: 18px; line-height: 1.7; color: #C8C4BC; max-width: 460px; margin-bottom: 28px }
-  .proj-delvale .brands { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 36px; font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #8A847C }
-  .proj-delvale .brands span { padding-right: 18px; border-right: 1px solid #2A2622 }
-  .proj-delvale .brands span:last-child { border-right: 0 }
-  .btn-mode {
-    font-family: var(--sans); font-size: 13px; font-weight: 600;
-    background: #C8472A; color: #F2EFE8;
-    padding: 14px 26px; border: 1px solid #C8472A;
-    display: inline-flex; align-items: center; gap: 10px;
-    transition: background .2s, color .2s;
-  }
-  .btn-mode:hover { background: #F2EFE8; color: #0E0B0B; border-color: #F2EFE8 }
-  .proj-delvale-visual {
-    aspect-ratio: 4/5;
-    background: linear-gradient(90deg, #1a1414 0%, #1a1414 50%, #2a1818 50%, #2a1818 100%);
-    position: relative;
-    overflow: hidden;
-    display: grid; grid-template-columns: 1fr 1fr;
-  }
-  .proj-delvale-half {
-    position: relative; overflow: hidden;
-    display: flex; align-items: end; padding: 28px;
-  }
-  .proj-delvale-half-h { display: flex; align-items: end; }
-  .proj-delvale-half-m { display: flex; align-items: end; }
-  .proj-delvale-half::before {
+  /* ── Noise overlay ── */
+  body::before {
     content: '';
-    position: absolute; inset: 0;
-    background-size: cover; background-position: center;
-    filter: grayscale(0.3) contrast(1.1);
-  }
-  .proj-delvale-half-h::before {
-    background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=900&fit=crop');
-  }
-  .proj-delvale-half-m::before {
-    background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%), url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=900&fit=crop');
-  }
-  .proj-delvale-tag { position: relative; z-index: 2; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #F2EFE8 }
-  .proj-delvale-center {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    z-index: 3;
-    font-family: var(--serif); font-style: italic; font-weight: 400;
-    font-size: clamp(22px, 4vw, 42px);
-    color: #F2EFE8; text-align: center;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    position: fixed; inset: 0; z-index: 1; pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* ── PROJECT 2 — PETSCOMPARE (magazine éditorial crème) ── */
-  .proj-pets {
-    background: var(--paper-2);
-    padding: 120px var(--gutter);
-    border-top: 1px solid var(--rule);
+  /* ── Aurora gradient ── */
+  body::after {
+    content: '';
+    position: fixed; top: -30%; left: -10%; width: 80vw; height: 80vh;
+    background: radial-gradient(ellipse at center, rgba(34,211,238,0.12) 0%, rgba(244,114,182,0.06) 35%, transparent 70%);
+    z-index: 0; pointer-events: none;
+    filter: blur(80px);
+    animation: aurora 18s ease-in-out infinite alternate;
+  }
+  @keyframes aurora {
+    0% { transform: translate(0,0) rotate(0deg) scale(1); opacity: 0.7 }
+    100% { transform: translate(20%, 10%) rotate(20deg) scale(1.2); opacity: 1 }
+  }
+
+  /* ── Header ── */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 16px var(--gutter);
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    background: rgba(7,7,11,0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid var(--rule);
   }
-  .proj-pets .wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start }
-  .proj-pets-visual {
-    aspect-ratio: 3/4;
-    background: linear-gradient(135deg, #DCC8A8 0%, #B89C7A 100%);
-    background-image: url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&h=800&fit=crop');
-    background-size: cover; background-position: center;
-    position: relative;
+  .h-left { justify-self: start; display: flex; align-items: center; gap: 12px }
+  .h-tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted) }
+  .h-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); box-shadow: 0 0 12px var(--emerald); animation: pulse 2.4s ease-in-out infinite }
+  @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.35 } }
+  .h-logo { justify-self: center; display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink) }
+  .h-logo svg { height: 32px; width: 32px }
+  .h-logo span { font-size: 17px; letter-spacing: 0.18em; font-weight: 300 }
+  .h-logo span b { font-weight: 800; color: var(--cyan) }
+  .h-right { justify-self: end; display: flex; align-items: center; gap: 18px }
+  .h-right .nav { display: flex; gap: 28px }
+  .h-right .nav a { font-size: 13px; color: var(--ink2); font-weight: 500; transition: color .2s }
+  .h-right .nav a:hover { color: var(--cyan-light) }
+  .h-cta {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.02em;
+    padding: 10px 20px; border-radius: 100px;
+    background: var(--cyan); color: var(--bg);
+    transition: all .25s;
+    box-shadow: 0 4px 16px rgba(34,211,238,0.25);
   }
-  .proj-pets-cap {
-    position: absolute; bottom: 20px; left: 20px;
-    background: var(--paper); padding: 8px 12px;
-    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink);
-  }
-  .proj-pets-text { padding-top: 20px }
-  .proj-pets-folio { display: flex; align-items: baseline; gap: 12px; margin-bottom: 32px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--meta) }
-  .proj-pets-folio b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 22px; color: var(--ink); letter-spacing: 0; text-transform: none }
-  .proj-pets h3 {
-    font-family: var(--serif); font-weight: 500; font-style: italic;
-    font-size: clamp(48px, 6.5vw, 88px);
-    line-height: 0.95; letter-spacing: -0.025em;
-    color: var(--ink); margin-bottom: 18px;
-  }
-  .proj-pets .meta-label { color: var(--terra); margin-bottom: 28px; display: block }
-  .proj-pets-body { font-family: var(--serif); font-size: 18px; line-height: 1.72; color: var(--ink-soft); column-count: 1; }
-  .proj-pets-body p { margin-bottom: 18px }
-  .proj-pets-body p.dropcap::first-letter {
-    font-family: var(--serif); font-style: italic; font-weight: 500;
-    font-size: 86px; line-height: 0.85;
-    float: left; margin: 8px 12px 0 0;
-    color: var(--terra);
-  }
-  .proj-pets-stats { display: grid; grid-template-columns: repeat(3, auto); gap: 36px; margin: 28px 0 32px; padding: 22px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule) }
-  .proj-pets-stat-n { font-family: var(--serif); font-weight: 400; font-size: 32px; color: var(--ink); line-height: 1 }
-  .proj-pets-stat-l { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--meta); margin-top: 6px }
+  .h-cta:hover { background: var(--cyan-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,211,238,0.35) }
+  .menu-btn { display: none; background: rgba(255,255,255,0.05); border: 1px solid var(--rule); padding: 8px 12px; cursor: pointer; color: var(--ink); border-radius: 8px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em }
 
-  /* ── PROJECT 3 — DELVABLUE (carré centré tendre) ── */
-  .proj-blue {
-    padding: 140px var(--gutter);
-    background: linear-gradient(180deg, var(--paper) 0%, #EEEAE0 100%);
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; padding: 120px var(--gutter) 60px;
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center;
   }
-  .proj-blue-folio { display: flex; align-items: baseline; gap: 12px; margin-bottom: 28px; justify-content: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--meta) }
-  .proj-blue-folio b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 22px; color: var(--ink); letter-spacing: 0; text-transform: none }
-  .proj-blue-card {
-    max-width: 720px; margin: 0 auto;
-    position: relative;
-  }
-  .proj-blue-img {
-    aspect-ratio: 1/1;
-    background: linear-gradient(135deg, #BFD2E5 0%, #E8C8A8 100%);
-    background-image: url('https://images.unsplash.com/photo-1559454403-b8fb88521f3a?w=900&h=900&fit=crop');
-    background-size: cover; background-position: center;
-    margin-bottom: 36px;
-    position: relative;
-  }
-  .proj-blue-badge {
-    position: absolute; top: 20px; right: 20px;
-    background: var(--ink); color: var(--paper);
-    padding: 8px 14px;
-    font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-  }
-  .proj-blue h3 {
-    font-family: var(--serif); font-weight: 400; font-style: italic;
-    font-size: clamp(44px, 6vw, 84px);
-    line-height: 0.95; letter-spacing: -0.025em;
-    color: var(--ink); margin-bottom: 16px;
-  }
-  .proj-blue .meta-label { color: #4A6B8C; margin-bottom: 22px; display: block }
-  .proj-blue p { font-family: var(--serif); font-size: 18px; line-height: 1.65; color: var(--ink-soft); max-width: 560px; margin: 0 auto 24px }
-  .proj-blue-note { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--meta); letter-spacing: 0.02em }
-
-  /* ── ÉDITO ── */
-  .edito {
-    padding: 140px var(--gutter);
-    background: var(--paper);
-    border-top: 1px solid var(--rule);
-  }
-  .edito-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); margin-bottom: 28px; text-align: center }
-  .edito-h { font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 5vw, 68px); line-height: 1.05; letter-spacing: -0.02em; text-align: center; margin-bottom: 48px }
-  .edito-h em { font-style: italic; color: var(--terra); font-weight: 500 }
-  .edito-body {
-    font-family: var(--serif); font-size: 19px; line-height: 1.78;
-    color: var(--ink-soft);
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-  }
-  .edito-body p { margin-bottom: 22px }
-  .edito-body p.dropcap::first-letter {
-    font-family: var(--serif); font-style: italic; font-weight: 500;
-    font-size: 96px; line-height: 0.85;
-    float: left; margin: 10px 16px 0 0;
-    color: var(--terra);
-  }
-  .edito-sig {
-    margin-top: 40px; padding-top: 24px;
-    border-top: 1px solid var(--rule);
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--meta);
-    display: flex; justify-content: space-between; gap: 24px;
-  }
-
-  /* ── CAHIER / Méthodes ── */
-  .cahier {
-    padding: 140px var(--gutter);
-    background: var(--paper-2);
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-  }
-  .cahier-head { max-width: 940px; margin: 0 auto 64px }
-  .cahier-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); margin-bottom: 20px }
-  .cahier-h { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 5.6vw, 72px); line-height: 1.02; letter-spacing: -0.02em }
-  .cahier-h em { font-style: italic; color: var(--ink); font-weight: 500 }
-  .cahier-list { max-width: 940px; margin: 0 auto; list-style: none }
-  .cahier-step {
-    display: grid; grid-template-columns: 80px 1fr auto; gap: 32px;
-    padding: 36px 0;
-    border-bottom: 1px solid var(--rule);
-    align-items: baseline;
-    transition: padding .25s var(--ease);
-  }
-  .cahier-step:hover { padding-left: 12px }
-  .cahier-step:hover .cahier-step-h { color: var(--terra) }
-  .cahier-step:last-child { border-bottom: 1px solid var(--rule) }
-  .cahier-step-n { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 44px; color: var(--terra); line-height: 1 }
-  .cahier-step-h { font-family: var(--serif); font-weight: 500; font-size: clamp(24px, 3vw, 32px); margin-bottom: 8px; transition: color .2s }
-  .cahier-step-p { font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--ink-soft); max-width: 540px }
-  .cahier-step-dur { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--meta); white-space: nowrap }
-
-  /* ── FICHE TECHNIQUE / Tarifs ── */
-  .fiche { padding: 140px var(--gutter); background: var(--paper) }
-  .fiche-head { max-width: 940px; margin: 0 auto 56px }
-  .fiche-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); margin-bottom: 20px }
-  .fiche-h { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 5.6vw, 72px); line-height: 1.02; letter-spacing: -0.02em; margin-bottom: 18px }
-  .fiche-h em { font-style: italic; color: var(--terra); font-weight: 500 }
-  .fiche-sub { font-family: var(--serif); font-size: 17px; color: var(--ink-soft); max-width: 540px; line-height: 1.6 }
-  .fiche-tables { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px }
-  .fiche-table-h { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--ink) }
-  .fiche-table-h h3 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(26px, 3.4vw, 38px); line-height: 1 }
-  .fiche-table-h .ref { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--meta) }
-  table.fiche-tbl { width: 100%; border-collapse: collapse }
-  table.fiche-tbl thead th { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--meta); text-align: left; padding: 14px 8px; font-weight: 400; border-bottom: 1px solid var(--rule) }
-  table.fiche-tbl thead th:nth-child(2), table.fiche-tbl thead th:nth-child(3) { width: 26%; }
-  table.fiche-tbl thead th:last-child { text-align: right; width: 18% }
-  table.fiche-tbl tbody tr { transition: background .2s }
-  table.fiche-tbl tbody tr:hover { background: var(--paper-3) }
-  table.fiche-tbl tbody td { font-family: var(--serif); font-size: 17px; padding: 22px 8px; border-bottom: 1px solid var(--rule); vertical-align: top }
-  table.fiche-tbl tbody td:last-child { text-align: right; font-family: var(--serif); font-style: italic; font-weight: 500; color: var(--ink) }
-  table.fiche-tbl .name { font-weight: 500 }
-  table.fiche-tbl .desc { display: block; font-size: 14px; color: var(--meta); margin-top: 4px; line-height: 1.5 }
-  table.fiche-tbl .dur { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--meta); text-transform: uppercase }
-  .fiche-note { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--meta); text-align: center; margin-top: 48px; max-width: 540px; margin-left: auto; margin-right: auto }
-
-  /* ── CORRESPONDANCE / Contact ── */
-  .corresp { padding: 140px var(--gutter); background: var(--paper-2); border-top: 1px solid var(--rule) }
-  .corresp .wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start }
-  .corresp-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); margin-bottom: 20px }
-  .corresp h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 5vw, 64px); line-height: 1.02; letter-spacing: -0.02em; margin-bottom: 28px }
-  .corresp h2 em { font-style: italic; color: var(--terra); font-weight: 500 }
-  .corresp-lede { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); line-height: 1.65; max-width: 420px; margin-bottom: 40px }
-  .corresp-info { display: flex; flex-direction: column; gap: 22px; padding-top: 28px; border-top: 1px solid var(--rule) }
-  .corresp-info-row { display: flex; justify-content: space-between; align-items: baseline; gap: 18px }
-  .corresp-info-row .l { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--meta) }
-  .corresp-info-row .v { font-family: var(--serif); font-size: 17px; color: var(--ink); }
-  .corresp-info-row .v a { border-bottom: 1px solid var(--ink); padding-bottom: 1px; transition: color .2s, border-color .2s }
-  .corresp-info-row .v a:hover { color: var(--terra); border-color: var(--terra) }
-
-  form.corresp-form { display: flex; flex-direction: column; gap: 0 }
-  .field { display: flex; flex-direction: column; padding: 18px 0; border-bottom: 1px solid var(--rule); }
-  .field-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--meta); margin-bottom: 10px }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px }
-  .field-row .field { border-bottom: 1px solid var(--rule) }
-  .field input, .field select, .field textarea {
-    font-family: var(--serif); font-size: 18px;
-    background: transparent; border: 0; outline: 0;
-    color: var(--ink); padding: 6px 0;
-    width: 100%;
-  }
-  .field input::placeholder, .field textarea::placeholder, .field select { color: var(--meta); font-family: var(--serif); font-style: italic; font-size: 17px }
-  .field select { font-style: normal; color: var(--ink) }
-  .field select option { font-family: system-ui, sans-serif; color: var(--ink); background: var(--paper) }
-  .field textarea { resize: vertical; min-height: 96px; line-height: 1.5 }
-  .field input:focus, .field select:focus, .field textarea:focus { color: var(--terra) }
-  .form-submit {
-    margin-top: 28px;
-    font-family: var(--sans); font-size: 14px; font-weight: 600;
-    background: var(--ink); color: var(--paper);
-    padding: 18px 28px; border: 1px solid var(--ink);
-    cursor: pointer;
-    transition: background .2s, border-color .2s;
+  .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 10px;
-    align-self: flex-start;
+    padding: 8px 18px; border-radius: 100px;
+    background: rgba(34,211,238,0.08);
+    border: 1px solid rgba(34,211,238,0.2);
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--cyan-light);
+    margin-bottom: 32px;
+    backdrop-filter: blur(10px);
   }
-  .form-submit:hover { background: var(--terra); border-color: var(--terra) }
+  .hero-eyebrow svg { width: 12px; height: 12px; stroke: var(--cyan); fill: none; stroke-width: 2 }
 
-  /* ── COLOPHON / Footer ── */
-  footer.colophon {
-    background: var(--ink);
-    color: #B5B0A6;
-    padding: 80px var(--gutter) 40px;
+  .hero h1 {
+    font-family: var(--sans); font-weight: 800;
+    font-size: clamp(48px, 8vw, 120px);
+    line-height: 0.96; letter-spacing: -0.045em;
+    margin-bottom: 28px;
+    max-width: 1100px;
+    color: var(--ink);
   }
-  .colo-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid #2A2722 }
-  .colo-brand h3 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 42px; color: var(--paper); margin-bottom: 14px; letter-spacing: -0.02em }
-  .colo-brand p { font-family: var(--serif); font-size: 16px; line-height: 1.65; color: #B5B0A6; max-width: 400px }
-  .colo-col h4 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); margin-bottom: 18px }
-  .colo-col a { display: block; font-family: var(--serif); font-size: 16px; color: #B5B0A6; padding: 6px 0; transition: color .2s }
-  .colo-col a:hover { color: var(--terra) }
-  .colo-bottom { max-width: 1240px; margin: 32px auto 0; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #6B6760 }
-  .colo-bottom span.term { color: var(--terra) }
+  .hero h1 em {
+    font-family: var(--serif); font-style: italic; font-weight: 400;
+    background: linear-gradient(120deg, var(--cyan) 0%, var(--pink) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 0.1em;
+  }
+  .hero-lede {
+    font-size: clamp(17px, 1.5vw, 21px);
+    color: var(--ink2); max-width: 620px; line-height: 1.55;
+    margin-bottom: 44px;
+  }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 64px }
+  .btn-primary {
+    padding: 16px 32px; border-radius: 100px;
+    background: var(--cyan); color: var(--bg);
+    font-weight: 700; font-size: 15px; letter-spacing: 0.02em;
+    transition: all .3s;
+    display: inline-flex; align-items: center; gap: 10px;
+    box-shadow: 0 8px 28px rgba(34,211,238,0.3);
+  }
+  .btn-primary:hover { background: var(--cyan-light); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(34,211,238,0.45) }
+  .btn-secondary {
+    padding: 16px 28px; border-radius: 100px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--rule-strong);
+    color: var(--ink); font-weight: 500; font-size: 15px;
+    transition: all .3s;
+    display: inline-flex; align-items: center; gap: 8px;
+    backdrop-filter: blur(10px);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--cyan); color: var(--cyan-light) }
 
-  /* ── Reveal on scroll ── */
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .9s var(--ease), transform .9s var(--ease) }
+  .hero-trust { display: flex; gap: 36px; flex-wrap: wrap; justify-content: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted) }
+  .hero-trust span { display: inline-flex; align-items: center; gap: 8px }
+  .hero-trust span::before { content: ''; display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--cyan) }
+
+  /* ── PORTFOLIO INTRO ── */
+  .pf-intro {
+    padding: 120px var(--gutter) 60px;
+    position: relative; z-index: 2;
+    text-align: center;
+  }
+  .pf-intro-eyebrow {
+    display: inline-block; padding: 6px 14px; border-radius: 100px;
+    background: rgba(244,114,182,0.1);
+    border: 1px solid rgba(244,114,182,0.25);
+    color: var(--pink);
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .pf-intro h2 {
+    font-family: var(--sans); font-weight: 800;
+    font-size: clamp(38px, 5.6vw, 76px);
+    line-height: 1.02; letter-spacing: -0.035em;
+    max-width: 880px; margin: 0 auto 20px;
+  }
+  .pf-intro h2 em {
+    font-family: var(--serif); font-style: italic; font-weight: 400;
+    color: var(--cyan-light);
+  }
+  .pf-intro p { color: var(--ink2); font-size: 17px; max-width: 540px; margin: 0 auto; line-height: 1.6 }
+
+  /* ── PROJECT SHOWCASE (commun) ── */
+  .proj {
+    position: relative; z-index: 2;
+    padding: 100px var(--gutter);
+    overflow: hidden;
+  }
+  .proj-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 0.85fr 1.2fr; gap: 80px; align-items: center }
+  .proj.reverse .proj-inner { grid-template-columns: 1.2fr 0.85fr }
+  .proj.reverse .proj-text { order: 2 }
+  .proj.reverse .proj-visual { order: 1 }
+
+  .proj-folio { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; display: flex; align-items: center; gap: 12px }
+  .proj-folio b { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--ink); font-size: 22px; letter-spacing: 0; text-transform: none }
+  .proj-folio .pf-bar { width: 32px; height: 1px; background: currentColor; opacity: 0.4 }
+  .proj h3 {
+    font-family: var(--sans); font-weight: 800;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.95; letter-spacing: -0.04em;
+    margin-bottom: 14px;
+  }
+  .proj h3 em { font-family: var(--serif); font-style: italic; font-weight: 400 }
+  .proj-cat { display: inline-block; font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 24px }
+  .proj p { font-size: 17px; line-height: 1.7; color: var(--ink2); max-width: 480px; margin-bottom: 28px }
+  .proj-stats { display: grid; grid-template-columns: repeat(3, auto); gap: 36px; margin-bottom: 32px; padding: 24px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule) }
+  .proj-stat-n { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 32px; line-height: 1 }
+  .proj-stat-l { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 6px }
+  .proj-brands { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px }
+  .proj-brands span { padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--rule); border-radius: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink2) }
+  .proj-cta {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 14px 28px; border-radius: 100px;
+    font-weight: 700; font-size: 14px; letter-spacing: 0.02em;
+    transition: all .3s;
+  }
+
+  /* Mockup container */
+  .proj-visual { position: relative; perspective: 1800px }
+  .mockup {
+    position: relative;
+    aspect-ratio: 16/10;
+    border-radius: 16px;
+    overflow: hidden;
+    transform: rotateY(-10deg) rotateX(6deg) rotate(0deg);
+    box-shadow:
+      0 30px 80px -20px rgba(0,0,0,0.6),
+      0 50px 120px -30px rgba(34,211,238,0.25),
+      inset 0 1px 1px rgba(255,255,255,0.1);
+    transform-style: preserve-3d;
+    transition: transform .6s var(--ease), box-shadow .6s var(--ease);
+    will-change: transform;
+  }
+  .proj.reverse .mockup { transform: rotateY(10deg) rotateX(6deg) }
+  .proj-visual:hover .mockup { transform: rotateY(0deg) rotateX(0deg) }
+  .mockup-bar {
+    height: 32px;
+    background: linear-gradient(180deg, #1a1a26 0%, #14141e 100%);
+    display: flex; align-items: center; padding: 0 14px; gap: 6px;
+    border-bottom: 1px solid var(--rule);
+    position: relative; z-index: 2;
+  }
+  .mockup-bar .dot { width: 11px; height: 11px; border-radius: 50%; background: #2a2a3a }
+  .mockup-bar .dot:nth-child(1) { background: #ff5f57 }
+  .mockup-bar .dot:nth-child(2) { background: #febc2e }
+  .mockup-bar .dot:nth-child(3) { background: #28c840 }
+  .mockup-bar .url { margin-left: 18px; flex: 1; max-width: 380px; padding: 4px 12px; background: rgba(255,255,255,0.05); border-radius: 6px; font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: center; letter-spacing: 0.04em }
+  .mockup img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover; object-position: top center;
+    display: block;
+    background: #14141e;
+  }
+  .mockup-glow {
+    position: absolute; inset: -40px; z-index: -1;
+    background: radial-gradient(ellipse at center, var(--cyan-glow) 0%, transparent 60%);
+    filter: blur(40px);
+    opacity: 0.6;
+  }
+
+  /* ── PROJET 1 — DELVALE (rouge/noir luxe mode) ── */
+  .proj-delvale { background: linear-gradient(180deg, var(--bg) 0%, #0f0a0a 100%); border-top: 1px solid var(--rule) }
+  .proj-delvale h3 { color: #fff }
+  .proj-delvale h3 em { color: #ef4444 }
+  .proj-delvale .proj-cat { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); color: #f87171 }
+  .proj-delvale .proj-stat-n { color: #ef4444 }
+  .proj-delvale .proj-cta { background: #ef4444; color: #fff; box-shadow: 0 8px 24px rgba(239,68,68,0.3) }
+  .proj-delvale .proj-cta:hover { background: #fff; color: #0f0a0a; transform: translateY(-2px) }
+  .proj-delvale .mockup-glow { background: radial-gradient(ellipse at center, rgba(239,68,68,0.4) 0%, transparent 60%); opacity: 0.7 }
+  .proj-delvale .mockup { box-shadow: 0 30px 80px -20px rgba(0,0,0,0.7), 0 50px 120px -30px rgba(239,68,68,0.35), inset 0 1px 1px rgba(255,255,255,0.1) }
+
+  /* ── PROJET 2 — PETSCOMPARE (vert éditorial) ── */
+  .proj-pets { background: linear-gradient(180deg, #0f0a0a 0%, #0a0f0c 100%); border-top: 1px solid var(--rule) }
+  .proj-pets h3 em { color: #34d399 }
+  .proj-pets .proj-cat { background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.25); color: #34d399 }
+  .proj-pets .proj-stat-n { color: #34d399 }
+  .proj-pets .proj-cta { background: #34d399; color: #051a10; box-shadow: 0 8px 24px rgba(52,211,153,0.3) }
+  .proj-pets .proj-cta:hover { background: #fff; transform: translateY(-2px) }
+  .proj-pets .mockup-glow { background: radial-gradient(ellipse at center, rgba(52,211,153,0.4) 0%, transparent 60%); opacity: 0.6 }
+  .proj-pets .mockup { box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6), 0 50px 120px -30px rgba(52,211,153,0.35), inset 0 1px 1px rgba(255,255,255,0.1) }
+
+  /* ── PROJET 3 — DELVABLUE (bleu pastel tendre) ── */
+  .proj-blue { background: linear-gradient(180deg, #0a0f0c 0%, #0a0e15 100%); border-top: 1px solid var(--rule) }
+  .proj-blue h3 em { color: #60a5fa }
+  .proj-blue .proj-cat { background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.25); color: #60a5fa }
+  .proj-blue .proj-stat-n { color: #60a5fa }
+  .proj-blue .proj-cta { background: rgba(96,165,250,0.15); color: #93c5fd; border: 1px solid rgba(96,165,250,0.3); pointer-events: none; cursor: default }
+  .proj-blue .proj-cta:hover { background: rgba(96,165,250,0.15); transform: none }
+  .proj-blue .mockup-glow { background: radial-gradient(ellipse at center, rgba(96,165,250,0.4) 0%, transparent 60%); opacity: 0.6 }
+  .proj-blue .mockup { box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6), 0 50px 120px -30px rgba(96,165,250,0.35), inset 0 1px 1px rgba(255,255,255,0.1) }
+  .proj-blue .mockup-overlay {
+    position: absolute; inset: 32px 0 0 0;
+    background: linear-gradient(180deg, rgba(10,14,21,0) 30%, rgba(10,14,21,0.95) 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    z-index: 3;
+    flex-direction: column; gap: 14px;
+  }
+  .proj-blue .mockup-overlay .badge {
+    background: #60a5fa; color: #051026;
+    padding: 8px 18px; border-radius: 100px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+    box-shadow: 0 8px 24px rgba(96,165,250,0.4);
+  }
+  .proj-blue .mockup-overlay .label {
+    font-family: var(--serif); font-style: italic; font-size: 26px; color: #f4f4f5;
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    position: relative; z-index: 2;
+    padding: 140px var(--gutter); background: var(--bg);
+    border-top: 1px solid var(--rule);
+  }
+  .services-head { max-width: 1100px; margin: 0 auto 64px; text-align: center }
+  .stag {
+    display: inline-block; padding: 6px 14px; border-radius: 100px;
+    background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.2);
+    color: var(--cyan-light);
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .stitle {
+    font-family: var(--sans); font-weight: 800;
+    font-size: clamp(36px, 5.4vw, 68px); line-height: 1.02; letter-spacing: -0.035em;
+    max-width: 800px; margin: 0 auto 18px;
+  }
+  .stitle em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--pink) }
+  .ssub { color: var(--ink2); font-size: 17px; max-width: 540px; margin: 0 auto; line-height: 1.6 }
+
+  .srv-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px }
+  .srv-card {
+    position: relative;
+    padding: 40px 36px; border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
+    border: 1px solid var(--rule);
+    transition: all .4s var(--ease);
+    overflow: hidden;
+  }
+  .srv-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--cyan) 50%, transparent 100%);
+    opacity: 0; transition: opacity .4s;
+  }
+  .srv-card:hover { transform: translateY(-4px); border-color: var(--rule-strong); background: linear-gradient(180deg, rgba(34,211,238,0.04) 0%, rgba(255,255,255,0.02) 100%) }
+  .srv-card:hover::before { opacity: 1 }
+  .srv-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.2);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(34,211,238,0.1);
+  }
+  .srv-icon svg { width: 26px; height: 26px; stroke: var(--cyan); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round }
+  .srv-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.015em }
+  .srv-card p { font-size: 15px; line-height: 1.65; color: var(--ink2); margin-bottom: 20px }
+  .srv-card .price { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan) }
+
+  /* ── PROCESS ── */
+  .process {
+    position: relative; z-index: 2;
+    padding: 140px var(--gutter);
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    border-top: 1px solid var(--rule);
+  }
+  .process-head { max-width: 1100px; margin: 0 auto 64px; text-align: center }
+  .process-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative }
+  .process-grid::before {
+    content: ''; position: absolute; top: 40px; left: 8%; right: 8%; height: 2px;
+    background: linear-gradient(90deg, transparent 0%, rgba(34,211,238,0.3) 20%, rgba(244,114,182,0.3) 50%, rgba(34,211,238,0.3) 80%, transparent 100%);
+  }
+  .proc-step {
+    position: relative;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .proc-num {
+    width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px;
+    background: var(--bg2); border: 1px solid var(--rule-strong);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 2;
+    font-family: var(--serif); font-style: italic; font-size: 32px; color: var(--cyan-light);
+    box-shadow: inset 0 0 24px rgba(34,211,238,0.15);
+  }
+  .proc-step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em }
+  .proc-step p { font-size: 14px; color: var(--ink2); line-height: 1.6 }
+
+  /* ── PRICING ── */
+  .pricing {
+    position: relative; z-index: 2;
+    padding: 140px var(--gutter); background: var(--bg);
+    border-top: 1px solid var(--rule);
+  }
+  .pricing-head { max-width: 1100px; margin: 0 auto 48px; text-align: center }
+  .tabs { display: flex; gap: 8px; margin: 0 auto 56px; justify-content: center; flex-wrap: wrap }
+  .tab-btn {
+    padding: 11px 24px; border-radius: 100px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--rule);
+    color: var(--ink2);
+    font-size: 13.5px; font-weight: 600; letter-spacing: 0.01em;
+    cursor: pointer; font-family: inherit;
+    transition: all .25s;
+  }
+  .tab-btn:hover { border-color: var(--cyan); color: var(--cyan-light) }
+  .tab-btn.active { background: var(--cyan); border-color: var(--cyan); color: var(--bg) }
+  .tab-panel { display: none; max-width: 1240px; margin: 0 auto }
+  .tab-panel.active { display: block }
+  .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px }
+  .price-card {
+    padding: 36px 30px; border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid var(--rule);
+    transition: all .4s var(--ease);
+    position: relative; overflow: hidden;
+  }
+  .price-card:hover { transform: translateY(-6px); border-color: var(--rule-strong); box-shadow: 0 20px 60px rgba(0,0,0,0.4) }
+  .price-card.pop { border: 2px solid var(--cyan); box-shadow: 0 16px 48px rgba(34,211,238,0.15) }
+  .pop-badge {
+    position: absolute; top: -1px; right: 24px;
+    padding: 6px 14px;
+    background: var(--cyan); color: var(--bg);
+    border-radius: 0 0 10px 10px;
+    font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .price-name { font-size: 19px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.015em }
+  .price-desc { font-size: 14px; color: var(--ink2); line-height: 1.6; margin-bottom: 24px; min-height: 44px }
+  .price-amt { display: flex; align-items: baseline; gap: 4px; margin-bottom: 22px }
+  .price-amt .eur { font-size: 18px; color: var(--cyan); font-weight: 700 }
+  .price-amt .val { font-family: var(--serif); font-size: 56px; line-height: 1; color: var(--ink); font-weight: 400 }
+  .price-amt .per { font-size: 13px; color: var(--muted); margin-left: 6px }
+  .price-feat { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px }
+  .price-feat li { font-size: 13.5px; color: var(--ink2); display: flex; align-items: flex-start; gap: 10px; line-height: 1.55 }
+  .price-feat li::before { content: ''; width: 14px; height: 14px; border-radius: 50%; background: rgba(34,211,238,0.15); display: inline-flex; flex-shrink: 0; margin-top: 3px; position: relative }
+  .price-feat li::after {
+    content: ''; position: absolute; width: 6px; height: 4px; border-left: 1.5px solid var(--cyan); border-bottom: 1.5px solid var(--cyan);
+    transform: rotate(-45deg); margin-left: 4px; margin-top: 7px;
+  }
+  .price-cta {
+    display: block; padding: 13px; border-radius: 100px; text-align: center;
+    background: rgba(255,255,255,0.05); border: 1px solid var(--rule-strong);
+    color: var(--ink); font-weight: 600; font-size: 14px;
+    transition: all .25s;
+  }
+  .price-cta:hover { background: var(--cyan); color: var(--bg); border-color: var(--cyan) }
+  .price-card.pop .price-cta { background: var(--cyan); color: var(--bg); border: none; font-weight: 700 }
+  .price-card.pop .price-cta:hover { background: var(--cyan-light) }
+  .price-note { text-align: center; font-size: 12px; color: var(--muted); margin-top: 12px }
+
+  /* ── TESTIMONIALS ── */
+  .testi {
+    position: relative; z-index: 2;
+    padding: 140px var(--gutter);
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%);
+    border-top: 1px solid var(--rule);
+  }
+  .testi-head { max-width: 800px; margin: 0 auto 56px; text-align: center }
+  .testi-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px }
+  .testi-card {
+    padding: 36px 30px; border-radius: 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--rule);
+    transition: all .3s;
+    position: relative; overflow: hidden;
+  }
+  .testi-card::before {
+    content: '\201C';
+    position: absolute; top: 0; right: 20px;
+    font-family: var(--serif); font-size: 120px; line-height: 1;
+    color: var(--cyan); opacity: 0.1;
+    pointer-events: none;
+  }
+  .testi-card:hover { border-color: var(--rule-strong); transform: translateY(-3px) }
+  .stars { color: var(--gold); font-size: 15px; letter-spacing: 3px; margin-bottom: 18px }
+  .testi-card p { font-size: 15px; line-height: 1.75; color: var(--ink2); margin-bottom: 24px; position: relative; z-index: 1 }
+  .testi-author { display: flex; align-items: center; gap: 12px }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--cyan), var(--pink));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: var(--bg); font-size: 16px;
+  }
+  .testi-info strong { display: block; color: var(--ink); font-size: 14px; font-weight: 600 }
+  .testi-info span { color: var(--muted); font-size: 12px }
+
+  /* ── CONTACT ── */
+  .contact {
+    position: relative; z-index: 2;
+    padding: 140px var(--gutter);
+    background: var(--bg);
+    border-top: 1px solid var(--rule);
+  }
+  .contact-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start }
+  .contact-left h2 { font-family: var(--sans); font-weight: 800; font-size: clamp(36px, 5vw, 64px); line-height: 1.02; letter-spacing: -0.035em; margin-bottom: 24px }
+  .contact-left h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--cyan) }
+  .contact-left p { color: var(--ink2); font-size: 17px; line-height: 1.65; max-width: 420px; margin-bottom: 36px }
+  .contact-items { display: flex; flex-direction: column; gap: 18px }
+  .contact-item { display: flex; align-items: center; gap: 16px }
+  .contact-icon { width: 46px; height: 46px; border-radius: 14px; background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0 }
+  .contact-icon svg { width: 20px; height: 20px; stroke: var(--cyan); fill: none; stroke-width: 1.8; stroke-linecap: round }
+  .contact-text strong { display: block; color: var(--ink); font-size: 14px; margin-bottom: 2px; font-weight: 600 }
+  .contact-text span { color: var(--ink2); font-size: 14px }
+
+  form.contact-form { display: flex; flex-direction: column; gap: 14px }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px }
+  form input, form select, form textarea {
+    width: 100%; padding: 16px 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    color: var(--ink); font-size: 15px; font-family: inherit;
+    transition: all .25s; outline: none;
+  }
+  form input:focus, form select:focus, form textarea:focus { border-color: var(--cyan); background: rgba(34,211,238,0.05); box-shadow: 0 0 0 4px rgba(34,211,238,0.1) }
+  form input::placeholder, form textarea::placeholder { color: var(--muted) }
+  form select { color: var(--ink); cursor: pointer }
+  form select option { background: var(--bg2); color: var(--ink) }
+  form textarea { resize: vertical; min-height: 120px; line-height: 1.55 }
+  .form-submit {
+    padding: 17px 24px; border-radius: 100px; border: none;
+    background: var(--cyan); color: var(--bg);
+    font-weight: 700; font-size: 15px; font-family: inherit;
+    cursor: pointer; transition: all .3s;
+    display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+    box-shadow: 0 8px 24px rgba(34,211,238,0.25);
+  }
+  .form-submit:hover { background: var(--cyan-light); transform: translateY(-1px); box-shadow: 0 12px 32px rgba(34,211,238,0.35) }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative; z-index: 2;
+    padding: 80px var(--gutter) 32px;
+    background: #050508;
+    border-top: 1px solid var(--rule);
+  }
+  .footer-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--rule) }
+  .f-brand .f-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px }
+  .f-brand .f-logo svg { height: 32px }
+  .f-brand .f-logo span { font-size: 17px; letter-spacing: 0.18em; font-weight: 300; color: var(--ink) }
+  .f-brand .f-logo span b { font-weight: 800; color: var(--cyan) }
+  .f-brand p { font-size: 14px; color: var(--ink2); line-height: 1.65; max-width: 340px }
+  .f-col h4 { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cyan); margin-bottom: 18px }
+  .f-col a { display: block; color: var(--ink2); font-size: 14px; padding: 5px 0; transition: color .2s }
+  .f-col a:hover { color: var(--cyan-light) }
+  .footer-bottom {
+    max-width: 1240px; margin: 32px auto 0;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+  }
+
+  /* ── Reveal ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .9s var(--ease), transform .9s var(--ease) }
   .reveal.visible { opacity: 1; transform: none }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none }
-    .sommaire-list li, .cahier-step { transition: none }
+    .mockup, body::after { animation: none; transition: none }
   }
 
-  /* ── Mobile Menu ── */
+  /* ── Mobile menu ── */
   .mobile-menu {
-    position: fixed; inset: 70px 0 0 0; z-index: 99;
-    background: var(--paper);
-    padding: 40px var(--gutter);
+    position: fixed; inset: 64px 0 0 0; z-index: 99;
+    background: rgba(7,7,11,0.98);
+    backdrop-filter: blur(20px);
+    padding: 32px var(--gutter);
     display: none; flex-direction: column; gap: 4px;
     border-top: 1px solid var(--rule);
   }
   .mobile-menu.open { display: flex }
-  .mobile-menu a {
-    font-family: var(--serif); font-style: italic; font-weight: 400;
-    font-size: 32px; padding: 14px 0; border-bottom: 1px solid var(--rule);
-    color: var(--ink);
-  }
-  .mobile-menu .meta { padding-top: 24px }
+  .mobile-menu a { font-size: 22px; font-weight: 600; padding: 14px 0; border-bottom: 1px solid var(--rule); color: var(--ink) }
+  .mobile-menu a:last-child { border: 0; margin-top: 16px; background: var(--cyan); color: var(--bg); padding: 14px 24px; border-radius: 100px; text-align: center; font-size: 15px }
 
   /* ── Responsive ── */
   @media (max-width: 1024px) {
-    .proj-delvale .wrap { grid-template-columns: 1fr; gap: 48px }
-    .proj-pets .wrap { grid-template-columns: 1fr; gap: 48px }
-    .corresp .wrap { grid-template-columns: 1fr; gap: 56px }
-    .colo-grid { grid-template-columns: 1fr 1fr; gap: 40px }
+    .proj-inner, .proj.reverse .proj-inner { grid-template-columns: 1fr; gap: 48px }
+    .proj.reverse .proj-text, .proj.reverse .proj-visual { order: unset }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px }
+    .srv-grid, .price-grid, .testi-grid { grid-template-columns: 1fr 1fr }
+    .process-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px }
+    .process-grid::before { display: none }
   }
   @media (max-width: 768px) {
-    section { padding: 64px 20px }
-    header { padding: 14px 20px; grid-template-columns: 1fr auto 1fr }
-    .head-left { display: none }
-    .head-right .nav-link { display: none }
+    header { padding: 14px 20px; grid-template-columns: auto 1fr auto }
+    .h-left { display: none }
+    .h-right .nav { display: none }
     .menu-btn { display: inline-flex }
-    .head-cta { padding: 8px 14px; font-size: 12px }
-    .head-center span { font-size: 14px }
-    .cover { padding-top: 40px; padding-bottom: 40px; min-height: 0 }
-    .cover-eyebrow { margin-bottom: 24px }
-    .cover-h { font-size: 56px; line-height: 1 }
-    .cover-lede { font-size: 17px }
-    .cover-bottom { flex-direction: column; align-items: flex-start; gap: 12px }
-    .sommaire-list li { grid-template-columns: auto 1fr auto; gap: 12px }
-    .sommaire-list .somm-dots { display: none }
-    .somm-num { font-size: 22px; min-width: 36px }
-    .somm-title { font-size: 22px }
-    .pf-intro { padding-top: 64px }
-    .pf-intro h2 { font-size: 40px }
-    .proj-delvale { padding: 72px 20px; margin-top: 56px }
-    .proj-delvale h3 { font-size: 58px }
-    .proj-delvale-visual { aspect-ratio: 3/4 }
-    .proj-pets { padding: 80px 20px }
-    .proj-pets h3 { font-size: 44px }
-    .proj-pets-body { font-size: 17px }
-    .proj-pets-body p.dropcap::first-letter { font-size: 68px }
-    .proj-pets-stats { grid-template-columns: 1fr 1fr; gap: 20px }
-    .proj-blue { padding: 80px 20px }
-    .proj-blue h3 { font-size: 46px }
-    .edito { padding: 80px 20px }
-    .edito-h { font-size: 36px }
-    .edito-body { font-size: 17px; text-align: left }
-    .edito-body p.dropcap::first-letter { font-size: 72px }
-    .edito-sig { flex-direction: column; gap: 8px }
-    .cahier { padding: 80px 20px }
-    .cahier-h { font-size: 36px }
-    .cahier-step { grid-template-columns: 56px 1fr; gap: 16px; padding: 28px 0 }
-    .cahier-step-dur { grid-column: 2; margin-top: 6px }
-    .cahier-step-n { font-size: 30px }
-    .cahier-step-h { font-size: 22px }
-    .fiche { padding: 80px 20px }
-    .fiche-h { font-size: 36px }
-    .fiche-table-h h3 { font-size: 24px }
-    .fiche-tables { gap: 40px }
-    table.fiche-tbl, table.fiche-tbl tbody, table.fiche-tbl thead, table.fiche-tbl tr, table.fiche-tbl td, table.fiche-tbl th { display: block }
-    table.fiche-tbl thead { display: none }
-    table.fiche-tbl tbody tr { padding: 18px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; align-items: baseline }
-    table.fiche-tbl tbody tr:hover { background: transparent }
-    table.fiche-tbl tbody td { padding: 0; border: 0; font-size: 16px }
-    table.fiche-tbl .desc { font-size: 13px; margin-top: 4px; grid-column: 1/-1 }
-    table.fiche-tbl .dur { grid-column: 1/-1; margin-top: 6px }
-    table.fiche-tbl tbody td:last-child { font-size: 18px }
-    .corresp { padding: 80px 20px }
-    .corresp h2 { font-size: 36px }
-    .field-row { grid-template-columns: 1fr; gap: 0 }
-    .field-row .field { border-bottom: 1px solid var(--rule) }
-    .colo-grid { grid-template-columns: 1fr; gap: 32px; padding-bottom: 32px }
-    .colo-brand h3 { font-size: 36px }
-    .colo-bottom { flex-direction: column; gap: 12px }
+    .h-cta { padding: 8px 16px; font-size: 12px }
+    .h-logo span { font-size: 14px }
+    .hero { padding: 100px 20px 60px; min-height: 0 }
+    .hero h1 { font-size: 44px }
+    .hero-lede { font-size: 16px }
+    .hero-trust { gap: 16px; font-size: 10px }
+    .pf-intro { padding: 80px 20px 32px }
+    .pf-intro h2 { font-size: 38px }
+    .proj { padding: 64px 20px }
+    .proj h3 { font-size: 48px }
+    .proj-stats { grid-template-columns: 1fr 1fr; gap: 20px }
+    .services, .process, .pricing, .testi, .contact { padding: 80px 20px }
+    .stitle { font-size: 34px }
+    .srv-grid, .price-grid, .testi-grid { grid-template-columns: 1fr }
+    .process-grid { grid-template-columns: 1fr; gap: 28px }
+    .form-row { grid-template-columns: 1fr; gap: 14px }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center }
+    .mockup-bar .url { max-width: 200px; font-size: 9px }
+    .testi-card::before { font-size: 80px }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 38px }
+    .proj h3 { font-size: 40px }
+    .stitle { font-size: 30px }
   }
 </style>
 </head>
 <body>
 
-<!-- ── HEADER ── -->
 <header>
-  <div class="head-left">Agence Web — Belgique</div>
-  <a href="#" class="head-center">
-    <svg class="logo-svg" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+  <div class="h-left">
+    <span class="h-dot"></span>
+    <span class="h-tag">Disponible · Devis sous 24h</span>
+  </div>
+  <a href="#" class="h-logo">
+    <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C8472A"/><stop offset="100%" stop-color="#C8472A"/></linearGradient>
+        <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f472b6"/><stop offset="50%" stop-color="#fb923c"/><stop offset="100%" stop-color="#f472b6"/></linearGradient>
+        <radialGradient id="glow" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="rgba(103,232,249,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
       </defs>
-      <circle cx="25" cy="25" r="21" fill="none" stroke="url(#ring-grad)" stroke-width="1.5" opacity="0.85"/>
-      <circle cx="25" cy="25" r="18" fill="#0F0E0C"/>
-      <ellipse cx="25" cy="25" rx="18" ry="18" fill="none" stroke="rgba(242,239,232,0.22)" stroke-width="0.4"/>
-      <ellipse cx="25" cy="25" rx="14" ry="18" fill="none" stroke="rgba(242,239,232,0.16)" stroke-width="0.4"/>
-      <ellipse cx="25" cy="25" rx="9" ry="18" fill="none" stroke="rgba(242,239,232,0.12)" stroke-width="0.4"/>
-      <line x1="7" y1="25" x2="43" y2="25" stroke="rgba(242,239,232,0.18)" stroke-width="0.4"/>
-      <line x1="9" y1="18" x2="41" y2="18" stroke="rgba(242,239,232,0.12)" stroke-width="0.4"/>
-      <line x1="9" y1="32" x2="41" y2="32" stroke="rgba(242,239,232,0.12)" stroke-width="0.4"/>
-      <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="#0F0E0C" stroke-width="2.5" transform="rotate(-25 25 25)"/>
-      <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="rgba(242,239,232,0.25)" stroke-width="0.6" transform="rotate(-25 25 25)"/>
-      <text x="25" y="30" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#F2EFE8" text-anchor="middle">C</text>
+      <circle cx="25" cy="25" r="21" fill="none" stroke="url(#ring-grad)" stroke-width="1.5" opacity="0.75"/>
+      <circle cx="25" cy="25" r="18" fill="#07070b"/>
+      <ellipse cx="25" cy="25" rx="18" ry="18" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.4"/>
+      <ellipse cx="25" cy="25" rx="14" ry="18" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="0.4"/>
+      <ellipse cx="25" cy="25" rx="9" ry="18" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.4"/>
+      <line x1="7" y1="25" x2="43" y2="25" stroke="rgba(255,255,255,0.15)" stroke-width="0.4"/>
+      <line x1="9" y1="18" x2="41" y2="18" stroke="rgba(255,255,255,0.1)" stroke-width="0.4"/>
+      <line x1="9" y1="32" x2="41" y2="32" stroke="rgba(255,255,255,0.1)" stroke-width="0.4"/>
+      <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="#1a1a2e" stroke-width="2.5" transform="rotate(-25 25 25)"/>
+      <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.6" transform="rotate(-25 25 25)"/>
+      <circle cx="25" cy="24" r="8" fill="url(#glow)"/>
+      <text x="25" y="30" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle">C</text>
     </svg>
-    <span>CRÉOPUS</span>
+    <span>CRE<b>OPUS</b></span>
   </a>
-  <div class="head-right">
-    <a href="#travaux" class="nav-link">Travaux</a>
-    <a href="#tarifs" class="nav-link">Tarifs</a>
-    <a href="#contact" class="head-cta">Devis →</a>
+  <div class="h-right">
+    <nav class="nav">
+      <a href="#travaux">Travaux</a>
+      <a href="#services">Services</a>
+      <a href="#tarifs">Tarifs</a>
+    </nav>
+    <a href="#contact" class="h-cta">Devis gratuit</a>
     <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">Menu</button>
   </div>
 </header>
 
 <nav class="mobile-menu" id="mobileMenu">
   <a href="#travaux" onclick="toggleMenu()">Travaux</a>
-  <a href="#methode" onclick="toggleMenu()">Méthode</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
   <a href="#tarifs" onclick="toggleMenu()">Tarifs</a>
-  <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <div class="meta">contact@creopus.be · La Louvière, Belgique</div>
+  <a href="#process" onclick="toggleMenu()">Process</a>
+  <a href="#contact" onclick="toggleMenu()">Devis gratuit</a>
 </nav>
 
-<!-- ── COUVERTURE ── -->
-<section class="cover">
-  <div class="cover-top">
-    <div class="meta">Édition 2026 — Volume I</div>
-    <div class="meta">Sites web & identités visuelles</div>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    Agence Web · Belgique · Depuis 2024
   </div>
-
-  <div class="cover-body">
-    <div class="cover-eyebrow">Une agence éditoriale, pas un copier-coller</div>
-    <h1 class="cover-h">Des sites pensés<br><em>mot à mot.</em></h1>
-    <p class="cover-lede">Créopus est une agence web belge qui écrit, dessine et code chaque site comme un objet unique. Pour les artisans, les indépendants et les petites maisons qui veulent autre chose qu'un thème générique.</p>
-    <div class="cover-cta">
-      <a href="#contact" class="btn-ink">Demander un devis <span>→</span></a>
-      <a href="#travaux" class="btn-line">Voir les travaux</a>
-    </div>
+  <h1>Sites web qui <em>convertissent</em><br>pour les marques qui osent.</h1>
+  <p class="hero-lede">On crée des sites vitrines, des boutiques en ligne et des identités visuelles sur-mesure. Conçus, dessinés, codés à la main par une équipe humaine en Belgique.</p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">Démarrer un projet <span>→</span></a>
+    <a href="#travaux" class="btn-secondary">Voir les travaux ↓</a>
   </div>
-
-  <div class="cover-bottom">
-    <span>La Louvière — Belgique</span>
-    <span class="cover-folio">Page <b>01</b></span>
+  <div class="hero-trust">
+    <span>3 projets livrés en 2026</span>
+    <span>Note moyenne 5/5</span>
+    <span>Livraison dès 5 jours</span>
+    <span>Sans engagement</span>
   </div>
 </section>
 
-<!-- ── SOMMAIRE ── -->
-<section class="sommaire">
-  <div class="sommaire-h">Sommaire de la revue</div>
-  <ol class="sommaire-list">
-    <li onclick="document.getElementById('travaux').scrollIntoView({behavior:'smooth'})">
-      <span class="somm-num">I.</span>
-      <span class="somm-title">Trois travaux récents</span>
-      <span class="somm-dots">···································</span>
-      <span class="somm-page">p. 02</span>
-    </li>
-    <li onclick="document.getElementById('edito').scrollIntoView({behavior:'smooth'})">
-      <span class="somm-num">II.</span>
-      <span class="somm-title">L'édito — notre raison d'être</span>
-      <span class="somm-dots">···································</span>
-      <span class="somm-page">p. 14</span>
-    </li>
-    <li onclick="document.getElementById('methode').scrollIntoView({behavior:'smooth'})">
-      <span class="somm-num">III.</span>
-      <span class="somm-title">Le cahier des méthodes</span>
-      <span class="somm-dots">···································</span>
-      <span class="somm-page">p. 18</span>
-    </li>
-    <li onclick="document.getElementById('tarifs').scrollIntoView({behavior:'smooth'})">
-      <span class="somm-num">IV.</span>
-      <span class="somm-title">Fiche technique &amp; tarifs</span>
-      <span class="somm-dots">···································</span>
-      <span class="somm-page">p. 24</span>
-    </li>
-    <li onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-      <span class="somm-num">V.</span>
-      <span class="somm-title">Pour entrer en correspondance</span>
-      <span class="somm-dots">···································</span>
-      <span class="somm-page">p. 32</span>
-    </li>
-  </ol>
-</section>
-
-<!-- ── TRAVAUX — INTRO ── -->
+<!-- ── PORTFOLIO INTRO ── -->
 <section class="pf-intro reveal" id="travaux">
-  <div class="wrap-tight">
-    <div class="pf-intro-eyebrow">I. Travaux récents</div>
-    <h2>Trois projets,<br><em>trois mondes.</em></h2>
-    <p>Une boutique mode multi-marques, un comparateur de prix pour les animaux, une marque de doudous. Trois univers, trois langages, trois fois la même attention.</p>
-  </div>
+  <div class="pf-intro-eyebrow">Nos réalisations</div>
+  <h2>Trois projets,<br><em>trois mondes.</em></h2>
+  <p>Une boutique mode multi-marques, un comparateur de prix pour les animaux, et une marque tendre pour les tout-petits. Mêmes exigences, trois langages.</p>
 </section>
 
 <!-- ── PROJET 1 — DELVALE ── -->
-<section class="proj-delvale reveal">
-  <div class="wrap">
-    <div>
-      <div class="proj-delvale-folio"><span>Travail Nº 1</span> <span>—</span> <b>Delvale</b></div>
+<section class="proj proj-delvale">
+  <div class="proj-inner">
+    <div class="proj-text reveal">
+      <div class="proj-folio">Travail Nº 1 <span class="pf-bar"></span> <b>Delvale</b></div>
       <h3>Delvale</h3>
-      <span class="meta-label meta">E-commerce mode — Multi-marques</span>
-      <p>Une boutique en ligne pour Lui et pour Elle, qui réunit Karl Lagerfeld, EA7, Calvin Klein, Tommy Hilfiger, Guess, LIU JO et New Balance. Direction artistique noir &amp; rouge, photo splittée homme/femme, navigation par marque.</p>
-      <div class="brands">
-        <span>Karl Lagerfeld</span>
-        <span>EA7</span>
-        <span>Calvin Klein</span>
-        <span>Tommy Hilfiger</span>
-        <span>Guess</span>
-        <span>LIU JO</span>
-        <span>New Balance</span>
+      <span class="proj-cat">E-commerce mode multi-marques</span>
+      <p>Une boutique en ligne pour Lui et pour Elle, qui réunit les plus grandes maisons. Direction artistique noir & rouge, navigation par marque, panier optimisé conversion.</p>
+      <div class="proj-stats">
+        <div>
+          <div class="proj-stat-n">7</div>
+          <div class="proj-stat-l">Marques</div>
+        </div>
+        <div>
+          <div class="proj-stat-n">100+</div>
+          <div class="proj-stat-l">Produits</div>
+        </div>
+        <div>
+          <div class="proj-stat-n">FR · NL · DE</div>
+          <div class="proj-stat-l">Langues</div>
+        </div>
       </div>
-      <a href="https://delvale.com" target="_blank" rel="noopener" class="btn-mode">Voir le site <span>↗</span></a>
+      <div class="proj-brands">
+        <span>Karl Lagerfeld</span><span>EA7</span><span>Calvin Klein</span><span>Tommy Hilfiger</span><span>Guess</span><span>LIU JO</span><span>New Balance</span>
+      </div>
+      <a href="https://delvale.com" target="_blank" rel="noopener" class="proj-cta">Visiter Delvale <span>↗</span></a>
     </div>
-    <div class="proj-delvale-visual">
-      <div class="proj-delvale-half proj-delvale-half-h">
-        <span class="proj-delvale-tag">Pour Lui</span>
+    <div class="proj-visual reveal">
+      <div class="mockup">
+        <div class="mockup-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="url">delvale.com</span>
+        </div>
+        <img src="https://image.thum.io/get/width/1600/crop/900/noanimate/https://delvale.com" alt="Capture du site Delvale" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#1a0a0a,#3a0a0a)';this.removeAttribute('src')">
+        <div class="mockup-glow"></div>
       </div>
-      <div class="proj-delvale-half proj-delvale-half-m">
-        <span class="proj-delvale-tag">Pour Elle</span>
-      </div>
-      <div class="proj-delvale-center">Homme &amp; Femme</div>
     </div>
   </div>
 </section>
 
 <!-- ── PROJET 2 — PETSCOMPARE ── -->
-<section class="proj-pets reveal">
-  <div class="wrap">
-    <div class="proj-pets-visual">
-      <div class="proj-pets-cap">N° 1 — Édition Quotidienne</div>
+<section class="proj proj-pets reverse">
+  <div class="proj-inner">
+    <div class="proj-visual reveal">
+      <div class="mockup">
+        <div class="mockup-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="url">petscompare.fr</span>
+        </div>
+        <img src="https://image.thum.io/get/width/1600/crop/900/noanimate/https://www.petscompare.fr" alt="Capture du site Petscompare" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#0a1a14,#0a3a24)';this.removeAttribute('src')">
+        <div class="mockup-glow"></div>
+      </div>
     </div>
-    <div class="proj-pets-text">
-      <div class="proj-pets-folio"><span>Travail Nº 2</span> <span>—</span> <b>Petscompare</b></div>
+    <div class="proj-text reveal">
+      <div class="proj-folio">Travail Nº 2 <span class="pf-bar"></span> <b>Petscompare</b></div>
       <h3>Petscompare</h3>
-      <span class="meta-label meta">Comparateur de prix — Produits animaux</span>
-      <div class="proj-pets-body">
-        <p class="dropcap">Chaque matin, treize mille produits sont passés au crible chez huit boutiques européennes. L'idée tient en une phrase : montrer le juste prix pour ce qu'on achète à nos animaux, sans publicité ni inscription.</p>
-        <p>Conçu comme un quotidien typographique — édition quotidienne, gros titre, manchette — Petscompare donne envie de lire un comparateur de prix. C'est rare. C'est exactement ce qu'on voulait.</p>
-      </div>
-      <div class="proj-pets-stats">
+      <span class="proj-cat">Comparateur de prix éditorial</span>
+      <p>Treize mille produits passés au crible chaque matin sur huit boutiques européennes. Conçu comme un quotidien typographique, qui donne envie de lire un comparateur de prix.</p>
+      <div class="proj-stats">
         <div>
-          <div class="proj-pets-stat-n">13 094</div>
-          <div class="proj-pets-stat-l">Produits comparés</div>
+          <div class="proj-stat-n">13 094</div>
+          <div class="proj-stat-l">Produits / jour</div>
         </div>
         <div>
-          <div class="proj-pets-stat-n">8</div>
-          <div class="proj-pets-stat-l">Boutiques</div>
+          <div class="proj-stat-n">8</div>
+          <div class="proj-stat-l">Boutiques</div>
         </div>
         <div>
-          <div class="proj-pets-stat-n">2 975 €</div>
-          <div class="proj-pets-stat-l">Économies / jour</div>
+          <div class="proj-stat-n">2 975 €</div>
+          <div class="proj-stat-l">Économies / jour</div>
         </div>
       </div>
-      <a href="https://www.petscompare.fr" target="_blank" rel="noopener" class="btn-line">Visiter Petscompare <span>↗</span></a>
+      <a href="https://www.petscompare.fr" target="_blank" rel="noopener" class="proj-cta">Visiter Petscompare <span>↗</span></a>
     </div>
   </div>
 </section>
 
 <!-- ── PROJET 3 — DELVABLUE ── -->
-<section class="proj-blue reveal">
-  <div class="proj-blue-folio"><span>Travail Nº 3</span> <span>—</span> <b>Delvablue</b></div>
-  <div class="proj-blue-card">
-    <div class="proj-blue-img">
-      <span class="proj-blue-badge">Bientôt en ligne</span>
+<section class="proj proj-blue">
+  <div class="proj-inner">
+    <div class="proj-text reveal">
+      <div class="proj-folio">Travail Nº 3 <span class="pf-bar"></span> <b>Delvablue</b></div>
+      <h3>Delvablue</h3>
+      <span class="proj-cat">E-commerce tendre · Doudous</span>
+      <p>Une boutique chaleureuse pour les tout-petits, dans des bleus doux et des beiges tendres. Le but : qu'un parent qui découvre la marque ait envie d'offrir, dès la première page.</p>
+      <div class="proj-stats">
+        <div>
+          <div class="proj-stat-n">2026</div>
+          <div class="proj-stat-l">Sortie</div>
+        </div>
+        <div>
+          <div class="proj-stat-n">0—3 ans</div>
+          <div class="proj-stat-l">Cible</div>
+        </div>
+        <div>
+          <div class="proj-stat-n">Shopify</div>
+          <div class="proj-stat-l">Stack</div>
+        </div>
+      </div>
+      <a class="proj-cta">En préparation</a>
     </div>
-    <h3>Delvablue</h3>
-    <span class="meta-label meta">E-commerce tendre — Doudous &amp; éveil</span>
-    <p>Une boutique chaleureuse pour les tout-petits, conçue dans des bleus doux et des beiges tendres. Le but : qu'un parent qui découvre la marque ait envie d'offrir, dès la première page.</p>
-    <p class="proj-blue-note">Mise en ligne prévue prochainement</p>
+    <div class="proj-visual reveal">
+      <div class="mockup">
+        <div class="mockup-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="url">delvablue.com</span>
+        </div>
+        <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f3a?w=1600&h=900&fit=crop" alt="Aperçu du projet Delvablue" loading="lazy">
+        <div class="mockup-overlay">
+          <span class="badge">Bientôt en ligne</span>
+          <span class="label">Mise en ligne courant 2026</span>
+        </div>
+        <div class="mockup-glow"></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ── ÉDITO ── -->
-<section class="edito reveal" id="edito">
-  <div class="wrap-narrow">
-    <div class="edito-eyebrow">II. L'édito</div>
-    <h2 class="edito-h">Pourquoi nous faisons<br><em>ce métier.</em></h2>
-    <div class="edito-body">
-      <p class="dropcap">Beaucoup de sites se ressemblent. On les reconnaît à la première seconde : un dégradé, une photo de stock, un bouton « Découvrir » qui ne mène nulle part. Ils sont propres, ils sont vides, ils ne disent rien de la personne qui les commande.</p>
-      <p>Créopus essaie autre chose. Nous prenons le temps d'écouter, de lire ce que vous écrivez sur vous, de regarder les photos que vous nous donnez. Puis nous dessinons une page qui ressemble à votre métier, pas au métier d'à côté.</p>
-      <p>Nous écrivons les textes avec vous. Nous choisissons la police, la couleur, le rythme. Nous codons à la main, parce qu'un site bien fait est un site qui charge vite, qui se lit sur un téléphone, qui ne casse pas dans six mois.</p>
-      <p>Tout cela coûte un peu plus que l'abonnement à un constructeur de site. Mais le résultat tient, et il vous appartient.</p>
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <div class="services-head reveal">
+    <div class="stag">Nos expertises</div>
+    <h2 class="stitle">Tout ce dont vous avez<br>besoin <em>en un seul endroit.</em></h2>
+    <p class="ssub">Du site vitrine au e-commerce complet, en passant par votre logo et l'identité de votre marque.</p>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-card reveal">
+      <div class="srv-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 4v0M11 4v0M14 4v0"/></svg></div>
+      <h3>Sites vitrines</h3>
+      <p>Landing pages et sites multi-pages pour présenter votre activité et générer des contacts qualifiés. Design unique, responsive, SEO intégré.</p>
+      <span class="price">Dès 499€</span>
     </div>
-    <div class="edito-sig">
-      <span>L'équipe Créopus</span>
-      <span>La Louvière, juin 2026</span>
+    <div class="srv-card reveal">
+      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg></div>
+      <h3>Boutiques e-commerce</h3>
+      <p>Boutiques en ligne prêtes à vendre. Paiement sécurisé, gestion des stocks, multi-langues, design optimisé pour la conversion.</p>
+      <span class="price">Dès 1 299€</span>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+      <h3>Logo & identité visuelle</h3>
+      <p>Logo, charte graphique, supports de communication. Pour une image cohérente sur tous vos canaux, du web au print.</p>
+      <span class="price">Dès 149€</span>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></div>
+      <h3>Maintenance & support</h3>
+      <p>Suivi régulier, mises à jour, sauvegardes et interventions rapides pour que votre site reste performant et sécurisé toute l'année.</p>
+      <span class="price">Dès 39€/mois</span>
     </div>
   </div>
 </section>
 
-<!-- ── CAHIER / MÉTHODES ── -->
-<section class="cahier reveal" id="methode">
-  <div class="cahier-head">
-    <div class="cahier-eyebrow">III. Le cahier des méthodes</div>
-    <h2 class="cahier-h">Notre façon<br><em>de faire.</em></h2>
+<!-- ── PROCESS ── -->
+<section class="process" id="process">
+  <div class="process-head reveal">
+    <div class="stag">Comment ça marche</div>
+    <h2 class="stitle">Un process clair,<br><em>quatre étapes.</em></h2>
+    <p class="ssub">De votre idée à la mise en ligne, on vous accompagne à chaque étape avec des délais respectés.</p>
   </div>
-  <ol class="cahier-list">
-    <li class="cahier-step">
-      <span class="cahier-step-n">01</span>
-      <div>
-        <h3 class="cahier-step-h">Écoute &amp; devis</h3>
-        <p class="cahier-step-p">Un appel, un échange écrit. On comprend votre activité, votre cible, vos contraintes. Vous recevez un devis détaillé et un calendrier précis, sous 24 heures ouvrées.</p>
-      </div>
-      <span class="cahier-step-dur">Sous 24 h</span>
-    </li>
-    <li class="cahier-step">
-      <span class="cahier-step-n">02</span>
-      <div>
-        <h3 class="cahier-step-h">Esquisse</h3>
-        <p class="cahier-step-p">Une maquette visuelle complète, à valider avant que la moindre ligne de code soit écrite. Couleurs, typographies, structure, ton : tout est posé sur table.</p>
-      </div>
-      <span class="cahier-step-dur">3 — 5 jours</span>
-    </li>
-    <li class="cahier-step">
-      <span class="cahier-step-n">03</span>
-      <div>
-        <h3 class="cahier-step-h">Façonnage</h3>
-        <p class="cahier-step-p">Développement à la main, sans bouillie de plugins. Site léger, rapide, optimisé pour Google et lisible sur tous les écrans. Vous suivez l'avancement sur une adresse de prévisualisation.</p>
-      </div>
-      <span class="cahier-step-dur">1 — 4 sem.</span>
-    </li>
-    <li class="cahier-step">
-      <span class="cahier-step-n">04</span>
-      <div>
-        <h3 class="cahier-step-h">Livraison &amp; suivi</h3>
-        <p class="cahier-step-p">Mise en ligne, configuration du nom de domaine, formation pour que vous puissiez mettre à jour vos contenus seul. Et un mois de support pour les ajustements.</p>
-      </div>
-      <span class="cahier-step-dur">+ 30 j. support</span>
-    </li>
-  </ol>
+  <div class="process-grid">
+    <div class="proc-step reveal">
+      <div class="proc-num">01</div>
+      <h3>Brief &amp; devis</h3>
+      <p>On échange sur votre projet, vos objectifs, votre budget. Devis détaillé sous 24h.</p>
+    </div>
+    <div class="proc-step reveal">
+      <div class="proc-num">02</div>
+      <h3>Design &amp; maquette</h3>
+      <p>Maquette visuelle à valider avant tout développement. Aucune surprise.</p>
+    </div>
+    <div class="proc-step reveal">
+      <div class="proc-num">03</div>
+      <h3>Développement</h3>
+      <p>Code propre, responsive, optimisé SEO. Vous suivez l'avancement sur un lien dédié.</p>
+    </div>
+    <div class="proc-step reveal">
+      <div class="proc-num">04</div>
+      <h3>Livraison &amp; suivi</h3>
+      <p>Mise en ligne, formation à l'utilisation, support post-livraison inclus 30 jours.</p>
+    </div>
+  </div>
 </section>
 
-<!-- ── FICHE TECHNIQUE / TARIFS ── -->
-<section class="fiche reveal" id="tarifs">
-  <div class="fiche-head">
-    <div class="fiche-eyebrow">IV. Fiche technique</div>
-    <h2 class="fiche-h">Prestations<br><em>&amp; tarifs.</em></h2>
-    <p class="fiche-sub">Des prix fixes, annoncés clairement, sans surprise. Devis détaillé sous 24 heures pour chaque projet.</p>
+<!-- ── PRICING ── -->
+<section class="pricing" id="tarifs">
+  <div class="pricing-head reveal">
+    <div class="stag">Tarifs clairs</div>
+    <h2 class="stitle">Des offres pour <em>chaque besoin.</em></h2>
+    <p class="ssub">Pas de surprise. Des prix fixes, un périmètre défini, une livraison dans les délais.</p>
+  </div>
+  <div class="tabs reveal">
+    <button class="tab-btn active" data-tab="sites" onclick="switchTab('sites',this)">Sites web</button>
+    <button class="tab-btn" data-tab="commerce" onclick="switchTab('commerce',this)">Commerce + Web</button>
+    <button class="tab-btn" data-tab="logos" onclick="switchTab('logos',this)">Logo &amp; identité</button>
+    <button class="tab-btn" data-tab="maintenance" onclick="switchTab('maintenance',this)">Maintenance</button>
   </div>
 
-  <div class="fiche-tables">
-
-    <!-- SITES VITRINES -->
-    <div>
-      <div class="fiche-table-h">
-        <h3>Sites vitrines</h3>
-        <span class="ref">§ A — Présence en ligne</span>
+  <div id="tab-sites" class="tab-panel active">
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="price-name">Landing Page</div>
+        <div class="price-desc">Idéal pour lancer une offre ou tester un concept. Une page, un objectif.</div>
+        <div class="price-amt"><span class="eur">€</span><span class="val">499</span></div>
+        <ul class="price-feat">
+          <li>Page unique optimisée conversion</li>
+          <li>Design unique à votre image</li>
+          <li>Formulaire de contact intégré</li>
+          <li>Adapté mobile, tablette &amp; desktop</li>
+          <li>Mise en ligne &amp; formation incluses</li>
+          <li>Livraison en 5—7 jours</li>
+        </ul>
+        <a href="#contact" class="price-cta">Choisir →</a>
+        <div class="price-note">Paiement en 2× possible</div>
       </div>
-      <table class="fiche-tbl">
-        <thead>
-          <tr><th>Prestation</th><th>Durée</th><th>Livrable</th><th>Tarif</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="name">Landing Page</span><span class="desc">Page unique pensée pour convertir un visiteur en contact</span></td>
-            <td><span class="dur">5 — 7 jours</span></td>
-            <td>Page unique optimisée mobile, formulaire intégré</td>
-            <td>499 €</td>
-          </tr>
-          <tr>
-            <td><span class="name">Vitrine Essentiel</span><span class="desc">Site multi-pages pour être trouvé sur Google et présenter votre activité</span></td>
-            <td><span class="dur">10 — 15 jours</span></td>
-            <td>Jusqu'à 6 pages, SEO configuré, Google Maps</td>
-            <td>899 €</td>
-          </tr>
-          <tr>
-            <td><span class="name">Vitrine Premium</span><span class="desc">Site sur-mesure avec animations, espace administrateur, SEO avancé</span></td>
-            <td><span class="dur">3 — 4 semaines</span></td>
-            <td>Jusqu'à 10 pages, admin sans-code, formation incluse</td>
-            <td>1 499 €</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- E-COMMERCE -->
-    <div>
-      <div class="fiche-table-h">
-        <h3>Boutiques en ligne</h3>
-        <span class="ref">§ B — E-commerce</span>
+      <div class="price-card pop">
+        <div class="pop-badge">Populaire</div>
+        <div class="price-name">Vitrine Essentiel</div>
+        <div class="price-desc">Votre carte de visite en ligne. Parfait pour être trouvé sur Google.</div>
+        <div class="price-amt"><span class="eur">€</span><span class="val">899</span></div>
+        <ul class="price-feat">
+          <li>Jusqu'à 6 pages sur-mesure</li>
+          <li>Design professionnel unique</li>
+          <li>Blog intégré (optionnel)</li>
+          <li>Formulaire de contact &amp; Google Maps</li>
+          <li>Référencement Google configuré</li>
+          <li>Livraison en 10—15 jours</li>
+        </ul>
+        <a href="#contact" class="price-cta">Choisir →</a>
+        <div class="price-note">Paiement en 2× possible</div>
       </div>
-      <table class="fiche-tbl">
-        <thead>
-          <tr><th>Prestation</th><th>Durée</th><th>Livrable</th><th>Tarif</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="name">E-commerce Starter</span><span class="desc">Première boutique en ligne, prête à vendre dès la livraison</span></td>
-            <td><span class="dur">2 — 3 semaines</span></td>
-            <td>20 produits, paiements sécurisés, stock automatisé</td>
-            <td>1 299 €</td>
-          </tr>
-          <tr>
-            <td><span class="name">E-commerce Pro</span><span class="desc">Boutique complète pour développer votre business en ligne</span></td>
-            <td><span class="dur">3 — 4 semaines</span></td>
-            <td>50 produits, avis clients, emails automatiques, formation</td>
-            <td>2 499 €</td>
-          </tr>
-          <tr>
-            <td><span class="name">E-commerce Premium</span><span class="desc">Catalogue illimité, multi-devises, multi-langues, analytics</span></td>
-            <td><span class="dur">4 — 6 semaines</span></td>
-            <td>Sans limite, fidélité, codes promo, support 30 jours</td>
-            <td>3 999 €</td>
-          </tr>
-          <tr>
-            <td><span class="name">Commerce + Web</span><span class="desc">Site e-commerce connecté à votre caisse magasin physique (Shopify POS)</span></td>
-            <td><span class="dur">10 jours</span></td>
-            <td>Site + caisse digitale, stock synchronisé, compatible avec votre matériel</td>
-            <td>999 €</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- LOGOS / IDENTITÉ -->
-    <div>
-      <div class="fiche-table-h">
-        <h3>Logos &amp; identités visuelles</h3>
-        <span class="ref">§ C — Identité de marque</span>
+      <div class="price-card">
+        <div class="price-name">Vitrine Premium</div>
+        <div class="price-desc">Le site qui vous démarque. Animations, SEO avancé et espace admin.</div>
+        <div class="price-amt"><span class="eur">€</span><span class="val">1 499</span></div>
+        <ul class="price-feat">
+          <li>Jusqu'à 10 pages sur-mesure</li>
+          <li>Animations &amp; effets visuels premium</li>
+          <li>Interface admin simple (sans coder)</li>
+          <li>SEO avancé + Google Search Console</li>
+          <li>Formation à l'utilisation (30 min)</li>
+          <li>Livraison en 3—4 semaines</li>
+        </ul>
+        <a href="#contact" class="price-cta">Choisir →</a>
+        <div class="price-note">Satisfait ou remboursé · Paiement en 3×</div>
       </div>
-      <table class="fiche-tbl">
-        <thead>
-          <tr><th>Prestation</th><th>Durée</th><th>Livrable</th><th>Tarif</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="name">Logo Essentiel</span><span class="desc">Votre premier logo pro, simple et mémorable</span></td>
-            <td><span class="dur">5 — 7 jours</span></td>
-            <td>2 propositions, 1 série de retouches, fichiers HD</td>
-            <td>149 €</td>
-          </tr>
-          <tr>
-            <td><span class="name">Logo Premium</span><span class="desc">Logo complet avec déclinaisons pour web, print, réseaux sociaux</span></td>
-            <td><span class="dur">7 — 10 jours</span></td>
-            <td>3 propositions, 3 séries de retouches, mini charte</td>
-            <td>299 €</td>
-          </tr>
-          <tr>
-            <td><span class="name">Identité Visuelle</span><span class="desc">Charte complète : couleurs, typographies, supports, papeterie, kit réseaux sociaux</span></td>
-            <td><span class="dur">2 — 3 semaines</span></td>
-            <td>Charte, papeterie, kit réseaux, fichiers sources</td>
-            <td>799 €</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- MAINTENANCE -->
-    <div>
-      <div class="fiche-table-h">
-        <h3>Maintenance &amp; suivi</h3>
-        <span class="ref">§ D — Mensuel</span>
+      <div class="price-card">
+        <div class="price-name">E-commerce Starter</div>
+        <div class="price-desc">Votre première boutique en ligne, prête à vendre dès la livraison.</div>
+        <div class="price-amt"><span class="eur">€</span><span class="val">1 299</span></div>
+        <ul class="price-feat">
+          <li>20 produits configurés</li>
+          <li>Paiement sécurisé (Stripe / PayPal)</li>
+          <li>Gestion des stocks automatisée</li>
+          <li>Design adapté à votre marque</li>
+          <li>Emails de confirmation automatiques</li>
+          <li>Livraison en 2—3 semaines</li>
+        </ul>
+        <a href="#contact" class="price-cta">Choisir →</a>
+        <div class="price-note">Paiement en 2× possible</div>
       </div>
-      <table class="fiche-tbl">
-        <thead>
-          <tr><th>Prestation</th><th>Fréquence</th><th>Inclus</th><th>Tarif</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="name">Essentiel</span><span class="desc">Votre site reste à jour et sécurisé sans effort</span></td>
-            <td><span class="dur">1 fois / mois</span></td>
-            <td>Mises à jour, sauvegarde, 30 min de modifs</td>
-            <td>39 € / mois</td>
-          </tr>
-          <tr>
-            <td><span class="name">Confort</span><span class="desc">L'équilibre parfait : suivi régulier, réactivité</span></td>
-            <td><span class="dur">2 fois / mois</span></td>
-            <td>Monitoring 24/7, 1 h de modifs, réponse sous 48 h</td>
-            <td>69 € / mois</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="price-card">
+        <div class="price-name">E-commerce Pro</div>
+        <div class="price-desc">Une boutique complète pour développer votre business en ligne.</div>
+        <div class="price-amt"><span class="eur">€</span><span class="val">2 499</span></div>
+        <ul class="price-feat">
+          <li>8 pages + catalogue 50 produits</li>
+          <li>Paiement sécurisé multi-options</li>
+          <li>Avis clients &amp; notation</li>
+          <li>Emails automatiques (confirmation, suivi, relance)</li>
+          <li>Intégration réseaux sociaux</li>
+          <li>Formation (1h) · Livraison en 3—4 semaines</li>
+        </ul>
+        <a href="#contact" class="price-cta">Choisir →</a>
+        <div class="price-note">Paiement en 3× possible</div>
+      </div>
+      <div class="price-card">
+        <div class="price-name">E-commerce Premium</div>
+        <div class="price-desc">La solution ultime. Zéro limite, performances maximales.</div>
+        <div class="price-amt"><span class="eur">€</span><span class="val">3 999</span></div>
+        <ul class="price-feat">
+          <li>Catalogue produits illimité</li>
+          <li>Multi-devises &amp; multi-langues</li>
+          <li>Programme fidélité &amp; codes promo</li>
+          <li>Tableau de bord analytics</li>
+          <li>SEO e-commerce avancé</li>
+          <li>Formation complète (2h) + support 30j</li>
+        </ul>
+        <a href="#contact" class="price-cta">Choisir →</a>
+        <div class="price-note">Satisfait ou remboursé · Paiement en 4×</div>
+      </div>
     </div>
-
   </div>
 
-  <p class="fiche-note">Paiement en 2× ou 3× possible. Devis personnalisé sous 24 heures, sans engagement.</p>
+  <div id="tab-commerce" class="tab-panel">
+    <div class="price-grid" style="grid-template-columns:1fr;max-width:880px;margin:0 auto">
+      <div class="price-card pop" style="padding:48px 40px">
+        <div class="pop-badge">Nouveau</div>
+        <div class="price-name" style="font-size:24px">Commerce + Web</div>
+        <div class="price-desc">Pour les commerces physiques (night shops, boutiques mode, bijouteries…) qui veulent vendre aussi en ligne. Stock magasin et site web synchronisés automatiquement.</div>
+        <div class="price-amt"><span class="eur">€</span><span class="val">999</span></div>
+        <ul class="price-feat" style="display:grid;grid-template-columns:1fr 1fr;gap:12px 24px">
+          <li>Site e-commerce sur-mesure</li>
+          <li>Configuration Shopify POS</li>
+          <li>Compatible avec votre matériel</li>
+          <li>Stock magasin ↔ site synchronisé</li>
+          <li>Import jusqu'à 100 produits</li>
+          <li>Paramétrage livraisons</li>
+          <li>Étiquettes code-barres</li>
+          <li>Formation 2h sur place</li>
+          <li>Support 30 jours inclus</li>
+          <li>Livraison en 10 jours</li>
+        </ul>
+        <a href="#contact" class="price-cta">Demander un devis →</a>
+        <div class="price-note">Abonnement Shopify 29€/mois en plus (non inclus)</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-logos" class="tab-panel">
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="price-name">Logo Essentiel</div>
+        <div class="price-desc">Votre premier logo pro. Simple, efficace, mémorable.</div>
+        <div class="price-amt"><span class="eur">€</span><span class="val">149</span></div>
+        <ul class="price-feat">
+          <li>2 propositions créatives</li>
+          <li>1 série de retouches</li>
+          <li>Fichiers HD (PNG, JPG &amp; SVG)</li>
+          <li>Version fond transparent</li>
+          <li>Guide d'utilisation basique</li>
+          <li>Livraison en 5—7 jours</li>
+        </ul>
+        <a href="#contact" class="price-cta">Choisir →</a>
+      </div>
+      <div class="price-card pop">
+        <div class="pop-badge">Populaire</div>
+        <div class="price-name">Logo Premium</div>
+        <div class="price-desc">Un logo complet avec déclinaisons pour web, print, réseaux sociaux.</div>
+        <div class="price-amt"><span class="eur">€</span><span class="val">299</span></div>
+        <ul class="price-feat">
+          <li>3 propositions créatives</li>
+          <li>3 séries de retouches</li>
+          <li>Tous formats (PNG, SVG, PDF, AI)</li>
+          <li>Déclinaisons couleur, noir &amp; blanc</li>
+          <li>Mini charte graphique</li>
+          <li>Livraison en 7—10 jours</li>
+        </ul>
+        <a href="#contact" class="price-cta">Choisir →</a>
+        <div class="price-note">Retouches jusqu'à satisfaction</div>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Identité Visuelle</div>
+        <div class="price-desc">L'identité complète de votre marque. Cohérence et impact.</div>
+        <div class="price-amt"><span class="eur">€</span><span class="val">799</span></div>
+        <ul class="price-feat">
+          <li>5 propositions créatives</li>
+          <li>Retouches illimitées</li>
+          <li>Tous formats + fichiers sources</li>
+          <li>Charte graphique complète</li>
+          <li>Carte de visite &amp; papeterie</li>
+          <li>Kit réseaux sociaux complet</li>
+        </ul>
+        <a href="#contact" class="price-cta">Choisir →</a>
+        <div class="price-note">Sources inclus</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-maintenance" class="tab-panel">
+    <div class="price-grid" style="grid-template-columns:repeat(2,1fr);max-width:880px;margin:0 auto">
+      <div class="price-card">
+        <div class="price-name">Maintenance Essentiel</div>
+        <div class="price-desc">Votre site reste à jour et sécurisé sans effort.</div>
+        <div class="price-amt"><span class="eur">€</span><span class="val">39</span><span class="per">/mois</span></div>
+        <ul class="price-feat">
+          <li>1 intervention mensuelle</li>
+          <li>Mises à jour CMS &amp; plugins</li>
+          <li>Sauvegarde mensuelle</li>
+          <li>Rapport de santé</li>
+          <li>Correction bugs mineurs</li>
+          <li>30 min de modifications incluses</li>
+        </ul>
+        <a href="#contact" class="price-cta">Souscrire →</a>
+        <div class="price-note">Sans engagement</div>
+      </div>
+      <div class="price-card pop">
+        <div class="pop-badge">Recommandé</div>
+        <div class="price-name">Maintenance Confort</div>
+        <div class="price-desc">L'équilibre parfait. Suivi régulier, réactivité.</div>
+        <div class="price-amt"><span class="eur">€</span><span class="val">69</span><span class="per">/mois</span></div>
+        <ul class="price-feat">
+          <li>2 interventions par mois</li>
+          <li>Mises à jour prioritaires</li>
+          <li>Sauvegarde bi-mensuelle</li>
+          <li>Monitoring 24/7</li>
+          <li>1h de modifications incluses</li>
+          <li>Réponse garantie sous 48h</li>
+        </ul>
+        <a href="#contact" class="price-cta">Souscrire →</a>
+        <div class="price-note">Sans engagement</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ── CORRESPONDANCE / CONTACT ── -->
-<section class="corresp" id="contact">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="corresp-eyebrow">V. Correspondance</div>
-      <h2>Pour entrer<br><em>en contact.</em></h2>
-      <p class="corresp-lede">Présentez votre projet en quelques mots. On répond personnellement, sous 24 heures ouvrées, avec un devis ou un appel court selon votre préférence.</p>
-      <div class="corresp-info">
-        <div class="corresp-info-row">
-          <span class="l">Adresse</span>
-          <span class="v"><a href="mailto:contact@creopus.be">contact@creopus.be</a></span>
+<!-- ── TESTIMONIALS ── -->
+<section class="testi">
+  <div class="testi-head reveal">
+    <div class="stag">Ils nous ont fait confiance</div>
+    <h2 class="stitle">Ce que disent <em>nos clients.</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>Un travail exceptionnel. Mon site vitrine est exactement ce que j'imaginais, livré en une semaine. Les clients me disent souvent que le site fait très pro.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">S</div>
+        <div class="testi-info"><strong>Sophie M.</strong><span>Architecte d'intérieur</span></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>Notre boutique en ligne a été livrée clé en main. En 3 semaines on avait tout : produits, paiement, stock. Le chiffre d'affaires a suivi dès le premier mois.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">K</div>
+        <div class="testi-info"><strong>Karim B.</strong><span>Fondateur — KBeauty Shop</span></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p>Je cherchais un logo et une identité complète pour mon cabinet. Le résultat est élégant et cohérent sur tous mes supports. Je recommande à 100%.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">L</div>
+        <div class="testi-info"><strong>Laura D.</strong><span>Kinésithérapeute</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left reveal">
+      <div class="stag" style="margin-bottom:18px">Parlons de votre projet</div>
+      <h2>Demandez votre<br><em>devis gratuit.</em></h2>
+      <p>Décrivez-nous votre projet et recevez un devis personnalisé sous 24h. Aucun engagement, réponse garantie.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="contact-text"><strong>Email</strong><span>contact@creopus.be</span></div>
         </div>
-        <div class="corresp-info-row">
-          <span class="l">Délai</span>
-          <span class="v">Sous 24 heures ouvrées</span>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="contact-text"><strong>Délai de réponse</strong><span>Sous 24h ouvrées</span></div>
         </div>
-        <div class="corresp-info-row">
-          <span class="l">Lieu</span>
-          <span class="v">La Louvière, Belgique</span>
-        </div>
-        <div class="corresp-info-row">
-          <span class="l">Couverture</span>
-          <span class="v">Belgique, France, Luxembourg</span>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="contact-text"><strong>Localisation</strong><span>La Louvière · Belgique</span></div>
         </div>
       </div>
     </div>
-
-    <form class="corresp-form reveal" action="https://formspree.io/f/xreoozak" method="POST">
+    <form class="contact-form reveal" action="https://formspree.io/f/xreoozak" method="POST">
       <input type="hidden" name="_subject" value="Nouvelle demande de devis — Créopus">
       <input type="hidden" name="_next" value="https://www.creopus.be">
-
-      <div class="field-row">
-        <div class="field">
-          <label class="field-label">Prénom</label>
-          <input type="text" name="prenom" placeholder="Camille" required>
-        </div>
-        <div class="field">
-          <label class="field-label">Nom</label>
-          <input type="text" name="nom" placeholder="Durand" required>
-        </div>
+      <div class="form-row">
+        <input type="text" name="prenom" placeholder="Votre prénom" required>
+        <input type="text" name="nom" placeholder="Votre nom" required>
       </div>
-
-      <div class="field-row">
-        <div class="field">
-          <label class="field-label">Adresse mail</label>
-          <input type="email" name="email" placeholder="camille@exemple.be" required>
-        </div>
-        <div class="field">
-          <label class="field-label">Téléphone (facultatif)</label>
-          <input type="tel" name="telephone" placeholder="+32 …">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="field-label">Type de projet</label>
-        <select name="projet" required>
-          <option value="" disabled selected>Choisir une prestation…</option>
-          <option>Landing Page — 499 €</option>
-          <option>Vitrine Essentiel — 899 €</option>
-          <option>Vitrine Premium — 1 499 €</option>
-          <option>E-commerce Starter — 1 299 €</option>
-          <option>E-commerce Pro — 2 499 €</option>
-          <option>E-commerce Premium — 3 999 €</option>
-          <option>Commerce + Web (magasin physique) — 999 €</option>
-          <option>Logo Essentiel — 149 €</option>
-          <option>Logo Premium — 299 €</option>
-          <option>Identité Visuelle — 799 €</option>
-          <option>Maintenance (à partir de 39 €/mois)</option>
-          <option>Projet sur mesure</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label class="field-label">Quelques mots sur votre projet</label>
-        <textarea name="message" placeholder="Votre activité, vos délais, vos références éventuelles…"></textarea>
-      </div>
-
-      <button type="submit" class="form-submit">Envoyer la demande <span>→</span></button>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <input type="tel" name="telephone" placeholder="Téléphone (optionnel)">
+      <select name="projet" required>
+        <option value="" disabled selected>Type de projet</option>
+        <option>Landing Page — 499€</option>
+        <option>Vitrine Essentiel — 899€</option>
+        <option>Vitrine Premium — 1 499€</option>
+        <option>E-commerce Starter — 1 299€</option>
+        <option>E-commerce Pro — 2 499€</option>
+        <option>E-commerce Premium — 3 999€</option>
+        <option>Commerce + Web (magasin physique) — 999€</option>
+        <option>Logo Essentiel — 149€</option>
+        <option>Logo Premium — 299€</option>
+        <option>Identité Visuelle — 799€</option>
+        <option>Maintenance (à partir de 39€/mois)</option>
+        <option>Projet sur mesure</option>
+      </select>
+      <textarea name="message" placeholder="Décrivez votre projet, vos besoins, votre activité..."></textarea>
+      <button type="submit" class="form-submit">Envoyer ma demande <span>→</span></button>
     </form>
   </div>
 </section>
 
-<!-- ── COLOPHON / FOOTER ── -->
-<footer class="colophon">
-  <div class="colo-grid">
-    <div class="colo-brand">
-      <h3>Créopus</h3>
-      <p>Agence web &amp; design indépendante, basée à La Louvière en Belgique. Sites professionnels, logos et identités visuelles pour artisans, indépendants, PME et e-commerces.</p>
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <a href="#" class="f-logo">
+        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="25" cy="25" r="21" fill="none" stroke="#f472b6" stroke-width="1.5" opacity="0.7"/>
+          <circle cx="25" cy="25" r="18" fill="#07070b"/>
+          <ellipse cx="25" cy="25" rx="18" ry="18" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.4"/>
+          <ellipse cx="25" cy="25" rx="14" ry="18" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.4"/>
+          <ellipse cx="25" cy="25" rx="9" ry="18" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.4"/>
+          <line x1="7" y1="25" x2="43" y2="25" stroke="rgba(255,255,255,0.15)" stroke-width="0.4"/>
+          <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="#1a1a2e" stroke-width="2.5" transform="rotate(-25 25 25)"/>
+          <ellipse cx="25" cy="25" rx="24" ry="7" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.6" transform="rotate(-25 25 25)"/>
+          <text x="25" y="30" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="white" text-anchor="middle">C</text>
+        </svg>
+        <span>CRE<b>OPUS</b></span>
+      </a>
+      <p>Agence web & design basée à La Louvière en Belgique. Sites professionnels, logos et identités visuelles pour artisans, indépendants, PME et e-commerces.</p>
     </div>
-    <div class="colo-col">
+    <div class="f-col">
       <h4>Travaux</h4>
       <a href="https://delvale.com" target="_blank" rel="noopener">Delvale ↗</a>
       <a href="https://www.petscompare.fr" target="_blank" rel="noopener">Petscompare ↗</a>
       <a href="#travaux">Delvablue</a>
     </div>
-    <div class="colo-col">
+    <div class="f-col">
+      <h4>Services</h4>
+      <a href="#tarifs">Sites web</a>
+      <a href="#tarifs">E-commerce</a>
+      <a href="#tarifs">Logo &amp; identité</a>
+      <a href="#tarifs">Maintenance</a>
+    </div>
+    <div class="f-col">
       <h4>Maison</h4>
-      <a href="#methode">La méthode</a>
-      <a href="#tarifs">Tarifs</a>
-      <a href="#contact">Correspondance</a>
+      <a href="#process">Notre process</a>
+      <a href="#contact">Devis gratuit</a>
       <a href="mailto:contact@creopus.be">contact@creopus.be</a>
+      <a href="https://www.creopus.be">creopus.be</a>
     </div>
   </div>
-  <div class="colo-bottom">
-    <span>© 2026 Créopus — La Louvière, Belgique</span>
-    <span>Composé en Fraunces et Space Grotesk · <span class="term">creopus.be</span></span>
+  <div class="footer-bottom">
+    <span>© 2026 Créopus · La Louvière, Belgique</span>
+    <span>Conçu et codé à la main</span>
   </div>
 </footer>
 
 <script>
-  // ── Mobile menu ──
+  // Mobile menu
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
 
-  // ── Reveal on scroll ──
+  // Tabs
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + name).classList.add('active');
+  }
+
+  // Reveal on scroll
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
-  document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 
 </body>
